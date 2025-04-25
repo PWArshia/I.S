@@ -14,6 +14,14 @@ public class Rooms {
     public String toString(){
         return  this.NO+ Commons.Commons + this.floor+Commons.Commons + this.roomType+ Commons.Commons + this.price +Commons.Commons +this.IsBussy;
     }
+
+   public Rooms(int No, boolean Is , int fl , String Type , int price){
+     this.SetFloor(fl);
+     this.SetIsBussy(Is);
+     this.SetPrice(price);
+     this.setNO(No);
+     this.SetRoomType(Type);
+   } 
     
 
     // ----------------------------------------------------------> Setter
