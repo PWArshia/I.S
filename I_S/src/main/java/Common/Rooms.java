@@ -1,4 +1,77 @@
 package Common;
 
 public class Rooms {
+    private int NO;
+    private boolean IsBussy;
+    private int floor;
+    private enum RoomType{
+        VIP,normal
+    }
+    RoomType roomType;
+    private int price;
+
+
+    @Override
+    public String toString(){
+        return NO+"&"+floor+"&"+roomType+"&"+price+"&"+IsBussy;
+    }
+
+    // ----------------------------------------------------------> Setter
+
+    public void setNO(int a){
+        this.NO=a;
+    }
+
+    public void SetFloor(int a){
+        this.floor=a;
+    }
+    
+    public void SetRoomType(String s){
+        if (s.equals("VIP")){
+            roomType=RoomType.VIP ;
+        }
+        else if(s.equals("NORMAL")){
+            roomType=RoomType.normal;
+        }
+    }
+
+    public void SetPrice(int a){
+        this.price=a;
+    }
+
+    public void SetIsBussy(boolean a){
+        this.IsBussy=a;
+    }
+
+    // ----------------------------------------------------------> Getter
+
+    public int GetNo(){
+        return this.NO;
+    }
+
+    public int GetFloor(){
+        return this.floor;
+    }
+
+    public String GetRoomType(){
+        String s="";
+
+         if(roomType == roomType.VIP){
+            s="VIP";
+         }
+         else{
+            s="NORMAL";
+         }
+
+         return s;
+    }
+
+    public int GetPrice(){
+        return this.price;
+    }
+
+    public boolean GetIsBussy(){
+        return this.IsBussy;
+    }
+
 }
