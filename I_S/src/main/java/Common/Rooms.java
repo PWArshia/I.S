@@ -8,14 +8,14 @@ public class Rooms {
         VIP,normal
     }
     private RoomType roomType;
-    private int price;
+    private Float price;
 
     @Override
     public String toString(){
         return  this.NO+ Commons.Commons + this.floor+Commons.Commons + this.roomType+ Commons.Commons + this.price +Commons.Commons +this.IsBussy;
     }
 
-   public Rooms(int No, boolean Is , int fl , String Type , int price){
+   public Rooms(int No, boolean Is , int fl , String Type , Float price){
      this.SetFloor(fl);
      this.SetIsBussy(Is);
      this.SetPrice(price);
@@ -27,11 +27,15 @@ public class Rooms {
     // ----------------------------------------------------------> Setter
 
     public void setNO(int a){
-        this.NO=a;
+        if (a>=0){
+            this.floor=a;
+        }
     }
 
     public void SetFloor(int a){
-        this.floor=a;
+        if (a>=0){
+            this.floor=a;
+        }
     }
     
     public void SetRoomType(String s){
@@ -43,7 +47,7 @@ public class Rooms {
         }
     }
 
-    public void SetPrice(int a){
+    public void SetPrice(Float a){
         this.price=a;
     }
 
@@ -74,7 +78,7 @@ public class Rooms {
          return s;
     }
 
-    public int GetPrice(){
+    public Float GetPrice(){
         return this.price;
     }
 

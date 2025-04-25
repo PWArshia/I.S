@@ -34,7 +34,7 @@ public class RoomManager {
             String B[]=A[i].split(Commons.Commons);
             int No=Integer.parseInt(B[0]);
             int floor=Integer.parseInt(B[1]);
-            int price=Integer.parseInt(B[3]);
+            Float price=Float.parseFloat(B[3]);
             boolean Bussy=true;
             if (B[4].equals(false)){
                 Bussy=false;
@@ -88,7 +88,7 @@ public class RoomManager {
         String b=search(a);
         fm.UpdateRow(a, b );
         this.Array2books();
-        
+
     }
 
 
