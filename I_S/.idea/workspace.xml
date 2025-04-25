@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Update User Interface">
+    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Update MemberManager">
+      <change afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/Members.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" afterPath="$PROJECT_DIR$/Hello" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745614257415</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update MemberManager">
+      <option name="closed" value="true" />
+      <created>1745615457231</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745615457231</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +204,8 @@
     <MESSAGE value="creat Entity Managers pack" />
     <MESSAGE value="Update User Interface Member Section" />
     <MESSAGE value="Update User Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update User Interface" />
+    <MESSAGE value="Update MemberManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update MemberManager" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

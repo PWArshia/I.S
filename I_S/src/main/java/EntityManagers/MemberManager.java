@@ -28,7 +28,64 @@ public class MemberManager {
 
         }
         cMemberS=cA;
-
     }
+
+    private void Array2TextFile() throws IOException {
+        MemberManager.ClearTextFile();
+        for (int i = 0; i < cMemberS; i++) {
+            MemberManager.AppendRow(MemberS[i].toString());
+        }
+    }
+
+
+    public void AddMember(Members Member) throws IOException {
+        MemberS[cMemberS++]=Member;
+        Array2TextFile();
+    }
+
+    public void DeleteMember(int a) throws IOException {
+        for (int i = a; i <= cMemberS; i++) {
+            MemberS[i]=MemberS[i+1];
+        }
+        cMemberS--;
+        Array2TextFile();
+    }
+    public void DeleteMember(Members Member) throws IOException {
+        for (int i = 0; i < cMemberS; i++) {
+            if (MemberS[i].equals(Member)) {
+                DeleteMember(i);
+                return;
+            }
+        }
+    }
+
+
+    public void UpdateMember(int a,Members M) throws IOException {
+        MemberS[a]=M;
+        Array2TextFile();
+    }
+
+
+    public String SearchMember(Members Member) throws IOException {
+        for (int i = 0; i < cMemberS; i++) {
+            if (MemberS[i].equals(Member)) {
+                return MemberS[i].toString();
+            }
+        }
+        return null;
+    }
+
+
+    public void SetArray(Members[] M,int cM) {
+        MemberS=M;
+        cMemberS=cM;
+    }
+    public Members[] GetArray() {
+        return MemberS;
+    }
+    public int GetLengthArray() {
+        return cMemberS;
+    }
+
 
 }
