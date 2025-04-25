@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="">
-<<<<<<< HEAD
+    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Creat first UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/../.idea/I.S.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Members.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Rooms.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/i_s/hello-view.fxml" beforeDir="false" />
->>>>>>> 0bb7b2ddf825c290b05ad70046b8f26d8ac65023
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,14 +19,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "kamy85"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PWArshia/I.S.git",
+    "accountId": "6b782645-688f-481e-b25f-19ccc93deda4"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -54,30 +58,31 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.TestMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-<<<<<<< HEAD
-    "last_opened_file_path": "C:/Users/arshia/Desktop/main/I_S",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-=======
     "last_opened_file_path": "C:/Users/kamya/AppData/Local/SceneBuilder/SceneBuilder.exe",
->>>>>>> 0bb7b2ddf825c290b05ad70046b8f26d8ac65023
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.JavaFX",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ IDEA 2024.3\intellij project\I.S\I_S\src\main\java\com\example\i_s" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -90,12 +95,23 @@
       <option name="presentableId" value="Default" />
       <updated>1745586894287</updated>
       <workItem from="1745586895468" duration="47000" />
-      <workItem from="1745587217899" duration="1609000" />
+      <workItem from="1745591741540" duration="763000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
