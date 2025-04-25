@@ -1,0 +1,58 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"Develop Members Class\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Common/Commons.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Common/Members.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Common/Members.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;kamy85&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/PWArshia/I.S.git&quot;,\r\n    &quot;accountId&quot;: &quot;6b782645-688f-481e-b25f-19ccc93deda4&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wDrGWZe0DKgG9e4GvubOKpUEXG\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"Application.TestMain.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/IntelliJ IDEA 2024.3/intellij project/MathLab\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.JavaFX\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\IntelliJ IDEA 2024.3\\intellij project\\I.S\\I_S\\src\\main\\java\\com\\example\\i_s\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"\" />\r\n      <created>1745586894287</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1745586894287</updated>\r\n      <workItem from=\"1745586895468\" duration=\"47000\" />\r\n      <workItem from=\"1745591741540\" duration=\"763000\" />\r\n      <workItem from=\"1745592549338\" duration=\"3572000\" />\r\n      <workItem from=\"1745597639372\" duration=\"1566000\" />\r\n      <workItem from=\"1745599324088\" duration=\"4891000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Develop Class TextFile_Manager\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745594336100</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745594336100</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Develop Class TextFile_Manager\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745597915406</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745597915406</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Develop TextFile_Manager 4\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745598778435</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745598778435</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Develop TextFile_Manager 4\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745599339378</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745599339378</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Start Develop Common\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745599954843</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745599954843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Develop Members Class\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745603955863</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745603955863</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Develop Class TextFile_Manager\" />\r\n    <MESSAGE value=\"Develop TextFile_Manager 4\" />\r\n    <MESSAGE value=\"Start Develop Common\" />\r\n    <MESSAGE value=\"Develop Members Class\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Develop Members Class\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1f7fa4dc6c3a5d276a5258851819fad61d4422d8)
++++ b/.idea/workspace.xml	(date 1745608145628)
+@@ -4,9 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop Members Class">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Common/Commons.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/Members.java" afterDir="false" />
++    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Update Members Class And Creat Commons Class">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -95,7 +94,7 @@
+       <workItem from="1745591741540" duration="763000" />
+       <workItem from="1745592549338" duration="3572000" />
+       <workItem from="1745597639372" duration="1566000" />
+-      <workItem from="1745599324088" duration="4891000" />
++      <workItem from="1745599324088" duration="6301000" />
+     </task>
+     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
+       <option name="closed" value="true" />
+@@ -145,7 +144,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1745603955863</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="Update Members Class And Creat Commons Class">
++      <option name="closed" value="true" />
++      <created>1745604312859</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1745604312859</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -156,7 +163,8 @@
+     <MESSAGE value="Develop TextFile_Manager 4" />
+     <MESSAGE value="Start Develop Common" />
+     <MESSAGE value="Develop Members Class" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Develop Members Class" />
++    <MESSAGE value="Update Members Class And Creat Commons Class" />
++    <option name="LAST_COMMIT_MESSAGE" value="Update Members Class And Creat Commons Class" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

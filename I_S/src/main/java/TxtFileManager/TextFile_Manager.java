@@ -1,4 +1,4 @@
-package com.example.i_s.managers;
+package TxtFileManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;

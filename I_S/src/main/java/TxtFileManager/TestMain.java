@@ -1,4 +1,4 @@
-package com.example.i_s.managers;
+package TxtFileManager;
 
 import java.io.IOException;
 
@@ -9,7 +9,6 @@ public class TestMain {
         System.out.println(A.getAddress());
         A.AppendRow("salam");
         A.AppendRow("bedrood");
-        A.AppendRow("Arshia eshgh irani");
         A.AppendRow("Kamy");
         A.UpdateRow(2,"a");
     }
