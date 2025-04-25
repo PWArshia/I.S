@@ -34,7 +34,7 @@ public class RoomManager {
             String B[]=A[i].split(Commons.Commons);
             int No=Integer.parseInt(B[0]);
             int floor=Integer.parseInt(B[1]);
-            Float price=Float.parseFloat(B[3]);
+            Double price=Double.parseDouble(B[3]);
             boolean Bussy=true;
             if (B[4].equals(false)){
                 Bussy=false;
