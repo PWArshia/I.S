@@ -32,6 +32,5 @@ public class HelloController {
         RoomWindow.setScene(RoomsScene);
         RoomWindow.setTitle("Rooms");
         RoomWindow.show();
-
     }
 }
