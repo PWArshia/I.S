@@ -14,12 +14,13 @@ public class Members {
     private String PhoneNumber;
 
 
-    public Members( String Name, int Age, String gender, String LastName, String National_Code) {
+    public Members( String Name,String LastName ,String National_Code , int Age,String gender ,String PhoneNumber ) {
         this.SetName(Name);
         this.SetAge(Age);
         this.SetGender(gender);
         this.SetLastName(LastName);
         this.SetNationalCode(National_Code);
+        this.SetPhoneNumber(PhoneNumber);
     }
 
 
