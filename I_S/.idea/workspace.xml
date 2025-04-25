@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop Class TextFile_Manager">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" afterPath="$PROJECT_DIR$/Hello" afterDir="false" />
+    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop TextFile_Manager 4">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java" afterDir="false" />
     </list>
@@ -96,7 +94,7 @@
       <workItem from="1745586895468" duration="47000" />
       <workItem from="1745591741540" duration="763000" />
       <workItem from="1745592549338" duration="3572000" />
-      <workItem from="1745597639372" duration="1110000" />
+      <workItem from="1745597639372" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
       <option name="closed" value="true" />
@@ -114,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745597915406</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Develop TextFile_Manager 4">
+      <option name="closed" value="true" />
+      <created>1745598778435</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745598778435</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +128,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Develop Class TextFile_Manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop Class TextFile_Manager" />
+    <MESSAGE value="Develop TextFile_Manager 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop TextFile_Manager 4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

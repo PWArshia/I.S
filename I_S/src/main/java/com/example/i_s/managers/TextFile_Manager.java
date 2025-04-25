@@ -102,6 +102,18 @@ public class TextFile_Manager {
         File2Array();
         return Data[a];
     }
+    public int getRowCount() throws FileNotFoundException {
+        File2Array();
+        for (int i=Data.length-1;i>=0;i--){
+            if (Data[i]!=null){
+                CRow=i+1;
+                break;
+            }
+        }
+        File2Array();
+        return CRow;
+    }
+
 
 
 

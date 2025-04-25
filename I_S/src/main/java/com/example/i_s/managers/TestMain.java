@@ -11,6 +11,6 @@ public class TestMain {
         A.AppendRow("bedrood");
         A.AppendRow("Arshia eshgh irani");
         A.AppendRow("Kamy");
-        A.UpdateRow(1,"Enter");
+        A.UpdateRow(2,"a");
     }
 }
