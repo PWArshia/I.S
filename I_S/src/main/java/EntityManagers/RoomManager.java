@@ -13,6 +13,7 @@ public class RoomManager {
     private TextFile_Manager fm;
     private Rooms rooms[];
     private Rooms thisRoom;
+    private int SearchId;
 
     public RoomManager() throws IOException{
         fm=new TextFile_Manager("Room");
@@ -47,20 +48,48 @@ public class RoomManager {
         }
     }
 
-    public void search(int a) throws IOException{
+    public String search(int a) throws IOException{
+
+        
+        // for (int i=0; i<fm.getRowCount();i++){
+        //     if (rooms[i].GetNo()==a){
+        //         thisRoom.setNO(rooms[i].GetNo());
+        //         thisRoom.SetFloor(rooms[i].GetFloor());
+        //         thisRoom.SetRoomType(rooms[i].GetRoomType());
+        //         thisRoom.SetPrice(rooms[i].GetPrice());
+        //         thisRoom.SetIsBussy(rooms[i].GetIsBussy());
+        //         SearchId=i;
+        //         break;
+        //     }
+        // }
+
 
         for (int i=0; i<fm.getRowCount();i++){
             if (rooms[i].GetNo()==a){
-                thisRoom.setNO(rooms[i].GetNo());
-                thisRoom.SetFloor(rooms[i].GetFloor());
-                thisRoom.SetRoomType(rooms[i].GetRoomType());
-                thisRoom.SetPrice(rooms[i].GetPrice());
-                thisRoom.SetIsBussy(rooms[i].GetIsBussy());
-                break;
+                SearchId=i;
             }
         }
+
+        String S= rooms[SearchId].GetNo()+ Commons.Commons + rooms[SearchId].GetFloor()+Commons.Commons + rooms[SearchId].GetRoomType()+ Commons.Commons + rooms[SearchId].GetPrice() +Commons.Commons +rooms[SearchId].GetIsBussy();
+
+        return S;
     }
 
+    public void Delete(int a) throws IOException{
+
+        search(a);
+        fm.delete_Rows(SearchId);
+        this.Array2books();
+
+    }
+
+    public void Update(int a ) throws IOException{
+
+        String b=search(a);
+        fm.UpdateRow(a, b );
+        this.Array2books();
+        
+    }
 
 
 }
