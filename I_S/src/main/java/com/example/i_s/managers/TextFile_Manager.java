@@ -56,9 +56,8 @@ public class TextFile_Manager {
     }
 
     private void Array2File() throws IOException{
-
         File file= new File(FilePath);
-        FileWriter fw = new FileWriter(file,true);
+        FileWriter fw = new FileWriter(file,false);
         for (int i=0; i<CRow; i++){
             fw.append(Data[i]+"\n");
         }
@@ -68,25 +67,24 @@ public class TextFile_Manager {
 
 
     public void delete_Rows(int a) throws IOException{
-
-        File file=new File(FilePath);
-        FileWriter fw = new FileWriter(file,true);
-        for (int i=0; i<CRow ; i++){
-            if(i!=a){
-                fw.append(Data[i]+"\n");
-            }
+        File2Array();
+        for (int x=a;x<=CRow;x++){
+            Data[x]=Data[x+1];
         }
-        fw.close();
+        CRow--;
+        Array2File();
     }
 
 
-    private void Invert_Rows(int a, String s) throws FileNotFoundException{
+    private void Invert_Rows(int a, String s) throws IOException{
+        
         File2Array();
-
-
-
-
-
+        for (int i=CRow ; i> a; i--){
+            Data[i]=Data[i-1];
+        }
+        Data[a]=s;
+        CRow++;
+        Array2File();
 
     }
 
