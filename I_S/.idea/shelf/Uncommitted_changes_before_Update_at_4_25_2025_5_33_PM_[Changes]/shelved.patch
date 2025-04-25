@@ -1,0 +1,101 @@
+Index: src/main/java/com/example/i_s/HelloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.i_s;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloController {\r\n    Stage MemberWindow=new Stage();\r\n    Stage RoomWindow=new Stage();\r\n\r\n\r\n    @FXML\r\n    private Label welcomeText;\r\n\r\n    @FXML\r\n    public void MembersCo(ActionEvent actionEvent) throws IOException {\r\n        FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource(\"Members.fxml\"));\r\n        Scene MembersScene = new Scene(MembersLoader.load(),600,400);\r\n        MemberWindow.setScene(MembersScene);\r\n        MemberWindow.setTitle(\"Members\");\r\n        MemberWindow.show();\r\n    }\r\n\r\n    public void RoomsCo(ActionEvent actionEvent) throws IOException {\r\n        FXMLLoader RoomsLoader = new FXMLLoader(getClass().getResource(\"Rooms.fxml\"));\r\n        Scene RoomsScene = new Scene(RoomsLoader.load(),600,400);\r\n        RoomWindow.setScene(RoomsScene);\r\n        RoomWindow.setTitle(\"Rooms\");\r\n        RoomWindow.show();\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/i_s/HelloController.java b/src/main/java/com/example/i_s/HelloController.java
+--- a/src/main/java/com/example/i_s/HelloController.java	(revision 0bb7b2ddf825c290b05ad70046b8f26d8ac65023)
++++ b/src/main/java/com/example/i_s/HelloController.java	(date 1745589768382)
+@@ -1,22 +1,13 @@
+ package com.example.i_s;
+-
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+ import javafx.fxml.FXMLLoader;
+ import javafx.scene.Scene;
+-import javafx.scene.control.Label;
+ import javafx.stage.Stage;
+-
+ import java.io.IOException;
+-
+ public class HelloController {
+     Stage MemberWindow=new Stage();
+     Stage RoomWindow=new Stage();
+-
+-
+-    @FXML
+-    private Label welcomeText;
+-
+     @FXML
+     public void MembersCo(ActionEvent actionEvent) throws IOException {
+         FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource("Members.fxml"));
+@@ -25,13 +16,12 @@
+         MemberWindow.setTitle("Members");
+         MemberWindow.show();
+     }
+-
++    @FXML
+     public void RoomsCo(ActionEvent actionEvent) throws IOException {
+         FXMLLoader RoomsLoader = new FXMLLoader(getClass().getResource("Rooms.fxml"));
+         Scene RoomsScene = new Scene(RoomsLoader.load(),600,400);
+         RoomWindow.setScene(RoomsScene);
+         RoomWindow.setTitle("Rooms");
+         RoomWindow.show();
+-
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/I.S.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/i_s/Members.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/i_s/Rooms.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/i_s/Start.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/i_s/hello-view.fxml\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"FxmlFile\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wDrGWZe0DKgG9e4GvubOKpUEXG\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/kamya/AppData/Local/SceneBuilder/SceneBuilder.exe\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.JavaFX\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"\" />\r\n      <created>1745586894287</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1745586894287</updated>\r\n      <workItem from=\"1745586895468\" duration=\"47000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0bb7b2ddf825c290b05ad70046b8f26d8ac65023)
++++ b/.idea/workspace.xml	(date 1745589768719)
+@@ -4,16 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/../.idea/I.S.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Members.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Rooms.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Creat first UI">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/i_s/hello-view.fxml" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -80,10 +73,23 @@
+       <updated>1745586894287</updated>
+       <workItem from="1745586895468" duration="47000" />
+     </task>
++    <task id="LOCAL-00001" summary="Creat first UI">
++      <option name="closed" value="true" />
++      <created>1745588701075</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1745588701075</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Creat first UI" />
++    <option name="LAST_COMMIT_MESSAGE" value="Creat first UI" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

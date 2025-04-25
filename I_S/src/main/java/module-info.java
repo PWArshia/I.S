@@ -13,4 +13,6 @@ module com.example.i_s {
 
     opens com.example.i_s to javafx.fxml;
     exports com.example.i_s;
+    exports com.example.i_s.managers;
+    opens com.example.i_s.managers to javafx.fxml;
 }
