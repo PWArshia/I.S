@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.i_s.HelloController">
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.i_s.HelloController">
   <panes>
     <TitledPane animated="false" text="SetRoom">
       <content>
@@ -38,6 +38,7 @@
                         <Font size="16.0" />
                      </font>
                   </CheckBox>
+                  <Button layoutX="358.0" layoutY="309.0" mnemonicParsing="false" onAction="#SetRoom" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
                </children></AnchorPane>
       </content>
     </TitledPane>

@@ -8,8 +8,16 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 public class HelloController {
-    Stage MemberWindow=new Stage();
+
+
+
+
+
+    // ---------------------------------->>>Room Section
+
     Stage RoomWindow=new Stage();
+
+
     @FXML
     private TextField RoomNum;
     @FXML
@@ -20,15 +28,6 @@ public class HelloController {
     private CheckBox Type;
 
 
-
-    @FXML
-    public void MembersCo(ActionEvent actionEvent) throws IOException {
-        FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource("Members.fxml"));
-        Scene MembersScene = new Scene(MembersLoader.load(),800,600);
-        MemberWindow.setScene(MembersScene);
-        MemberWindow.setTitle("Members");
-        MemberWindow.show();
-    }
     @FXML
     public void RoomsCo(ActionEvent actionEvent) throws IOException {
         FXMLLoader RoomsLoader = new FXMLLoader(getClass().getResource("Rooms.fxml"));
@@ -36,6 +35,15 @@ public class HelloController {
         RoomWindow.setScene(RoomsScene);
         RoomWindow.setTitle("Rooms");
         RoomWindow.show();
+
+
+    }
+
+    public void SearchRoom(ActionEvent actionEvent) {
+
+    }
+
+    public void SetRoom(ActionEvent actionEvent) {
         String RMNUM=RoomNum.getText();
         String TBNUM=tbNum.getText();
         String PRICEV=PriceV.getText();
@@ -46,10 +54,56 @@ public class HelloController {
         else{
             TYPE="normal";
         }
-
     }
 
-    public void SearchRoom(ActionEvent actionEvent) {
 
+    //--------------------------------------->>>Member Section
+
+    Stage MemberWindow=new Stage();
+
+
+    @FXML
+    private TextField MemberName;
+    @FXML
+    private TextField MemberLastName;
+    @FXML
+    private TextField NCode;
+    @FXML
+    private TextField PhoneNUM;
+    @FXML
+    private TextField Age;
+    @FXML
+    private CheckBox Male;
+    @FXML
+    private CheckBox Female;
+
+
+    @FXML
+    public void MembersCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource("Members.fxml"));
+        Scene MembersScene = new Scene(MembersLoader.load(),800,600);
+        MemberWindow.setScene(MembersScene);
+        MemberWindow.setTitle("Members");
+        MemberWindow.show();
+    }
+
+
+
+
+    public void SetMember(ActionEvent actionEvent) {
+        String MNAME=MemberName.getText();
+        String LNAME=MemberLastName.getText();
+        String NCODE=NCode.getText();
+        String PHONENUM=PhoneNUM.getText();
+        String AGE=Age.getText();
+        if(Male.isSelected()){
+
+        }
+        if(Female.isSelected()){
+
+        }
+    }
+
+    public void SearchMemeber(ActionEvent actionEvent) {
     }
 }
