@@ -52,4 +52,13 @@ public class HelloController {
     public void SearchRoom(ActionEvent actionEvent) {
 
     }
+
+    public void SetRoom(ActionEvent actionEvent) {
+    }
+
+    public void SetMember(ActionEvent actionEvent) {
+    }
+
+    public void SearchMemeber(ActionEvent actionEvent) {
+    }
 }
