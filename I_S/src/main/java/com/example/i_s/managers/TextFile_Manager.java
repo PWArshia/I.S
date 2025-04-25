@@ -56,9 +56,8 @@ public class TextFile_Manager {
     }
 
     private void Array2File() throws IOException{
-
         File file= new File(FilePath);
-        FileWriter fw = new FileWriter(file,true);
+        FileWriter fw = new FileWriter(file,false);
         for (int i=0; i<CRow; i++){
             fw.append(Data[i]+"\n");
         }
@@ -68,15 +67,12 @@ public class TextFile_Manager {
 
 
     public void delete_Rows(int a) throws IOException{
-
-        File file=new File(FilePath);
-        FileWriter fw = new FileWriter(file,true);
-        for (int i=0; i<CRow ; i++){
-            if(i!=a){
-                fw.append(Data[i]+"\n");
-            }
+        File2Array();
+        for (int x=a;x<=CRow;x++){
+            Data[x]=Data[x+1];
         }
-        fw.close();
+        CRow--;
+        Array2File();
     }
 
 

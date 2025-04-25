@@ -9,5 +9,8 @@ public class TestMain {
         System.out.println(A.getAddress());
         A.AppendRow("salam");
         A.AppendRow("bedrood");
+        A.AppendRow("Arshia eshgh irani");
+        A.AppendRow("Kamy");
+        A.delete_Rows(2);
     }
 }
