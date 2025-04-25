@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Start Develop Common">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop Members Class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/Commons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,7 @@
       <workItem from="1745591741540" duration="763000" />
       <workItem from="1745592549338" duration="3572000" />
       <workItem from="1745597639372" duration="1566000" />
-      <workItem from="1745599324088" duration="4498000" />
+      <workItem from="1745599324088" duration="4891000" />
     </task>
     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
       <option name="closed" value="true" />
@@ -138,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745599954843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Develop Members Class">
+      <option name="closed" value="true" />
+      <created>1745603955863</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745603955863</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +155,8 @@
     <MESSAGE value="Develop Class TextFile_Manager" />
     <MESSAGE value="Develop TextFile_Manager 4" />
     <MESSAGE value="Start Develop Common" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start Develop Common" />
+    <MESSAGE value="Develop Members Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop Members Class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

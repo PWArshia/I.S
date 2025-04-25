@@ -174,6 +174,17 @@ public class Members {
     public String GetNationalCode() {
         return this.National_Code;
     }
+    public String GetPhoneNumber() {
+        return this.PhoneNumber;
+    }
+
+
+    @Override
+    public String toString(){
+        return this.GetName() + Commons.Commons + this.GetLastName() + Commons.Commons +
+                this.GetNationalCode() + Commons.Commons + this.GetAge() + Commons.Commons + this.GetGender() +
+                Commons.Commons + this.GetPhoneNumber();
+    }
 
 
 
