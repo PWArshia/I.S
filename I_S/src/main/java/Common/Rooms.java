@@ -7,14 +7,14 @@ public class Rooms {
     private enum RoomType{
         VIP,normal
     }
-    RoomType roomType;
+    private RoomType roomType;
     private int price;
-
 
     @Override
     public String toString(){
-        return NO+"&"+floor+"&"+roomType+"&"+price+"&"+IsBussy;
+        return  this.NO+ Commons.Commons + this.floor+Commons.Commons + this.roomType+ Commons.Commons + this.price +Commons.Commons +this.IsBussy;
     }
+    
 
     // ----------------------------------------------------------> Setter
 
