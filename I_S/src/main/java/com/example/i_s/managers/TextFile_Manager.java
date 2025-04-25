@@ -80,6 +80,17 @@ public class TextFile_Manager {
     }
 
 
+    private void Invert_Rows(int a, String s) throws FileNotFoundException{
+        File2Array();
+
+
+
+
+
+
+    }
+
+
 
 
 
