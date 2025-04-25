@@ -96,6 +96,7 @@
       <workItem from="1745586895468" duration="47000" />
       <workItem from="1745591741540" duration="763000" />
       <workItem from="1745592549338" duration="3572000" />
+      <workItem from="1745597639372" duration="1110000" />
     </task>
     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
       <option name="closed" value="true" />
@@ -105,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745594336100</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Develop Class TextFile_Manager">
+      <option name="closed" value="true" />
+      <created>1745597915406</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745597915406</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,17 +123,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Develop Class TextFile_Manager" />
     <option name="LAST_COMMIT_MESSAGE" value="Develop Class TextFile_Manager" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

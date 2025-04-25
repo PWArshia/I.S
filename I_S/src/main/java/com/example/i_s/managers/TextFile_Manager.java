@@ -76,7 +76,7 @@ public class TextFile_Manager {
     }
 
 
-    private void Invert_Rows(int a, String s) throws IOException{
+    public void Insert_Rows(int a, String s) throws IOException{
         
         File2Array();
         for (int i=CRow ; i> a; i--){
@@ -86,6 +86,21 @@ public class TextFile_Manager {
         CRow++;
         Array2File();
 
+    }
+
+
+    public void UpdateRow(int a,String S) throws IOException{
+        File2Array();
+        Data[a]=S;
+        Array2File();
+    }
+    public String[] getArray() throws FileNotFoundException {
+        File2Array();
+        return Data;
+    }
+    public String getRow(int a) throws FileNotFoundException {
+        File2Array();
+        return Data[a];
     }
 
 
