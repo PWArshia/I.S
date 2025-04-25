@@ -48,7 +48,9 @@ public class Rooms {
     }
 
     public void SetPrice(Float a){
-        this.price=a;
+        if (a>0){
+            this.price=a;
+        }
     }
 
     public void SetIsBussy(boolean a){
