@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop TextFile_Manager 4">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/i_s/managers/TextFile_Manager.java" afterDir="false" />
-    </list>
+    <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Develop TextFile_Manager 4" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +92,7 @@
       <workItem from="1745591741540" duration="763000" />
       <workItem from="1745592549338" duration="3572000" />
       <workItem from="1745597639372" duration="1566000" />
+      <workItem from="1745599324088" duration="486000" />
     </task>
     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
       <option name="closed" value="true" />
@@ -120,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745598778435</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Develop TextFile_Manager 4">
+      <option name="closed" value="true" />
+      <created>1745599339378</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745599339378</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
