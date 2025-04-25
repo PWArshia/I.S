@@ -15,8 +15,8 @@ public class RoomManager {
     private Rooms thisRoom;
     private int SearchId;
 
-    public RoomManager() throws IOException{
-        fm=new TextFile_Manager("Room");
+    public RoomManager(String FileName) throws IOException{
+        fm=new TextFile_Manager(FileName);
         fm.CreateTextFile();
     }
 

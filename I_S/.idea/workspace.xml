@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Update MemberManager">
-      <change afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" afterPath="$PROJECT_DIR$/Hello" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/RoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.TestMain.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IntelliJ IDEA 2024.3/intellij project/MathLab",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IntelliJ IDEA 2024.3/intellij project/MathLab&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IntelliJ IDEA 2024.3\intellij project\I.S\I_S\src\main\java\com\example\i_s" />
@@ -101,6 +101,7 @@
       <workItem from="1745592549338" duration="3572000" />
       <workItem from="1745597639372" duration="1566000" />
       <workItem from="1745599324088" duration="4891000" />
+      <workItem from="1745617728347" duration="2606000" />
     </task>
     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
       <option name="closed" value="true" />

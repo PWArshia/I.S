@@ -1,0 +1,133 @@
+Index: src/main/java/EntityManagers/RoomManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package EntityManagers;\r\n\r\nimport java.io.FileNotFoundException;\r\nimport java.io.IOException;\r\nimport java.util.Spliterator;\r\n\r\nimport Common.Commons;\r\nimport Common.Rooms;\r\nimport TxtFileManager.TextFile_Manager;\r\n\r\npublic class RoomManager {\r\n\r\n    private TextFile_Manager fm;\r\n    private Rooms rooms[];\r\n    private Rooms thisRoom;\r\n    private int SearchId;\r\n\r\n    public RoomManager() throws IOException{\r\n        fm=new TextFile_Manager(\"Room\");\r\n        fm.CreateTextFile();\r\n    }\r\n\r\n    public void AddRoom(Rooms a) throws IOException{\r\n        String S= a.GetNo()+ Commons.Commons + a.GetFloor()+Commons.Commons + a.GetRoomType()+ Commons.Commons + a.GetPrice() +Commons.Commons +a.GetIsBussy();\r\n\r\n        fm.AppendRow(S);\r\n    }\r\n\r\n    public void Array2books() throws IOException{\r\n        \r\n        String A[]=fm.getArray();\r\n        rooms=new Rooms[1000];\r\n        for (int i=0; i<fm.getRowCount();i++){\r\n            String B[]=A[i].split(Commons.Commons);\r\n            int No=Integer.parseInt(B[0]);\r\n            int floor=Integer.parseInt(B[1]);\r\n            Float price=Float.parseFloat(B[3]);\r\n            boolean Bussy=true;\r\n            if (B[4].equals(false)){\r\n                Bussy=false;\r\n            }\r\n\r\n            rooms[i].setNO(No);\r\n            rooms[i].SetFloor(floor);\r\n            rooms[i].SetRoomType(B[2]);\r\n            rooms[i].SetPrice(price);\r\n            rooms[i].SetIsBussy(Bussy);\r\n        }\r\n    }\r\n\r\n    public String search(int a) throws IOException{\r\n\r\n        \r\n        // for (int i=0; i<fm.getRowCount();i++){\r\n        //     if (rooms[i].GetNo()==a){\r\n        //         thisRoom.setNO(rooms[i].GetNo());\r\n        //         thisRoom.SetFloor(rooms[i].GetFloor());\r\n        //         thisRoom.SetRoomType(rooms[i].GetRoomType());\r\n        //         thisRoom.SetPrice(rooms[i].GetPrice());\r\n        //         thisRoom.SetIsBussy(rooms[i].GetIsBussy());\r\n        //         SearchId=i;\r\n        //         break;\r\n        //     }\r\n        // }\r\n\r\n\r\n        for (int i=0; i<fm.getRowCount();i++){\r\n            if (rooms[i].GetNo()==a){\r\n                SearchId=i;\r\n            }\r\n        }\r\n\r\n        String S= rooms[SearchId].GetNo()+ Commons.Commons + rooms[SearchId].GetFloor()+Commons.Commons + rooms[SearchId].GetRoomType()+ Commons.Commons + rooms[SearchId].GetPrice() +Commons.Commons +rooms[SearchId].GetIsBussy();\r\n\r\n        return S;\r\n    }\r\n\r\n    public void Delete(int a) throws IOException{\r\n\r\n        search(a);\r\n        fm.delete_Rows(SearchId);\r\n        this.Array2books();\r\n\r\n    }\r\n\r\n    public void Update(int a ) throws IOException{\r\n\r\n        String b=search(a);\r\n        fm.UpdateRow(a, b );\r\n        this.Array2books();\r\n\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/EntityManagers/RoomManager.java b/src/main/java/EntityManagers/RoomManager.java
+--- a/src/main/java/EntityManagers/RoomManager.java	(revision 815719c734656ee900116612fe083bbf293adbe2)
++++ b/src/main/java/EntityManagers/RoomManager.java	(date 1745620066445)
+@@ -15,8 +15,8 @@
+     private Rooms thisRoom;
+     private int SearchId;
+ 
+-    public RoomManager() throws IOException{
+-        fm=new TextFile_Manager("Room");
++    public RoomManager(String FileName) throws IOException{
++        fm=new TextFile_Manager(FileName);
+         fm.CreateTextFile();
+     }
+ 
+Index: src/main/java/EntityManagers/TestMain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package EntityManagers;\r\n\r\nimport Common.Members;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class TestMain {\r\n    public static void main(String[] args) throws IOException {\r\n        MemberManager manager = new MemberManager(\"Hello\");\r\n        Members K=new Members(\"kamy\",\"esmaeilpour\",\"0250561409\",\r\n                19,\"Male\",\"09126700629\");\r\n        Members A=new Members(\"Arshia\",\"Sedghi\",\"4123547812\",\r\n                20,\"Male\",\"09916730659\");\r\n        Members k=new Members(\"Kasra\",\"Masoudi\",\"9345812358\",\r\n                20,\"male\",\"45631852365\");\r\n\r\n        manager.AddMember(K);\r\n        manager.AddMember(A);\r\n        manager.AddMember(k);\r\n\r\n\r\n        System.out.println(manager.SearchMember(A));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/EntityManagers/TestMain.java b/src/main/java/EntityManagers/TestMain.java
+--- a/src/main/java/EntityManagers/TestMain.java	(revision 815719c734656ee900116612fe083bbf293adbe2)
++++ b/src/main/java/EntityManagers/TestMain.java	(date 1745620488633)
+@@ -1,25 +1,12 @@
+ package EntityManagers;
+-
+-import Common.Members;
+-
++import Common.Rooms;
+ import java.io.IOException;
+ 
+ public class TestMain {
+     public static void main(String[] args) throws IOException {
+-        MemberManager manager = new MemberManager("Hello");
+-        Members K=new Members("kamy","esmaeilpour","0250561409",
+-                19,"Male","09126700629");
+-        Members A=new Members("Arshia","Sedghi","4123547812",
+-                20,"Male","09916730659");
+-        Members k=new Members("Kasra","Masoudi","9345812358",
+-                20,"male","45631852365");
+-
+-        manager.AddMember(K);
+-        manager.AddMember(A);
+-        manager.AddMember(k);
++        RoomManager manager = new RoomManager("Hello");
+ 
+-
+-        System.out.println(manager.SearchMember(A));
++        Rooms A=new Rooms(1,false,1,"VIP");
+     }
+ 
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"Update MemberManager\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Hello\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Hello\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;kamy85&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/PWArshia/I.S.git&quot;,\r\n    &quot;accountId&quot;: &quot;6b782645-688f-481e-b25f-19ccc93deda4&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wDrGWZe0DKgG9e4GvubOKpUEXG\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"Application.TestMain.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/IntelliJ IDEA 2024.3/intellij project/MathLab\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"reference.settings.project.maven.repository.indices\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\IntelliJ IDEA 2024.3\\intellij project\\I.S\\I_S\\src\\main\\java\\com\\example\\i_s\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"930884be-1ab5-486a-bf24-726feb2057a8\" name=\"Changes\" comment=\"\" />\r\n      <created>1745586894287</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1745586894287</updated>\r\n      <workItem from=\"1745586895468\" duration=\"47000\" />\r\n      <workItem from=\"1745591741540\" duration=\"763000\" />\r\n      <workItem from=\"1745592549338\" duration=\"3572000\" />\r\n      <workItem from=\"1745597639372\" duration=\"1566000\" />\r\n      <workItem from=\"1745599324088\" duration=\"4891000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Develop Class TextFile_Manager\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745594336100</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745594336100</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Develop Class TextFile_Manager\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745597915406</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745597915406</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Develop TextFile_Manager 4\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745598778435</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745598778435</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Develop TextFile_Manager 4\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745599339378</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745599339378</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Start Develop Common\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745599954843</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745599954843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Develop Members Class\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745603955863</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745603955863</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"creat Entity Managers pack\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745608497329</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745608497329</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Update User Interface\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745611183422</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745611183422</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Update User Interface Member Section\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745612259033</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745612259033</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Update User Interface\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745614257415</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745614257415</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Update MemberManager\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1745615457231</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1745615457231</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Develop Class TextFile_Manager\" />\r\n    <MESSAGE value=\"Develop TextFile_Manager 4\" />\r\n    <MESSAGE value=\"Start Develop Common\" />\r\n    <MESSAGE value=\"Develop Members Class\" />\r\n    <MESSAGE value=\"creat Entity Managers pack\" />\r\n    <MESSAGE value=\"Update User Interface Member Section\" />\r\n    <MESSAGE value=\"Update User Interface\" />\r\n    <MESSAGE value=\"Update MemberManager\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Update MemberManager\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 815719c734656ee900116612fe083bbf293adbe2)
++++ b/.idea/workspace.xml	(date 1745620488673)
+@@ -5,10 +5,9 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="930884be-1ab5-486a-bf24-726feb2057a8" name="Changes" comment="Update MemberManager">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" afterPath="$PROJECT_DIR$/Hello" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/RoomManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -54,24 +53,24 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.HelloApplication.executor": "Run",
+-    "Application.TestMain.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "master",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/IntelliJ IDEA 2024.3/intellij project/MathLab",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
++    &quot;Application.TestMain.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/IntelliJ IDEA 2024.3/intellij project/MathLab&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="D:\IntelliJ IDEA 2024.3\intellij project\I.S\I_S\src\main\java\com\example\i_s" />
+@@ -101,6 +100,7 @@
+       <workItem from="1745592549338" duration="3572000" />
+       <workItem from="1745597639372" duration="1566000" />
+       <workItem from="1745599324088" duration="4891000" />
++      <workItem from="1745617728347" duration="2178000" />
+     </task>
+     <task id="LOCAL-00001" summary="Develop Class TextFile_Manager">
+       <option name="closed" value="true" />
