@@ -28,7 +28,7 @@ public class Rooms {
 
     public void setNO(int a){
         if (a>=0){
-            this.floor=a;
+            this.NO=a;
         }
     }
 
