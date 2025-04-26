@@ -76,6 +76,16 @@ public class MemberManager {
     }
 
 
+    public String SearchMember(String NCOD) throws IOException {
+        for (int i = 0; i < cMemberS; i++) {
+            if (MemberS[i].GetNationalCode().equals(NCOD)) {
+                return MemberS[i].toString();
+            }
+        }
+        return null;
+    }
+
+
     public void SetArray(Members[] M,int cM) {
         MemberS=M;
         cMemberS=cM;

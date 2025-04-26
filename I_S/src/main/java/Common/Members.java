@@ -14,6 +14,9 @@ public class Members {
     private String PhoneNumber;
 
 
+    public Members() {}
+
+
     public Members( String Name,String LastName ,String National_Code , int Age,String gender ,String PhoneNumber ) {
         this.SetName(Name);
         this.SetAge(Age);
