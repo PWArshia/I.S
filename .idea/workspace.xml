@@ -6,14 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/Hello" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/MembersList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MembersList" beforeDir="false" afterPath="$PROJECT_DIR$/MembersList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MembersList" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,20 +57,42 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.TestMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arshia/Desktop/Is",
+    "last_opened_file_path": "C:/Users/kamya/AppData/Local/SceneBuilder/SceneBuilder.exe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EntityManagers.TestMain" />
+      <module name="I_S" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EntityManagers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestMain" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,6 +113,11 @@
       <workItem from="1745604910608" duration="193000" />
       <workItem from="1745605143332" duration="414000" />
       <workItem from="1745635511259" duration="1875000" />
+      <workItem from="1745694898940" duration="2120000" />
+      <workItem from="1745697364281" duration="38000" />
+      <workItem from="1745697545613" duration="1528000" />
+      <workItem from="1745699083786" duration="1673000" />
+      <workItem from="1745700799824" duration="8568000" />
     </task>
     <servers />
   </component>

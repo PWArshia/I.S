@@ -7,16 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController{
+public class HelloController {
 
 
 
@@ -73,7 +70,6 @@ public class HelloController{
     Stage MemberWindow=new Stage();
     MemberManager memberManager=new MemberManager("MembersList");
 
-
     @FXML
     private TextField MemberName;
     @FXML
@@ -95,20 +91,21 @@ public class HelloController{
     @FXML
     private TextField SearchBoxM;
     @FXML
-    private Button BTNDeleteMember;
-    @FXML
-    private Button BTNUpdateMember;
+    private TextArea AllData;
+
+
 
 
     @FXML
     public void MembersCo(ActionEvent actionEvent) throws IOException {
+
         FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource("Members.fxml"));
         Scene MembersScene = new Scene(MembersLoader.load(),800,600);
         MemberWindow.setScene(MembersScene);
         MemberWindow.setTitle("Members");
         MemberWindow.show();
-    }
 
+    }
 
 
 
@@ -161,7 +158,14 @@ public class HelloController{
         if(Female.isSelected() && !Male.isSelected()){
             G="Female";
         }
-        Members T=new Members(MNAME,LNAME,NCODE,AGE,G,PHONENUM);
+        int t=memberManager.IndexSearchMember((int) (Math.random()*9999));
+        int Rndm=0;
+        while (t!=-1){
+            Rndm=(int) (Math.random()*9999);
+            t=memberManager.IndexSearchMember(Rndm);
+        }
+
+        Members T=new Members(MNAME,LNAME,NCODE,AGE,G,PHONENUM,Rndm);
         int temp = T.SetName(MNAME);
         if (temp==0) {
             MError.setText("نام را درست وارد کنید");
@@ -207,33 +211,49 @@ public class HelloController{
         Female.setSelected(false);
     }
 
+    private int MemberSearchID;
+
     public void SearchMemeber(ActionEvent actionEvent) throws IOException {
-        Members A=new Members();
-        int t=A.SetNationalCode(SearchBoxM.getText());
-        if(t==0){
-            SearchResult.setText("کد ملی را درست وارد کنید");
+        String Box=SearchBoxM.getText();
+        if (Box.length()<1 && Box.length()>4) {
+            SearchResult.setText("کد عضویت عددی است بین 0 تا 9999");
             SearchBoxM.clear();
             return;
         }
-        String Result=memberManager.SearchMember(SearchBoxM.getText());
-
+        Members T=new Members();
+        for (int x=0;x<Box.length();x++) {
+            if(!(Box.charAt(x)>='0' && Box.charAt(x)<='9')) {
+                SearchResult.setText("کد عضویت عددی است بین 0 تا 9999");
+                SearchBoxM.clear();
+                return;
+            }
+        }
+        MemberSearchID=Integer.parseInt(Box);
+        String Result=memberManager.SearchMember(Integer.parseInt(Box));
         if (Result==null) {
-            SearchResult.setText("پیدا نشد!");
+            SearchResult.setText("وجود ندارد");
             SearchBoxM.clear();
             return;
         }
+
         SearchResult.setText(Result);
-
-
     }
 
 
 
-    public void DeleteMember(ActionEvent actionEvent) throws IOException {
-        String[] T=SearchResult.getText().split(Commons.Commons);
 
-        memberManager.DeleteMember(SearchBoxM.getText());
-        SearchResult.setText("");
+    public void DeleteMember(ActionEvent actionEvent) throws IOException {
+        if(SearchResult.equals("وجود ندارد"))
+            return;
+        if (SearchResult.getText().length()==0)
+            return;
+        String[] A=SearchResult.getText().split(Commons.Commons);
+        Members T=new Members(A[0],A[1],A[2],Integer.parseInt(A[3]),A[4],A[5],Integer.parseInt(A[6]));
+        boolean Check=memberManager.DeleteMember(T);
+        if(Check) {
+            SearchResult.setText("با موفقیت پاک شد");
+            SearchBoxM.clear();
+        }
     }
 
 
@@ -257,27 +277,127 @@ public class HelloController{
 
 
     public void UpdateStageMember(ActionEvent actionEvent) throws IOException {
-        FXMLLoader MembersULoader = new FXMLLoader(getClass().getResource("UpdateMember.fxml"));
-        Scene scene=new Scene(MembersULoader.load(),800,600);
+        if(SearchResult.equals("وجود ندارد"))
+            return;
+        if (SearchResult.getText().length()==0)
+            return;
+        FXMLLoader loader=new FXMLLoader(HelloController.class.getResource("UpdateMember.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
         Update.setScene(scene);
-        Update.setTitle("UpdateMember");
         Update.show();
-
-        String R[]=SearchResult.getText().split(Commons.Commons);
-        System.out.println(R[0]);
-        MemberNameU.setText(R[0]);
-        MemberLastNameU.setText(R[1]);
-        NCodeU.setText(R[2]);
-        AgeU.setText(R[3]);
-        if (R[4].equals("male")) {
-            MaleU.setSelected(true);
-        }
-        if (R[4].equals("female")) {
-            FemaleU.setSelected(true);
-        }
-        PhoneNUMU.setText(R[5]);
     }
 
-    public void SetUpdateMember(ActionEvent actionEvent) {
+    public void SetUpdateMember(ActionEvent actionEvent) throws IOException {
+        String MNAME=MemberNameU.getText();
+        if (MNAME.length()==0) {
+            MErrorU.setText("لطفا نام را وارد کنید");
+            return;
+        }
+        String LNAME=MemberLastNameU.getText();
+        if (LNAME.length()==0) {
+            MErrorU.setText("لطفا نام خانوادگی را وارد کنید");
+            return;
+        }
+        String NCODE=NCodeU.getText();
+        if (NCODE.length()==0) {
+            MErrorU.setText("لطفا کد ملی را وارد کنید");
+            return;
+        }
+        String PHONENUM=PhoneNUMU.getText();
+        if (PHONENUM.length()==0) {
+            MErrorU.setText("لطفا شماره موبایل را وارد کنید");
+            return;
+        }
+        int AGE;
+        try {
+            AGE=Integer.parseInt(AgeU.getText());
+        }
+        catch (Exception e) {
+            MErrorU.setText("سن را درست وارد کنید");
+            return;
+        }
+
+
+        if (!MaleU.isSelected() && !FemaleU.isSelected()) {
+            MErrorU.setText("لطفا یک جنسیت را انتخاب کنید");
+            return;
+        }
+        if(MaleU.isSelected() && FemaleU.isSelected()){
+            MErrorU.setText("لطفا یک جنسیت را انتخاب کنید");
+            MaleU.setSelected(false);
+            FemaleU.setSelected(false);
+            return;
+        }
+        String G=null;
+        if(MaleU.isSelected() && !FemaleU.isSelected()){
+            G="Male";
+        }
+        if(FemaleU.isSelected() && !MaleU.isSelected()){
+            G="Female";
+        }
+        int t=memberManager.IndexSearchMember((int) (Math.random()*9999));
+        int Rndm=0;
+        while (t!=-1){
+            Rndm=(int) (Math.random()*9999);
+            t=memberManager.IndexSearchMember(Rndm);
+        }
+
+        Members T=new Members(MNAME,LNAME,NCODE,AGE,G,PHONENUM,Rndm);
+        int temp = T.SetName(MNAME);
+        if (temp==0) {
+            MErrorU.setText("نام را درست وارد کنید");
+            MemberNameU.clear();
+            return;
+        }
+        temp=T.SetLastName(LNAME);
+        if (temp==0) {
+            MErrorU.setText("نام خانوادگی را درست وارد کنید");
+            MemberLastNameU.clear();
+            return;
+        }
+        temp=T.SetNationalCode(NCODE);
+        if (temp==0) {
+            MErrorU.setText("کد ملی را درست وارد کنید");
+            NCodeU.clear();
+            return;
+        }
+        temp=T.SetAge(AGE);
+        if (temp==0) {
+            MErrorU.setText("سن را درست وارد کنید");
+            AgeU.clear();
+            return;
+        }
+
+        temp=T.SetPhoneNumber(PHONENUM);
+        if (temp==0) {
+            MErrorU.setText("شماره تلفن را درست وارد کنید");
+            PhoneNUMU.clear();
+            return;
+        }
+        T.SetGender(G);
+
+
+        String[] S=memberManager.SearchMember(MemberSearchID).split(Commons.Commons);
+        Members T1=new Members(S[0],S[1],S[2],Integer.parseInt(S[3]),S[4],S[5],Integer.parseInt(S[6]));
+        MErrorU.setText("ثبت شد!");
+        memberManager.UpdateMember(T1,T);
+        MemberNameU.clear();
+        MemberLastNameU.clear();
+        NCodeU.clear();
+        PhoneNUMU.clear();
+        AgeU.clear();
+        MaleU.setSelected(false);
+        FemaleU.setSelected(false);
+
+    }
+
+
+    public void SetDataMem(ActionEvent actionEvent) {
+        Members M[]=memberManager.GetArray();
+        int cM=memberManager.GetLengthArray();
+        AllData.setEditable(false);
+        for (int x=0;x<cM;x++) {
+            AllData.appendText(M[x].toString()+"\n");
+        }
     }
 }
