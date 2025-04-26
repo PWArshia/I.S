@@ -11,6 +11,7 @@ public class MemberManager {
     private TextFile_Manager MemberManager;
     private Members[] MemberS=new Members[1000];
     private int cMemberS=0;
+    private int SearchId;
 
     public MemberManager(String FileName) throws IOException {
         MemberManager = new TextFile_Manager(FileName);
@@ -44,20 +45,21 @@ public class MemberManager {
     }
 
     public void DeleteMember(int a) throws IOException {
-        for (int i = a; i <= cMemberS; i++) {
-            MemberS[i]=MemberS[i+1];
-        }
-        cMemberS--;
-        Array2TextFile();
+
+        String s=Integer.toString(a);
+        this.SearchMember(s);
+        MemberManager.delete_Rows(this.SearchId);
+        this.TextFile2Array();
+
     }
-    public void DeleteMember(Members Member) throws IOException {
-        for (int i = 0; i < cMemberS; i++) {
-            if (MemberS[i].equals(Member)) {
-                DeleteMember(i);
-                return;
-            }
-        }
-    }
+//    public void DeleteMember(Members Member) throws IOException {
+//        for (int i = 0; i < cMemberS; i++) {
+//            if (MemberS[i].equals(Member)) {
+//                DeleteMember(i);
+//                return;
+//            }
+//        }
+//    }
 
 
     public void UpdateMember(int a,Members M) throws IOException {
@@ -66,19 +68,20 @@ public class MemberManager {
     }
 
 
-    public String SearchMember(Members Member) throws IOException {
-        for (int i = 0; i < cMemberS; i++) {
-            if (MemberS[i].equals(Member)) {
-                return MemberS[i].toString();
-            }
-        }
-        return null;
-    }
+//    public String SearchMember(Members Member) throws IOException {
+//        for (int i = 0; i < cMemberS; i++) {
+//            if (MemberS[i].equals(Member)) {
+//                return MemberS[i].toString();
+//            }
+//        }
+//        return null;
+//    }
 
 
     public String SearchMember(String NCOD) throws IOException {
         for (int i = 0; i < cMemberS; i++) {
             if (MemberS[i].GetNationalCode().equals(NCOD)) {
+                this.SearchId=i;
                 return MemberS[i].toString();
             }
         }
