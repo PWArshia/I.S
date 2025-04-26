@@ -44,22 +44,15 @@ public class MemberManager {
         Array2TextFile();
     }
 
-    public void DeleteMember(int a) throws IOException {
+    public void DeleteMember(String a) throws IOException {
 
-        String s=Integer.toString(a);
-        this.SearchMember(s);
+
+        this.SearchMember(a);
         MemberManager.delete_Rows(this.SearchId);
         this.TextFile2Array();
 
     }
-//    public void DeleteMember(Members Member) throws IOException {
-//        for (int i = 0; i < cMemberS; i++) {
-//            if (MemberS[i].equals(Member)) {
-//                DeleteMember(i);
-//                return;
-//            }
-//        }
-//    }
+
 
 
     public void UpdateMember(int a,Members M) throws IOException {
@@ -67,15 +60,7 @@ public class MemberManager {
         Array2TextFile();
     }
 
-
-//    public String SearchMember(Members Member) throws IOException {
-//        for (int i = 0; i < cMemberS; i++) {
-//            if (MemberS[i].equals(Member)) {
-//                return MemberS[i].toString();
-//            }
-//        }
-//        return null;
-//    }
+    
 
 
     public String SearchMember(String NCOD) throws IOException {

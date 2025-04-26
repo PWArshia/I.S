@@ -232,7 +232,7 @@ public class HelloController{
     public void DeleteMember(ActionEvent actionEvent) throws IOException {
         String[] T=SearchResult.getText().split(Commons.Commons);
 
-        memberManager.DeleteMember(new Members(T[0],T[1],T[2],Integer.parseInt(T[3]),T[4],T[5] ));
+        memberManager.DeleteMember(SearchBoxM.getText());
         SearchResult.setText("");
     }
 
