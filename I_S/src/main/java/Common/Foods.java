@@ -25,12 +25,12 @@ public class Foods {
     public Foods(){}
 
 
-    public Foods(int id, String FoodName, FoodType foodType, double FoodPrice, int FoodQuantity) {
+    public Foods(int id, String FoodName, String foodType, double FoodPrice, int FoodQuantity) {
         this.SetID(id);
         this.SetFoodName(FoodName);
-        this.foodType = foodType;
-        this.FoodPrice = FoodPrice;
-        this.FoodQuantity = FoodQuantity;
+        this.SetFoodType(foodType);
+        this.SetFoodPrice(FoodPrice);
+        this.SetFoodQuantity(FoodQuantity);
     }
 
     @Override

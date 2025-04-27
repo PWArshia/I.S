@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Foods Class in Common">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" afterDir="false" />
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat first Food UI and Creat Foods.fxml">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,7 +52,7 @@
   "keyToString": {
     "Application.Common.TestMain.executor": "Run",
     "Application.HelloApplication.executor": "Run",
-    "Application.TestMain.executor": "Run",
+    "Application.TestMain.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -113,7 +113,7 @@
       <workItem from="1745697545613" duration="1528000" />
       <workItem from="1745699083786" duration="1673000" />
       <workItem from="1745700799824" duration="9287000" />
-      <workItem from="1745712674550" duration="5502000" />
+      <workItem from="1745712674550" duration="7851000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -131,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745715894267</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Creat first Food UI and Creat Foods.fxml">
+      <option name="closed" value="true" />
+      <created>1745718488249</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745718488249</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +148,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DeBug and Update UI and Backend. Develop final Member Section." />
     <MESSAGE value="Creat Foods Class in Common" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creat Foods Class in Common" />
+    <MESSAGE value="Creat first Food UI and Creat Foods.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creat first Food UI and Creat Foods.fxml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
