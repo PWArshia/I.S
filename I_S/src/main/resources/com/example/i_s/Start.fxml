@@ -5,7 +5,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.i_s.HelloController">
    <children>
-      <Button layoutX="183.0" layoutY="170.0" mnemonicParsing="false" onAction="#MembersCo" prefHeight="60.0" prefWidth="96.0" text="Members" />
-      <Button layoutX="324.0" layoutY="170.0" mnemonicParsing="false" onAction="#RoomsCo" prefHeight="60.0" prefWidth="96.0" text="Rooms" />
+      <Button layoutX="182.0" layoutY="125.0" mnemonicParsing="false" onAction="#MembersCo" prefHeight="60.0" prefWidth="96.0" text="Members" />
+      <Button layoutX="323.0" layoutY="125.0" mnemonicParsing="false" onAction="#RoomsCo" prefHeight="60.0" prefWidth="96.0" text="Rooms" />
+      <Button layoutX="323.0" layoutY="216.0" mnemonicParsing="false" onAction="#FoodsCo" prefHeight="60.0" prefWidth="96.0" text="Foods" />
    </children>
 </AnchorPane>

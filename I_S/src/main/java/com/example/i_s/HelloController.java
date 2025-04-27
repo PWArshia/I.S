@@ -1,5 +1,6 @@
 package com.example.i_s;
 import Common.Commons;
+import Common.Foods;
 import Common.Members;
 import EntityManagers.MemberManager;
 import javafx.event.ActionEvent;
@@ -390,5 +391,107 @@ public class HelloController {
         for (int x=0;x<cM;x++) {
             AllData.appendText(M[x].toString()+"\n");
         }
+    }
+
+
+    //------------------------------------------------------------------------------------------------------------------------->>>Food Section
+    private Stage FoodStage=new Stage();
+
+    @FXML
+    private TextField FoodName;
+    @FXML
+    private TextField TypeFood;
+    @FXML
+    private TextField EntityFood;
+    @FXML
+    private TextField FoodPrice;
+    @FXML
+    private Label MErrorFood;
+    @FXML
+    private TextField SearchBoxF;
+    @FXML
+    private Label SearchResultFood;
+    @FXML
+    private TextArea AllDataFood;
+
+
+    public void FoodsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Foods.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        FoodStage.setScene(scene);
+        FoodStage.show();
+    }
+
+    public void SetFood(ActionEvent actionEvent) {
+        String Name=FoodName.getText();
+        if (Name.length()==0) {
+            MErrorFood.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=TypeFood.getText();
+        if (Type.length()==0) {
+            MErrorFood.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=EntityFood.getText();
+        if (Entity.length()==0) {
+            MErrorFood.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=FoodPrice.getText();
+        if (Price.length()==0) {
+            MErrorFood.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        Foods F=new Foods();
+        boolean Check=F.SetFoodName(Name);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodName.clear();
+            return;
+        }
+        Check=F.SetFoodType(Type);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            TypeFood.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MError.setText("نامعتبر!");
+            FoodPrice.clear();
+            return;
+        }
+        Check=F.SetFoodPrice(Price2);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodPrice.clear();
+            return;
+        }
+        Check=F.SetFoodQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            EntityFood.clear();
+            return;
+        }
+
+
+
+
+    }
+
+    public void SearchFood(ActionEvent actionEvent) {
+    }
+
+    public void UpdateStageFood(ActionEvent actionEvent) {
+    }
+
+    public void DeleteFood(ActionEvent actionEvent) {
+    }
+
+    public void SetDataFood(ActionEvent actionEvent) {
     }
 }

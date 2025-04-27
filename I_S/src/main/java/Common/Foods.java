@@ -33,9 +33,15 @@ public class Foods {
         this.FoodQuantity = FoodQuantity;
     }
 
+    @Override
+    public String toString() {
+        return this.GetID()+Commons.Commons + this.GetFoodName() + Commons.Commons
+                + this.GetFoodType() + Commons.Commons + this.GetFoodPrice() + Commons.Commons + this.GetFoodQuantity();
+    }
+
 
     public boolean SetID(int id) {
-        if(id>=0 && id<=100){
+        if(id>=0 && id<100){
             this.id = id;
             return true;
         }
