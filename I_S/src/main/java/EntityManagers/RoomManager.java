@@ -85,10 +85,10 @@ public class RoomManager {
 
     }
 
-    public void Update(int a ) throws IOException{
+    public void Update(int a , Rooms roo) throws IOException{
 
-        String b=search(a);
-        fm.UpdateRow(SearchId , b );
+        search(a);
+        fm.UpdateRow(SearchId , roo.toString() );
         this.Array2Rooms();
 
     }
