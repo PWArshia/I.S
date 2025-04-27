@@ -2,6 +2,7 @@ package com.example.i_s;
 import Common.Commons;
 import Common.Foods;
 import Common.Members;
+import EntityManagers.FoodsManager;
 import EntityManagers.MemberManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -396,6 +397,7 @@ public class HelloController {
 
     //------------------------------------------------------------------------------------------------------------------------->>>Food Section
     private Stage FoodStage=new Stage();
+    private FoodsManager FOODS=new FoodsManager("FoodList");
 
     @FXML
     private TextField FoodName;
@@ -414,6 +416,8 @@ public class HelloController {
     @FXML
     private TextArea AllDataFood;
 
+    private int SearchFoodID;
+
 
     public void FoodsCo(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Foods.fxml"));
@@ -422,7 +426,7 @@ public class HelloController {
         FoodStage.show();
     }
 
-    public void SetFood(ActionEvent actionEvent) {
+    public void SetFood(ActionEvent actionEvent) throws IOException {
         String Name=FoodName.getText();
         if (Name.length()==0) {
             MErrorFood.setText("لطفا نام غذا را وارد کنید");
@@ -477,21 +481,144 @@ public class HelloController {
             EntityFood.clear();
             return;
         }
+        F.SetID((int) (Math.random()*99));
+        FOODS.AddFood(F);
+        FoodName.clear();
+        TypeFood.clear();
+        EntityFood.clear();
+        FoodPrice.clear();
+    }
 
-
-
+    public void SearchFood(ActionEvent actionEvent) throws IOException {
+        if (!(SearchBoxF.getText().length()>0 && SearchBoxF.getText().length()<3)){
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
+            return;
+        }
+        Foods F=new Foods();
+        boolean Check=F.SetID(Integer.parseInt(SearchBoxF.getText()));
+        if (!Check) {
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
+            return;
+        }
+        String TE=FOODS.SearchFood(Integer.parseInt(SearchBoxF.getText()));
+        SearchResultFood.setText(TE);
+        SearchBoxF.clear();
 
     }
 
-    public void SearchFood(ActionEvent actionEvent) {
+    public void UpdateStageFood(ActionEvent actionEvent) throws IOException {
+        if(SearchResultFood.getText().length()==0){
+            return;
+        }
+        if (SearchResultFood.getText().equals("نامعتبر!")) {
+            return;
+        }
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("UpdateFood.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        FoodStage.setScene(scene);
+        FoodStage.show();
     }
 
-    public void UpdateStageFood(ActionEvent actionEvent) {
-    }
+    public void DeleteFood(ActionEvent actionEvent) throws IOException {
+        String S1=SearchResultFood.getText();
+        String[] F1=S1.split(Commons.Commons);
+        Foods F=new Foods(Integer.parseInt(F1[0]),F1[1],F1[2],Double.parseDouble(F1[3]),Integer.parseInt(F1[4]));
 
-    public void DeleteFood(ActionEvent actionEvent) {
+        FOODS.DeleteFood(F);
+        SearchResultFood.setText("");
+        SearchBoxF.clear();
     }
 
     public void SetDataFood(ActionEvent actionEvent) {
+        Foods M[]=FOODS.GetArray();
+        int cM=FOODS.GetLengthArray();
+        AllDataFood.setEditable(false);
+        for (int x=0;x<cM;x++) {
+            AllDataFood.appendText(M[x].toString()+"\n");
+        }
+    }
+
+
+
+    @FXML
+    private TextField FoodNameU;
+    @FXML
+    private TextField TypeFoodU;
+    @FXML
+    private TextField EntityFoodU;
+    @FXML
+    private TextField FoodPriceU;
+    @FXML
+    private Label MErrorFoodU;
+
+    public void SetUpdateFood(ActionEvent actionEvent) throws IOException {
+        String Name=FoodNameU.getText();
+        if (Name.length()==0) {
+            MErrorFoodU.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=TypeFoodU.getText();
+        if (Type.length()==0) {
+            MErrorFoodU.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=EntityFoodU.getText();
+        if (Entity.length()==0) {
+            MErrorFoodU.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=FoodPriceU.getText();
+        if (Price.length()==0) {
+            MErrorFoodU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        Foods F=new Foods();
+        boolean Check=F.SetFoodName(Name);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodNameU.clear();
+            return;
+        }
+        Check=F.SetFoodType(Type);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            TypeFoodU.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorU.setText("نامعتبر!");
+            FoodPriceU.clear();
+            return;
+        }
+        Check=F.SetFoodPrice(Price2);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodPriceU.clear();
+            return;
+        }
+        Check=F.SetFoodQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            EntityFoodU.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        String Search=FOODS.SearchFood(SearchFoodID);
+        String[] T1=Search.split(Commons.Commons);
+        Foods F1=new Foods(Integer.parseInt(T1[0]),T1[1],T1[2],Double.parseDouble(T1[3]),Integer.parseInt(T1[4]) );
+
+
+        FOODS.UpdateFood(F1,F);
+        MErrorFoodU.setText("ثبت شد!");
+        EntityFoodU.clear();
+        FoodPriceU.clear();
+        FoodNameU.clear();
+        TypeFoodU.clear();
     }
 }

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat first Food UI and Creat Foods.fxml">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java" afterDir="false" />
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat FoodManager Class">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hello" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodList" beforeDir="false" afterPath="$PROJECT_DIR$/FoodList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -52,7 +51,7 @@
   "keyToString": {
     "Application.Common.TestMain.executor": "Run",
     "Application.HelloApplication.executor": "Run",
-    "Application.TestMain.executor": "Debug",
+    "Application.TestMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -114,6 +113,7 @@
       <workItem from="1745699083786" duration="1673000" />
       <workItem from="1745700799824" duration="9287000" />
       <workItem from="1745712674550" duration="7851000" />
+      <workItem from="1745722277502" duration="2520000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -139,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745718488249</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Creat FoodManager Class">
+      <option name="closed" value="true" />
+      <created>1745722378678</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745722378678</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +157,8 @@
     <MESSAGE value="DeBug and Update UI and Backend. Develop final Member Section." />
     <MESSAGE value="Creat Foods Class in Common" />
     <MESSAGE value="Creat first Food UI and Creat Foods.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creat first Food UI and Creat Foods.fxml" />
+    <MESSAGE value="Creat FoodManager Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creat FoodManager Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
