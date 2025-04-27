@@ -54,7 +54,9 @@
                      </font>
                   </Label>
                   <Button layoutX="363.0" layoutY="131.0" mnemonicParsing="false" onAction="#SearchRoom" prefHeight="35.0" prefWidth="71.0" text="Search" />
-                  <Label fx:id="RoomSearchResult" layoutX="118.0" layoutY="199.0" prefHeight="267.0" prefWidth="561.0" />
+                  <Label fx:id="RoomSearchResult" layoutX="118.0" layoutY="179.0" prefHeight="267.0" prefWidth="561.0" />
+                  <Button layoutX="470.0" layoutY="466.0" mnemonicParsing="false" onAction="#SetStageUpdate" prefHeight="49.0" prefWidth="72.0" text="Update" />
+                  <Button layoutX="255.0" layoutY="466.0" mnemonicParsing="false" onAction="#SetDelete" prefHeight="49.0" prefWidth="72.0" text="Delete" />
                </children></AnchorPane>
       </content>
     </TitledPane>
