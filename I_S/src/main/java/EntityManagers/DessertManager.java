@@ -63,9 +63,9 @@ public class DessertManager {
 
     }
 
-    public void UpdateDessert(int a) throws IOException {
+    public void UpdateDessert(int a , Dessert des) throws IOException {
         String b=Search(a);
-        fm.UpdateRow(searchid,b);
+        fm.UpdateRow(searchid, des.toString());
         this.Array2Dessert();
 
     }
