@@ -1,7 +1,9 @@
 package com.example.i_s;
 import Common.Commons;
+import Common.Drinks;
 import Common.Foods;
 import Common.Members;
+import EntityManagers.DrinksManager;
 import EntityManagers.FoodsManager;
 import EntityManagers.MemberManager;
 import javafx.event.ActionEvent;
@@ -10,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import javax.xml.stream.events.EntityDeclaration;
 import java.io.IOException;
 public class HelloController {
 
@@ -620,5 +624,241 @@ public class HelloController {
         FoodPriceU.clear();
         FoodNameU.clear();
         TypeFoodU.clear();
+    }
+
+
+
+    //------------------------------------------------------------------------------------------------------------------------>>>Drinks
+
+    Stage DrinkStage=new Stage();
+
+    DrinksManager drinksManager=new DrinksManager("DrinksList");
+
+    public void DrinksCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Drinks.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DrinkStage.setScene(scene);
+        DrinkStage.show();
+    }
+
+
+
+    @FXML
+    private TextField DrinkName;
+    @FXML
+    private TextField DrinkType;
+    @FXML
+    private TextField DrinkPrice;
+    @FXML
+    private TextField DrinkEntity;
+    @FXML
+    private Label MErrorDrink;
+    @FXML
+    private TextField SearchBoxD;
+    @FXML
+    private Label SearchResultDrink;
+    @FXML
+    private TextArea AllDataDrink;
+
+    public void SetDrink(ActionEvent actionEvent) throws IOException {
+        String Name=DrinkName.getText();
+        if (Name.length()==0) {
+            MErrorDrink.setText("لطفا نام نوشیدنی را وارد کنید");
+            return;
+        }
+        String Type=DrinkType.getText();
+        if (Type.length()==0) {
+            MErrorDrink.setText("لطفا نوع نوشیدنی را وارد کنید");
+            return;
+        }
+        String Entity=DrinkEntity.getText();
+        if (Entity.length()==0) {
+            MErrorDrink.setText("لطفا تعداد نوشیدنی را وارد کنید");
+            return;
+        }
+        String Price=DrinkPrice.getText();
+        if (Price.length()==0) {
+            MErrorDrink.setText("لطفا قیمت نوشیدنی را وارد کنید");
+            return;
+        }
+        Drinks F=new Drinks();
+        boolean Check=F.SetDrinkName(Name);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkName.clear();
+            return;
+        }
+        Check=F.SetDrinkType(Type);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkType.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkPrice.clear();
+            return;
+        }
+        Check=F.SetDrinkPrice(Price2);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkPrice.clear();
+            return;
+        }
+        Check=F.SetDrinkQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkEntity.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        drinksManager.AddDrink(F);
+        MErrorDrink.setText("ثبت شد!");
+        DrinkName.clear();
+        DrinkType.clear();
+        DrinkEntity.clear();
+        DrinkPrice.clear();
+    }
+
+    public void SearchDrink(ActionEvent actionEvent) throws IOException {
+        if (!(SearchBoxD.getText().length()>0 && SearchBoxD.getText().length()<3)){
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+        Drinks F=new Drinks();
+        boolean Check=F.SetID(Integer.parseInt(SearchBoxD.getText()));
+        if (!Check) {
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+        String TE= drinksManager.SearchDrink(Integer.parseInt(SearchBoxD.getText()));
+        SearchResultDrink.setText(TE);
+        SearchBoxD.clear();
+    }
+
+    public void UpdateStageDrink(ActionEvent actionEvent) throws IOException {
+        if(SearchResultDrink.getText().length()==0){
+            return;
+        }
+        if (SearchResultDrink.getText().equals("نامعتبر!")) {
+            return;
+        }
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("UpdateDrink.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DrinkStage.setScene(scene);
+        DrinkStage.show();
+    }
+    
+    
+
+
+    public void DeleteDrink(ActionEvent actionEvent) throws IOException {
+        String S1=SearchResultDrink.getText();
+        String[] F1=S1.split(Commons.Commons);
+        Drinks F=new Drinks(Integer.parseInt(F1[0]),F1[1],F1[2],Double.parseDouble(F1[3]),Integer.parseInt(F1[4]));
+
+        drinksManager.DeleteDrink(F);
+        SearchResultDrink.setText("");
+        SearchBoxD.clear();
+    }
+
+    public void SetDataDrink(ActionEvent actionEvent) {
+        Drinks D[]=drinksManager.GetArray();
+        int cD=drinksManager.GetLengthArray();
+        AllDataDrink.setEditable(false);
+        for (int x=0;x<cD;x++) {
+            AllDataDrink.appendText(D[x].toString()+"\n");
+        }
+    }
+
+
+
+    @FXML
+    private TextField DrinkNameU;
+    @FXML
+    private TextField DrinkTypeU;
+    @FXML
+    private TextField DrinkPriceU;
+    @FXML
+    private TextField DrinkEntityU;
+    @FXML
+    private Label MErrorDrinkU;
+
+
+
+
+    public void SetUpdateDrink(ActionEvent actionEvent) throws IOException {
+        String Name=DrinkNameU.getText();
+        if (Name.length()==0) {
+            MErrorDrinkU.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=DrinkTypeU.getText();
+        if (Type.length()==0) {
+            MErrorFoodU.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=DrinkEntityU.getText();
+        if (Entity.length()==0) {
+            MErrorDrinkU.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=DrinkPriceU.getText();
+        if (Price.length()==0) {
+            MErrorDrinkU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        Drinks F=new Drinks();
+        boolean Check=F.SetDrinkName(Name);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkNameU.clear();
+            return;
+        }
+        Check=F.SetDrinkType(Type);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkTypeU.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkPriceU.clear();
+            return;
+        }
+        Check=F.SetDrinkPrice(Price2);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkPriceU.clear();
+            return;
+        }
+        Check=F.SetDrinkQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        String Search= drinksManager.SearchDrink(SearchFoodID);
+        String[] T1=Search.split(Commons.Commons);
+        Drinks F1=new Drinks(Integer.parseInt(T1[0]),T1[1],T1[2],Double.parseDouble(T1[3]),Integer.parseInt(T1[4]) );
+
+
+        drinksManager.UpdateDrink(F1,F);
+        MErrorDrinkU.setText("ثبت شد!");
+        DrinkEntityU.clear();
+        DrinkPriceU.clear();
+        DrinkNameU.clear();
+        DrinkTypeU.clear();
     }
 }
