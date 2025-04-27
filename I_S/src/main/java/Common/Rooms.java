@@ -15,6 +15,8 @@ public class Rooms {
         return  this.NO+ Commons.Commons + this.floor+Commons.Commons + this.roomType+ Commons.Commons + this.price +Commons.Commons +this.IsBussy;
     }
 
+    public Rooms(){}
+
    public Rooms(int No, boolean Is , int fl , String Type , Double price){
      this.SetFloor(fl);
      this.SetIsBussy(Is);
@@ -24,37 +26,48 @@ public class Rooms {
    } 
     
 
+
     // ----------------------------------------------------------> Setter
 
-    public void setNO(int a){
+    public boolean setNO(int a){
         if (a>=0){
             this.NO=a;
+            return true;
         }
+        return false;
     }
 
-    public void SetFloor(int a){
+    public boolean SetFloor(int a){
         if (a>=0){
             this.floor=a;
+            return true;
         }
+        return false;
     }
     
-    public void SetRoomType(String s){
+    public boolean SetRoomType(String s){
         if (s.equals("VIP")){
             roomType=RoomType.VIP ;
+            return true;
         }
         else if(s.equals("NORMAL")){
             roomType=RoomType.normal;
+            return true;
         }
+        return false;
     }
 
-    public void SetPrice(Double a){
+    public boolean SetPrice(Double a){
         if (a>0){
             this.price=a;
+            return true;
         }
+        return false;
     }
 
-    public void SetIsBussy(boolean a){
+    public boolean SetIsBussy(boolean a){
         this.IsBussy=a;
+        return true;
     }
 
     // ----------------------------------------------------------> Getter
