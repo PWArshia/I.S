@@ -11,7 +11,7 @@ import TxtFileManager.TextFile_Manager;
 public class RoomManager {
 
     private TextFile_Manager fm;
-    private Rooms rooms[];
+    private Rooms rooms[]=new Rooms[10000];
     private Rooms thisRoom;
     private int SearchId;
 
@@ -30,7 +30,6 @@ public class RoomManager {
     public void Array2Rooms() throws IOException{
         
         String A[]=fm.getArray();
-        rooms=new Rooms[fm.getRowCount()+100];
         for (int i=0; i<fm.getRowCount();i++){
             String B[]=A[i].split(Commons.Commons);
             int No=Integer.parseInt(B[0]);
