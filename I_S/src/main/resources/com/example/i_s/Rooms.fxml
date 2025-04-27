@@ -15,7 +15,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="RoomNum" layoutX="285.0" layoutY="79.0" prefHeight="26.0" prefWidth="225.0" />
+                  <TextField fx:id="RoomNum1" layoutX="285.0" layoutY="79.0" prefHeight="26.0" prefWidth="225.0" />
                   <Label contentDisplay="RIGHT" layoutX="424.0" layoutY="43.0" prefHeight="27.0" prefWidth="86.0" text="شماره اتاق:" textAlignment="RIGHT">
                      <font>
                         <Font size="18.0" />
@@ -33,12 +33,13 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="Type" layoutX="372.0" layoutY="266.0" mnemonicParsing="false" text="VIP">
+                  <CheckBox fx:id="Type" layoutX="372.0" layoutY="313.0" mnemonicParsing="false" text="VIP">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </CheckBox>
-                  <Button layoutX="358.0" layoutY="309.0" mnemonicParsing="false" onAction="#SetRoom" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
+                  <Button layoutX="358.0" layoutY="356.0" mnemonicParsing="false" onAction="#SetRoom" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
+                  <Label fx:id="ErrorR" layoutX="319.0" layoutY="272.0" prefHeight="26.0" prefWidth="159.0" />
                </children></AnchorPane>
       </content>
     </TitledPane>
@@ -46,13 +47,14 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="SearchBox" layoutX="291.0" layoutY="83.0" prefHeight="26.0" prefWidth="215.0" />
+                  <TextField fx:id="SearchBoxR" layoutX="291.0" layoutY="83.0" prefHeight="26.0" prefWidth="215.0" />
                   <Label layoutX="350.0" layoutY="46.0" prefHeight="26.0" prefWidth="156.0" text="شماره اتاق را وارد کنید:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                   <Button layoutX="363.0" layoutY="131.0" mnemonicParsing="false" onAction="#SearchRoom" prefHeight="35.0" prefWidth="71.0" text="Search" />
+                  <Label fx:id="RoomSearchResult" layoutX="118.0" layoutY="199.0" prefHeight="267.0" prefWidth="561.0" />
                </children></AnchorPane>
       </content>
     </TitledPane>

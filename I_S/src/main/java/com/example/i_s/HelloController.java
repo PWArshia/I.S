@@ -1,11 +1,9 @@
 package com.example.i_s;
-import Common.Commons;
-import Common.Drinks;
-import Common.Foods;
-import Common.Members;
+import Common.*;
 import EntityManagers.DrinksManager;
 import EntityManagers.FoodsManager;
 import EntityManagers.MemberManager;
+import EntityManagers.RoomManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,18 +21,20 @@ public class HelloController {
 
 
     // ------------------------------------------------------------------------------------------------>>>Room Section
-
+    RoomManager roomManager=new RoomManager("RoomsList");
     Stage RoomWindow=new Stage();
 
 
     @FXML
-    private TextField RoomNum;
+    private TextField RoomNum1;
     @FXML
     private TextField tbNum;
     @FXML
     private TextField PriceV;
     @FXML
     private CheckBox Type;
+    @FXML
+    private Label ErrorR;
 
 
     @FXML
@@ -46,14 +46,49 @@ public class HelloController {
         RoomWindow.show();
     }
 
-    public void SearchRoom(ActionEvent actionEvent) {
 
+    @FXML
+    private TextField SearchBoxR;
+    @FXML
+    private Label RoomSearchResult;
+
+    public void SearchRoom(ActionEvent actionEvent) throws IOException {
+        if(SearchBoxR.getText().length()==0){
+            RoomSearchResult.setText("شماره اتاق را وارد کنید");
+        }
+
+        String RoomID=SearchBoxR.getText();
+        int RID=0;
+        try {
+            RID=Integer.parseInt(RoomID);
+        }
+        catch (NumberFormatException e) {
+            RoomSearchResult.setText("نامعتبر!");
+            SearchBoxR.clear();
+            return;
+        }
+
+        String Result=roomManager.search(RID);
+        RoomSearchResult.setText(Result);
+        SearchBoxR.clear();
     }
 
-    public void SetRoom(ActionEvent actionEvent) {
-        String RMNUM=RoomNum.getText();
+    public void SetRoom(ActionEvent actionEvent) throws IOException {
+        String RMNUM=RoomNum1.getText();
+        if(RMNUM.length()==0){
+            ErrorR.setText("لطفا شماره اتاق را وارد کنید");
+            return;
+        }
         String TBNUM=tbNum.getText();
+        if(TBNUM.length()==0){
+            ErrorR.setText("لطفا شماره طبقه را وارد کنید");
+            return;
+        }
         String PRICEV=PriceV.getText();
+        if(PRICEV.length()==0){
+            ErrorR.setText("لطفا قیمت اتاق را وارد کنید");
+            return;
+        }
         String TYPE;
         if(Type.isSelected()){
             TYPE="VIP";
@@ -61,6 +96,73 @@ public class HelloController {
         else{
             TYPE="normal";
         }
+
+        Rooms A1=new Rooms();
+
+        int RoomNum=0;
+        try {
+            RoomNum=Integer.parseInt(RMNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            RoomNum1.clear();
+            return;
+        }
+        boolean Check=A1.setNO(RoomNum);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            RoomNum1.clear();
+            return;
+        }
+        int floor=0;
+        try {
+            floor=Integer.parseInt(TBNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            tbNum.clear();
+            return;
+        }
+        Check=A1.SetFloor(floor);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            tbNum.clear();
+            return;
+        }
+
+        double price1=0;
+        try {
+            price1=Double.parseDouble(PRICEV);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            PriceV.clear();
+            return;
+        }
+        Check= A1.SetPrice(price1);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            PriceV.clear();
+            return;
+        }
+
+
+        Check= A1.SetRoomType(TYPE);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            return;
+        }
+
+        A1.SetIsBussy(false);
+        roomManager.AddRoom(A1);
+        ErrorR.setText("ثبت شد");
+        PriceV.clear();
+        RoomNum1.clear();
+        tbNum.clear();
+        Type.setSelected(false);
+
+
+
     }
 
 
