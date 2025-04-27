@@ -2,6 +2,7 @@ package Common;
 
 public class Dessert {
 
+    private int id;
     private String Name;
     private double price;
     private int DessertQuantity;
@@ -11,7 +12,8 @@ public class Dessert {
 
     public Dessert(){}
 
-    public Dessert(String Name, double price, int DessertQuantity) {
+    public Dessert(int ID,String Name, double price, int DessertQuantity) {
+        this.SetId(ID);
         this.SetName(Name);
         this.SetPrice(price);
         this.SetDessertQuantity(DessertQuantity);
@@ -19,10 +21,18 @@ public class Dessert {
 
     @Override
     public String toString() {
-        return  this.GetName()+Commons.Commons+this.GetPrice()+Commons.Commons+this.GetDessertQuantity();
+        return  this.GetId()+Commons.Commons+this.GetName()+Commons.Commons+this.GetPrice()+Commons.Commons+this.GetDessertQuantity();
     }
 
 //    --------------------------------------------------------------------> Setter
+
+    public boolean SetId(int ID){
+        if(ID<0){
+            return false;
+        }
+        this.id=ID;
+        return true;
+    }
 
     public boolean SetName(String name){
         if(name.length()<3)
@@ -54,7 +64,9 @@ public class Dessert {
     }
 //    ---------------------------------------------------------------------------------->Getter
 
-
+    public int GetId(){
+        return this.id;
+    }
     public String GetName(){
         return this.Name;
     }

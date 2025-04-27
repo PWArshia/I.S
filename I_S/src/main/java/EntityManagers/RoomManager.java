@@ -18,6 +18,7 @@ public class RoomManager {
     public RoomManager(String FileName) throws IOException{
         fm=new TextFile_Manager(FileName);
         fm.CreateTextFile();
+        rooms=new Rooms[fm.getRowCount()+100];
     }
 
     public void AddRoom(Rooms a) throws IOException{
@@ -26,10 +27,10 @@ public class RoomManager {
         fm.AppendRow(S);
     }
 
-    public void Array2books() throws IOException{
+    public void Array2Rooms() throws IOException{
         
         String A[]=fm.getArray();
-        rooms=new Rooms[1000];
+        rooms=new Rooms[fm.getRowCount()+100];
         for (int i=0; i<fm.getRowCount();i++){
             String B[]=A[i].split(Commons.Commons);
             int No=Integer.parseInt(B[0]);
@@ -79,7 +80,7 @@ public class RoomManager {
 
         search(a);
         fm.delete_Rows(SearchId);
-        this.Array2books();
+        this.Array2Rooms();
 
     }
 
@@ -87,7 +88,7 @@ public class RoomManager {
 
         String b=search(a);
         fm.UpdateRow(a, b );
-        this.Array2books();
+        this.Array2Rooms();
 
     }
 
