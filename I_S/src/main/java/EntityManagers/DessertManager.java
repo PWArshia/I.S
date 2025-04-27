@@ -55,7 +55,19 @@ public class DessertManager {
         return dessert[searchid].toString();
     }
 
-    public void DeleteDessert(int a)  {}
+    public void DeleteDessert(int a) throws IOException {
+        Search(a);
+        fm.delete_Rows(a);
+        this.Array2Dessert();
+
+    }
+
+    public void UpdateDessert(int a) throws IOException {
+        String b=Search(a);
+        fm.UpdateRow(searchid,b);
+        this.Array2Dessert();
+
+    }
 
 
 

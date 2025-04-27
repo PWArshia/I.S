@@ -87,7 +87,7 @@ public class RoomManager {
     public void Update(int a ) throws IOException{
 
         String b=search(a);
-        fm.UpdateRow(a, b );
+        fm.UpdateRow(SearchId , b );
         this.Array2Rooms();
 
     }
