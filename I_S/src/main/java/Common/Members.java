@@ -1,10 +1,8 @@
 package Common;
 
 
-import org.jetbrains.annotations.NotNull;
 
 public class Members {
-    @NotNull
     private String Name;
     private int Age;
     private enum Gender {

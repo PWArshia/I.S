@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="">
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="DeBug and Update UI and Backend. Develop final Member Section.">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/Hello" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/MembersList" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MembersList" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Common.TestMain.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.TestMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -117,11 +112,25 @@
       <workItem from="1745697364281" duration="38000" />
       <workItem from="1745697545613" duration="1528000" />
       <workItem from="1745699083786" duration="1673000" />
-      <workItem from="1745700799824" duration="8568000" />
+      <workItem from="1745700799824" duration="9287000" />
+      <workItem from="1745712674550" duration="2927000" />
     </task>
+    <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
+      <option name="closed" value="true" />
+      <created>1745709757425</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745709757425</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DeBug and Update UI and Backend. Develop final Member Section." />
+    <option name="LAST_COMMIT_MESSAGE" value="DeBug and Update UI and Backend. Develop final Member Section." />
   </component>
 </project>
