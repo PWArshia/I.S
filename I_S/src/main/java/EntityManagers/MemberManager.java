@@ -60,7 +60,7 @@ public class MemberManager {
         Array2TextFile();
     }
 
-    
+
 
 
     public String SearchMember(String NCOD) throws IOException {
