@@ -23,8 +23,8 @@ public class RoomManager {
 
     public void AddRoom(Rooms a) throws IOException{
         String S= a.GetNo()+ Commons.Commons + a.GetFloor()+Commons.Commons + a.GetRoomType()+ Commons.Commons + a.GetPrice() +Commons.Commons +a.GetIsBussy();
-
         fm.AppendRow(S);
+        this.Array2Rooms();
     }
 
     public void Array2Rooms() throws IOException{
