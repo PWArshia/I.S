@@ -10,26 +10,28 @@ import java.io.IOException;
 public class DessertManager {
 
     private TextFile_Manager fm;
-    private Dessert dessert[]=new Dessert[10000];
+    private Dessert dessert[];
     private int searchid;
 
 
     public DessertManager(String filename) throws IOException {
         fm = new TextFile_Manager(filename);
         fm.CreateTextFile();
-        dessert=new Dessert[fm.getRowCount()+100];
+        this.Array2Dessert();
     }
 
     public void AddDessert(Dessert dessert1) throws IOException {
         fm.AppendRow(dessert1.toString());
+        this.Array2Dessert();
     }
 
     public void Array2Dessert() throws FileNotFoundException {
 
+        dessert=new Dessert[fm.getRowCount()+100];
         String A[]=fm.getArray();
 
         for (int i=0;i<fm.getRowCount();i++){
-
+            dessert[i]=new Dessert();
             String B[]=A[i].split(Commons.Commons);
 
             int ID=Integer.parseInt(B[0]);
@@ -66,6 +68,20 @@ public class DessertManager {
         fm.UpdateRow(searchid,b);
         this.Array2Dessert();
 
+    }
+
+    public void IncreaseDessertQuantity(int a ,int b) throws IOException {
+
+        Search(a);
+        dessert[searchid].SetDessertQuantity(dessert[searchid].GetDessertQuantity()+b);
+        this.Array2Dessert();
+
+    }
+
+    public void ReduceDessertQuantity(int a , int b) throws IOException {
+        Search(a);
+        dessert[searchid].SetDessertQuantity(dessert[searchid].GetDessertQuantity()-b);
+        this.Array2Dessert();
     }
 
 
