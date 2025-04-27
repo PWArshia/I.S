@@ -79,10 +79,7 @@ public class MemberManager {
 //        Array2TextFile();
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
 
 
 

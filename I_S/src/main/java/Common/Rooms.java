@@ -10,6 +10,9 @@ public class Rooms {
     private RoomType roomType;
     private Double price;
 
+
+//    ------------------------------------------------------------->Cons
+
     @Override
     public String toString(){
         return  this.NO+ Commons.Commons + this.floor+Commons.Commons + this.roomType+ Commons.Commons + this.price +Commons.Commons +this.IsBussy;

@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
-=======
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Finaly Develop Food">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Drinks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DrinksManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
->>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
+      <change beforePath="$PROJECT_DIR$/FoodList" beforeDir="false" afterPath="$PROJECT_DIR$/FoodList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Dessert.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Dessert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Rooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,9 +107,7 @@
       <workItem from="1745584290037" duration="36000" />
       <workItem from="1745604910608" duration="193000" />
       <workItem from="1745605143332" duration="414000" />
-<<<<<<< HEAD
       <workItem from="1745635511259" duration="2450000" />
-=======
       <workItem from="1745635511259" duration="1875000" />
       <workItem from="1745694898940" duration="2120000" />
       <workItem from="1745697364281" duration="38000" />
@@ -130,7 +120,6 @@
       <workItem from="1745752739705" duration="1363000" />
       <workItem from="1745754120811" duration="2493000" />
       <workItem from="1745756720518" duration="2009000" />
->>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
