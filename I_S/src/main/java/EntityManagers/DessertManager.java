@@ -10,7 +10,7 @@ import java.io.IOException;
 public class DessertManager {
 
     private TextFile_Manager fm;
-    private Dessert dessert[];
+    private Dessert dessert[]=new Dessert[10000];
     private int searchid;
 
 
@@ -27,7 +27,6 @@ public class DessertManager {
     public void Array2Dessert() throws FileNotFoundException {
 
         String A[]=fm.getArray();
-        dessert=new Dessert[fm.getRowCount()+100];
 
         for (int i=0;i<fm.getRowCount();i++){
 
