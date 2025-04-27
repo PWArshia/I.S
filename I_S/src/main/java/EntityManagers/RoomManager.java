@@ -19,6 +19,7 @@ public class RoomManager {
         fm=new TextFile_Manager(FileName);
         fm.CreateTextFile();
         rooms=new Rooms[fm.getRowCount()+100];
+        this.Array2Rooms();
     }
 
     public void AddRoom(Rooms a) throws IOException{
