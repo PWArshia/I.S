@@ -8,81 +8,143 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class MemberManager {
-    private TextFile_Manager MemberManager;
-    private Members[] MemberS=new Members[1000];
-    private int cMemberS=0;
-    private int SearchId;
+    private TextFile_Manager MembersFileManager;
+    private Members[] members=new Members[1000];
+    private int cmembers=0;
 
     public MemberManager(String FileName) throws IOException {
-        MemberManager = new TextFile_Manager(FileName);
-        MemberManager.CreateTextFile();
+        MembersFileManager = new TextFile_Manager(FileName);
+        MembersFileManager.CreateTextFile();
+        TextFile2Array();
     }
 
     private void TextFile2Array() throws FileNotFoundException {
-        String[] A = MemberManager.getArray();
-        int cA=MemberManager.getRowCount();
+        String[] A = MembersFileManager.getArray();
+        int cA=MembersFileManager.getRowCount();
         for (int i = 0; i < cA; i++) {
             String[] B = A[i].split(Commons.Commons);
 
-            MemberS[i]=new Members(B[0],B[1],B[2],Integer.parseInt(B[3]),B[4],B[5]);
+            members[i]=new Members(B[0],B[1],B[2],Integer.parseInt(B[3]),B[4],B[5],Integer.parseInt(B[6]));
 
-
-        }
-        cMemberS=cA;
+       }
+        cmembers=cA;
     }
 
     private void Array2TextFile() throws IOException {
-        MemberManager.ClearTextFile();
-        for (int i = 0; i < cMemberS; i++) {
-            MemberManager.AppendRow(MemberS[i].toString());
+        MembersFileManager.ClearTextFile();
+        for (int i = 0; i < cmembers; i++) {
+            MembersFileManager.AppendRow(members[i].toString());
         }
     }
 
 
     public void AddMember(Members Member) throws IOException {
-        MemberS[cMemberS++]=Member;
-        Array2TextFile();
+        MembersFileManager.AppendRow(Member.toString());
+        TextFile2Array();
+
+
+
+//        members[cmembers++]=Member;
+//        Array2TextFile();
     }
 
-    public void DeleteMember(String a) throws IOException {
+    public boolean DeleteMember(Members M) throws IOException {
 
 
-        this.SearchMember(a);
-        MemberManager.delete_Rows(this.SearchId);
-        this.TextFile2Array();
+        int a=IndexSearchMember(M.GetID());
+        if (a==-1)
+            return false;
+        MembersFileManager.delete_Rows(a);
+        TextFile2Array();
+        return true;
+
+
+//        this.SearchMember(a);
+//        MembersFileManager.delete_Rows(this.SearchId);
+//        this.TextFile2Array();
 
     }
 
 
 
-    public void UpdateMember(int a,Members M) throws IOException {
-        MemberS[a]=M;
-        Array2TextFile();
+    public void UpdateMember(Members M,Members M1) throws IOException {
+        int a=IndexSearchMember(M.GetID());
+        MembersFileManager.UpdateRow(a,M1.toString());
+        TextFile2Array();
+
+
+
+
+//        members[a]=M;
+//        Array2TextFile();
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
 
 
 
-    public String SearchMember(String NCOD) throws IOException {
-        for (int i = 0; i < cMemberS; i++) {
-            if (MemberS[i].GetNationalCode().equals(NCOD)) {
-                this.SearchId=i;
-                return MemberS[i].toString();
+    public String SearchMember(int ID) throws IOException {
+
+        for (int i = 0; i < cmembers; i++) {
+            if (this.members[i].GetID()==ID) {
+                return members[i].toString();
             }
         }
         return null;
+
     }
 
 
-    public void SetArray(Members[] M,int cM) {
-        MemberS=M;
-        cMemberS=cM;
+
+    public int IndexSearchMember(int ID) throws IOException {
+        for (int i = 0; i < cmembers; i++) {
+            if (this.members[i].GetID()==ID) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+
+    public boolean SearchNationalCode(String NCOD) throws IOException {
+        for (int i = 0; i < cmembers; i++) {
+            if (this.members[i].GetNationalCode().equals(NCOD)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+//    public String SearchMember(String NCOD) throws IOException {
+//        for (int i = 0; i < cmembers; i++) {
+//            if (members[i].GetNationalCode().equals(NCOD)) {
+//                this.SearchId=i;
+//                return members[i].toString();
+//            }
+//        }
+//        return null;
+//    }
+
+
+    public void SetArray(Members[] M,int cM) throws IOException {
+        members=M;
+        cmembers=cM;
+        Array2TextFile();
     }
     public Members[] GetArray() {
-        return MemberS;
+        return members;
     }
     public int GetLengthArray() {
-        return cMemberS;
+        return cmembers;
     }
 
 

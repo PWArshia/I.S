@@ -1,8 +1,8 @@
 package Common;
 
 
-public class Members {
 
+public class Members {
     private String Name;
     private int Age;
     private enum Gender {
@@ -12,18 +12,19 @@ public class Members {
     private String LastName;
     private String National_Code;
     private String PhoneNumber;
-
+    private int ID;
 
     public Members() {}
 
 
-    public Members( String Name,String LastName ,String National_Code , int Age,String gender ,String PhoneNumber ) {
+    public Members( String Name,String LastName ,String National_Code , int Age,String gender ,String PhoneNumber ,int ID) {
         this.SetName(Name);
         this.SetAge(Age);
         this.SetGender(gender);
         this.SetLastName(LastName);
         this.SetNationalCode(National_Code);
         this.SetPhoneNumber(PhoneNumber);
+        this.SetID(ID);
     }
 
 
@@ -158,6 +159,27 @@ public class Members {
     }
 
 
+    public int SetID(int ID) {
+        boolean check=true;
+        if(ID<0 || ID>=10000)
+            check=false;
+        if (check) {
+            this.ID = ID;
+            return 1;
+        }
+        else {
+            return 0;
+        }
+
+    }
+
+
+
+    public int GetID() {
+        return ID;
+    }
+
+
     public String GetName() {
         return this.Name;
     }
@@ -187,7 +209,7 @@ public class Members {
     public String toString(){
         return this.GetName() + Commons.Commons + this.GetLastName() + Commons.Commons +
                 this.GetNationalCode() + Commons.Commons + this.GetAge() + Commons.Commons + this.GetGender() +
-                Commons.Commons + this.GetPhoneNumber();
+                Commons.Commons + this.GetPhoneNumber() + Commons.Commons + this.GetID();
     }
 
 

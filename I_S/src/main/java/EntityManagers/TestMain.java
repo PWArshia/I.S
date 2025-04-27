@@ -1,22 +1,22 @@
 package EntityManagers;
+import Common.Foods;
+import Common.Members;
 import Common.Rooms;
 import java.io.IOException;
 
 public class TestMain {
     public static void main(String[] args) throws IOException {
-        RoomManager manager = new RoomManager("Hello");
+        FoodsManager manager=new FoodsManager("FoodList");
 
-        Rooms A=new Rooms(1,false,1,"VIP",4000000.0);
-        Rooms B=new Rooms(2,false,1,"normal",3000000.0);
-        Rooms C=new Rooms(3,false,1,"normal",2500000.0);
-        Rooms D=new Rooms(1,false,2,"VIP",3500000.0);
-        Rooms E=new Rooms(2,false,2,"normal",1100000.0);
+        Foods F1=new Foods(1,"asfg","fastfood",11,2);
+        Foods F2=new Foods(1,"ghjfh","fastfood",52,3);
+        Foods F3=new Foods(1,"fhkkf","fastfood",63,4);
+        Foods F4=new Foods(1,"fkdk","fastfood",22,8);
 
-        manager.AddRoom(A);
-        manager.AddRoom(B);
-        manager.AddRoom(C);
-        manager.AddRoom(D);
-        manager.AddRoom(E);
+
+
+        manager.UpdateFood(F1,F2);
+
 
 
     }

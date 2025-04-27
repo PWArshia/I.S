@@ -19,10 +19,13 @@ public class TextFile_Manager {
     }
 
     public void CreateTextFile() throws IOException {
+
         File file = new File(FileName);
         FilePath = file.getAbsolutePath();
-        FileWriter fw = new FileWriter(file);
-        fw.close();
+        if(!file.exists()) {
+            FileWriter fw = new FileWriter(file);
+            fw.close();
+        }
     }
 
     public String getAddress(){
@@ -30,7 +33,9 @@ public class TextFile_Manager {
     }
 
     public void ClearTextFile() throws IOException {
-        this.CreateTextFile();
+        File file = new File(FileName);
+        FileWriter fw = new FileWriter(file);
+        fw.close();
     }
 
     public void AppendRow(String row) throws IOException {

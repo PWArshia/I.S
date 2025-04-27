@@ -4,13 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/MemberManager.java" afterDir="false" />
+=======
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Finaly Develop Food">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Drinks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DrinksManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+>>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,23 +56,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arshia/Desktop/Is",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Common.TestMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kamya/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EntityManagers.TestMain" />
+      <module name="I_S" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EntityManagers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestMain" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,11 +115,95 @@
       <workItem from="1745584290037" duration="36000" />
       <workItem from="1745604910608" duration="193000" />
       <workItem from="1745605143332" duration="414000" />
+<<<<<<< HEAD
       <workItem from="1745635511259" duration="2450000" />
+=======
+      <workItem from="1745635511259" duration="1875000" />
+      <workItem from="1745694898940" duration="2120000" />
+      <workItem from="1745697364281" duration="38000" />
+      <workItem from="1745697545613" duration="1528000" />
+      <workItem from="1745699083786" duration="1673000" />
+      <workItem from="1745700799824" duration="9287000" />
+      <workItem from="1745712674550" duration="7851000" />
+      <workItem from="1745722277502" duration="2671000" />
+      <workItem from="1745724989237" duration="80000" />
+      <workItem from="1745752739705" duration="1363000" />
+      <workItem from="1745754120811" duration="2493000" />
+      <workItem from="1745756720518" duration="2009000" />
+>>>>>>> de6cf62bd0c008c41c09cb9be0f8791858831818
     </task>
+    <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
+      <option name="closed" value="true" />
+      <created>1745709757425</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745709757425</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Creat Foods Class in Common">
+      <option name="closed" value="true" />
+      <created>1745715894267</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745715894267</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Creat first Food UI and Creat Foods.fxml">
+      <option name="closed" value="true" />
+      <created>1745718488249</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745718488249</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Creat FoodManager Class">
+      <option name="closed" value="true" />
+      <created>1745722378678</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745722378678</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Finaly Develop Food">
+      <option name="closed" value="true" />
+      <created>1745724920197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745724920197</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DeBug and Update UI and Backend. Develop final Member Section." />
+    <MESSAGE value="Creat Foods Class in Common" />
+    <MESSAGE value="Creat first Food UI and Creat Foods.fxml" />
+    <MESSAGE value="Creat FoodManager Class" />
+    <MESSAGE value="Finaly Develop Food" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finaly Develop Food" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
