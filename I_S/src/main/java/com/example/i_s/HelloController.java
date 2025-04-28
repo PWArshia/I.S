@@ -70,8 +70,9 @@ public class HelloController {
         }
 
         SearchIDRoom=RID;
-
+        System.out.println(RID);
         String Result=roomManager.search(RID);
+        System.out.println(Result);
         RoomSearchResult.setText(Result);
         SearchBoxR.clear();
     }
@@ -235,6 +236,9 @@ public class HelloController {
             RoomNum1.clear();
             return;
         }
+
+
+
         boolean Check=A1.setNO(RoomNum);
         if(!Check){
             ErrorR.setText("نامعتبر!");
