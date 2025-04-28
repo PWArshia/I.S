@@ -19,25 +19,44 @@ public class Foods {
     private FoodType foodType;
     private double FoodPrice;
     private int FoodQuantity;
+    private double BuyPrice;
 
 
 
     public Foods(){}
 
 
-    public Foods(int id, String FoodName, String foodType, double FoodPrice, int FoodQuantity) {
+    public Foods(int id, String FoodName, String foodType, double FoodPrice, int FoodQuantity, double BuyPrice) {
         this.SetID(id);
         this.SetFoodName(FoodName);
         this.SetFoodType(foodType);
         this.SetFoodPrice(FoodPrice);
         this.SetFoodQuantity(FoodQuantity);
+        this.SetBuyPrice(BuyPrice);
     }
 
     @Override
     public String toString() {
         return this.GetID()+Commons.Commons + this.GetFoodName() + Commons.Commons
-                + this.GetFoodType() + Commons.Commons + this.GetFoodPrice() + Commons.Commons + this.GetFoodQuantity();
+                + this.GetFoodType() + Commons.Commons + this.GetFoodPrice() + Commons.Commons
+                    + this.GetFoodQuantity()+ Commons.Commons+ this.GetBuyPrice();
     }
+
+
+    public boolean SetBuyPrice(double buyPrice) {
+        if(buyPrice >=0){
+            this.BuyPrice = buyPrice;
+            return true;
+        }
+        return false;
+    }
+
+
+
+    public double GetBuyPrice() {
+        return this.BuyPrice;
+    }
+
 
 
     public boolean SetID(int id) {

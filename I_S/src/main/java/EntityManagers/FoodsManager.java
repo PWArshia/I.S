@@ -37,7 +37,8 @@ public class FoodsManager {
         for (int i = 0; i < cA; i++) {
             String[] B = A[i].split(Commons.Commons);
 
-            FoodsList[i]=new Foods(Integer.parseInt(B[0]),B[1],B[2],Double.parseDouble(B[3]),Integer.parseInt(B[4]));
+            FoodsList[i]=new Foods(Integer.parseInt(B[0]),B[1],B[2],
+                    Double.parseDouble(B[3]),Integer.parseInt(B[4]),Double.parseDouble(B[5]));
 
         }
         cFoodsList=cA;
@@ -98,10 +99,18 @@ public class FoodsManager {
         cFoodsList=cF;
         Array2TextFile();
     }
-    public Foods[] GetArray() {
+    public Foods[] GetArray() throws FileNotFoundException {
+        TextFile2Array();
         return FoodsList;
     }
     public int GetLengthArray() {
+        for (int i = FoodsList.length-1; i >=0; i--) {
+            if (FoodsList[i]!=null){
+                cFoodsList=i+1;
+                break;
+            }
+        }
+
         return cFoodsList;
     }
 

@@ -15,32 +15,38 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="DrinkName" layoutX="286.0" layoutY="105.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="413.0" layoutY="68.0" prefHeight="27.0" prefWidth="98.0" text="نام نوشیدنی:" textAlignment="RIGHT">
+                        <TextField fx:id="DrinkName" layoutX="286.0" layoutY="49.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="413.0" layoutY="12.0" prefHeight="27.0" prefWidth="98.0" text="نام نوشیدنی:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="DrinkType" layoutX="287.0" layoutY="177.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="415.0" layoutY="140.0" prefHeight="27.0" prefWidth="98.0" text="نوع نوشیدنی" textAlignment="RIGHT">
+                        <TextField fx:id="DrinkType" layoutX="287.0" layoutY="121.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="415.0" layoutY="84.0" prefHeight="27.0" prefWidth="98.0" text="نوع نوشیدنی" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="DrinkEntity" layoutX="287.0" layoutY="251.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="373.0" layoutY="214.0" prefHeight="27.0" prefWidth="138.0" text="موجودی نوشیدنی:" textAlignment="RIGHT">
+                        <TextField fx:id="DrinkEntity" layoutX="287.0" layoutY="195.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="373.0" layoutY="158.0" prefHeight="27.0" prefWidth="138.0" text="موجودی نوشیدنی:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="DrinkPrice" layoutX="287.0" layoutY="324.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="464.0" layoutY="287.0" prefHeight="27.0" prefWidth="48.0" text="قیمت:" textAlignment="RIGHT">
+                        <TextField fx:id="DrinkPrice" layoutX="287.0" layoutY="268.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="464.0" layoutY="231.0" prefHeight="27.0" prefWidth="48.0" text="قیمت:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <Button layoutX="358.0" layoutY="415.0" mnemonicParsing="false" onAction="#SetDrink" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
-                        <Label fx:id="MErrorDrink" layoutX="289.0" layoutY="371.0" prefHeight="26.0" prefWidth="218.0" />
+                        <Button layoutX="358.0" layoutY="426.0" mnemonicParsing="false" onAction="#SetDrink" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
+                        <Label fx:id="MErrorDrink" layoutX="289.0" layoutY="382.0" prefHeight="26.0" prefWidth="218.0" />
+                  <TextField fx:id="DrinkBuyPrice" layoutX="285.0" layoutY="344.0" prefHeight="26.0" prefWidth="225.0" />
+                  <Label contentDisplay="RIGHT" layoutX="424.0" layoutY="307.0" prefHeight="27.0" prefWidth="86.0" text="قیمت خرید:" textAlignment="RIGHT">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                     </children></AnchorPane>
             </content>
         </TitledPane>
@@ -49,7 +55,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                         <TextField fx:id="SearchBoxD" layoutX="291.0" layoutY="83.0" prefHeight="26.0" prefWidth="215.0" />
-                        <Label layoutX="382.0" layoutY="47.0" prefHeight="26.0" prefWidth="124.0" text="کد غذا را وارد کنید:">
+                        <Label layoutX="347.0" layoutY="47.0" prefHeight="26.0" prefWidth="160.0" text="کد نوشیدنی را وارد کنید:">
                             <font>
                                 <Font size="16.0" />
                             </font>

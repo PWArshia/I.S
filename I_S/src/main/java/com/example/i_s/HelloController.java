@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.xml.stream.events.EntityDeclaration;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 public class HelloController {
 
@@ -70,9 +71,7 @@ public class HelloController {
         }
 
         SearchIDRoom=RID;
-        System.out.println(RID);
         String Result=roomManager.search(RID);
-        System.out.println(Result);
         RoomSearchResult.setText(Result);
         SearchBoxR.clear();
     }
@@ -293,12 +292,18 @@ public class HelloController {
         Type.setSelected(false);
     }
     @FXML
-    private Label AllDataRoom;
+    private TextArea AllDataRoom;
 
     @FXML
     public void SetDataRoom(ActionEvent actionEvent) throws IOException {
+        AllDataRoom.setEditable(false);
         roomManager.Array2Rooms();
-        Rooms A[];
+        Rooms A[]=roomManager.GetArray();
+        int cA=roomManager.GetRowCount();
+        AllDataRoom.setText("");
+        for (int i = 0; i < cA; i++) {
+            AllDataRoom.appendText(A[i].toString()+"\n");
+        }
     }
 
 
@@ -657,8 +662,10 @@ public class HelloController {
     private Label SearchResultFood;
     @FXML
     private TextArea AllDataFood;
+    @FXML
+    private TextField FoodBuyPrice;
 
-    private int SearchFoodID;
+    private static int SearchFoodID=0;
 
 
     public void FoodsCo(ActionEvent actionEvent) throws IOException {
@@ -689,6 +696,12 @@ public class HelloController {
             MErrorFood.setText("لطفا قیمت غذا را وارد کنید");
             return;
         }
+        String BuyPrice=FoodBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorFood.setText("لطفا قیمت خرید غذا را وارد کنید");
+            return;
+        }
+
         Foods F=new Foods();
         boolean Check=F.SetFoodName(Name);
         if (!Check) {
@@ -707,7 +720,7 @@ public class HelloController {
             Price2=Double.parseDouble(Price);
         }
         catch (Exception e) {
-            MError.setText("نامعتبر!");
+            MErrorFood.setText("نامعتبر!");
             FoodPrice.clear();
             return;
         }
@@ -717,18 +730,44 @@ public class HelloController {
             FoodPrice.clear();
             return;
         }
-        Check=F.SetFoodQuantity(Integer.parseInt(Entity));
+        double Price3;
+        try {
+            Price3=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorFood.setText("نامعتبر!");
+            FoodBuyPrice.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price3);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodBuyPrice.clear();
+            return;
+        }
+        int Count=0;
+        try {
+            Count=Integer.parseInt(Entity);
+        }
+        catch (Exception a){
+            MErrorFood.setText("نامعتبر!");
+            EntityFood.clear();
+            return;
+        }
+        Check=F.SetFoodQuantity(Count);
         if (!Check) {
             MErrorFood.setText("نامعتبر!");
             EntityFood.clear();
             return;
         }
         F.SetID((int) (Math.random()*99));
+        MErrorFood.setText("ثبت شد!");
         FOODS.AddFood(F);
         FoodName.clear();
         TypeFood.clear();
         EntityFood.clear();
         FoodPrice.clear();
+        FoodBuyPrice.clear();
     }
 
     public void SearchFood(ActionEvent actionEvent) throws IOException {
@@ -737,17 +776,25 @@ public class HelloController {
             SearchBoxF.clear();
             return;
         }
+        try {
+            SearchFoodID=Integer.parseInt(SearchBoxF.getText());
+        }
+        catch (Exception e) {
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
+            return;
+        }
+
         Foods F=new Foods();
-        boolean Check=F.SetID(Integer.parseInt(SearchBoxF.getText()));
+        boolean Check=F.SetID(SearchFoodID);
         if (!Check) {
             SearchResultFood.setText("نامعتبر!");
             SearchBoxF.clear();
             return;
         }
-        String TE=FOODS.SearchFood(Integer.parseInt(SearchBoxF.getText()));
+        String TE=FOODS.SearchFood(SearchFoodID);
         SearchResultFood.setText(TE);
         SearchBoxF.clear();
-
     }
 
     public void UpdateStageFood(ActionEvent actionEvent) throws IOException {
@@ -766,14 +813,15 @@ public class HelloController {
     public void DeleteFood(ActionEvent actionEvent) throws IOException {
         String S1=SearchResultFood.getText();
         String[] F1=S1.split(Commons.Commons);
-        Foods F=new Foods(Integer.parseInt(F1[0]),F1[1],F1[2],Double.parseDouble(F1[3]),Integer.parseInt(F1[4]));
+        Foods F=new Foods(Integer.parseInt(F1[0]),F1[1],F1[2],
+                Double.parseDouble(F1[3]),Integer.parseInt(F1[4]),Double.parseDouble(F1[5]));
 
         FOODS.DeleteFood(F);
         SearchResultFood.setText("");
         SearchBoxF.clear();
     }
 
-    public void SetDataFood(ActionEvent actionEvent) {
+    public void SetDataFood(ActionEvent actionEvent) throws FileNotFoundException {
         Foods M[]=FOODS.GetArray();
         int cM=FOODS.GetLengthArray();
         AllDataFood.setEditable(false);
@@ -794,6 +842,8 @@ public class HelloController {
     private TextField FoodPriceU;
     @FXML
     private Label MErrorFoodU;
+    @FXML
+    private TextField FoodBuyPriceU;
 
     public void SetUpdateFood(ActionEvent actionEvent) throws IOException {
         String Name=FoodNameU.getText();
@@ -814,6 +864,11 @@ public class HelloController {
         String Price=FoodPriceU.getText();
         if (Price.length()==0) {
             MErrorFoodU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        String BuyPrice=FoodBuyPriceU.getText();
+        if (BuyPrice.length()==0) {
+            MErrorFoodU.setText("لطفا قیمت خرید غذا را وارد کنید");
             return;
         }
         Foods F=new Foods();
@@ -850,10 +905,30 @@ public class HelloController {
             EntityFoodU.clear();
             return;
         }
+        double Price3;
+        try {
+            Price3=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodBuyPriceU.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price3);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodBuyPriceU.clear();
+            return;
+        }
+
+
         F.SetID((int) (Math.random()*99));
-        String Search=FOODS.SearchFood(SearchFoodID);
-        String[] T1=Search.split(Commons.Commons);
-        Foods F1=new Foods(Integer.parseInt(T1[0]),T1[1],T1[2],Double.parseDouble(T1[3]),Integer.parseInt(T1[4]) );
+
+        String Search1=FOODS.SearchFood(SearchFoodID);
+
+        String[] T1=Search1.split(Commons.Commons);
+        Foods F1=new Foods(Integer.parseInt(T1[0]),T1[1],T1[2],
+                Double.parseDouble(T1[3]),Integer.parseInt(T1[4]),Double.parseDouble(T1[5]) );
 
 
         FOODS.UpdateFood(F1,F);
@@ -862,6 +937,7 @@ public class HelloController {
         FoodPriceU.clear();
         FoodNameU.clear();
         TypeFoodU.clear();
+        FoodBuyPriceU.clear();
     }
 
 
@@ -879,7 +955,7 @@ public class HelloController {
         DrinkStage.show();
     }
 
-
+    private static int DrinkSearchID;
 
     @FXML
     private TextField DrinkName;
@@ -897,6 +973,8 @@ public class HelloController {
     private Label SearchResultDrink;
     @FXML
     private TextArea AllDataDrink;
+    @FXML
+    private TextField DrinkBuyPrice;
 
     public void SetDrink(ActionEvent actionEvent) throws IOException {
         String Name=DrinkName.getText();
@@ -919,6 +997,12 @@ public class HelloController {
             MErrorDrink.setText("لطفا قیمت نوشیدنی را وارد کنید");
             return;
         }
+        String BuyPrice=DrinkBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDrink.setText("لطفا قیمت خرید نوشیدنی را وارد کنید");
+            return;
+        }
+
         Drinks F=new Drinks();
         boolean Check=F.SetDrinkName(Name);
         if (!Check) {
@@ -947,6 +1031,25 @@ public class HelloController {
             DrinkPrice.clear();
             return;
         }
+
+
+        double Price5;
+        try {
+            Price5=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkBuyPrice.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price5);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkBuyPrice.clear();
+            return;
+        }
+
+
         Check=F.SetDrinkQuantity(Integer.parseInt(Entity));
         if (!Check) {
             MErrorDrink.setText("نامعتبر!");
@@ -960,6 +1063,7 @@ public class HelloController {
         DrinkType.clear();
         DrinkEntity.clear();
         DrinkPrice.clear();
+        DrinkBuyPrice.clear();
     }
 
     public void SearchDrink(ActionEvent actionEvent) throws IOException {
@@ -975,7 +1079,17 @@ public class HelloController {
             SearchBoxD.clear();
             return;
         }
-        String TE= drinksManager.SearchDrink(Integer.parseInt(SearchBoxD.getText()));
+
+        try {
+            DrinkSearchID=Integer.parseInt(SearchBoxD.getText());
+        }
+        catch (Exception e) {
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+
+        String TE= drinksManager.SearchDrink(DrinkSearchID);
         SearchResultDrink.setText(TE);
         SearchBoxD.clear();
     }
@@ -999,14 +1113,16 @@ public class HelloController {
     public void DeleteDrink(ActionEvent actionEvent) throws IOException {
         String S1=SearchResultDrink.getText();
         String[] F1=S1.split(Commons.Commons);
-        Drinks F=new Drinks(Integer.parseInt(F1[0]),F1[1],F1[2],Double.parseDouble(F1[3]),Integer.parseInt(F1[4]));
+        Drinks F=new Drinks(Integer.parseInt(F1[0]),F1[1],F1[2],
+                Double.parseDouble(F1[3]),Integer.parseInt(F1[4]),Double.parseDouble(F1[5]));
 
         drinksManager.DeleteDrink(F);
         SearchResultDrink.setText("");
         SearchBoxD.clear();
     }
 
-    public void SetDataDrink(ActionEvent actionEvent) {
+    public void SetDataDrink(ActionEvent actionEvent) throws FileNotFoundException {
+        AllDataDrink.setText("");
         Drinks D[]=drinksManager.GetArray();
         int cD=drinksManager.GetLengthArray();
         AllDataDrink.setEditable(false);
@@ -1027,7 +1143,8 @@ public class HelloController {
     private TextField DrinkEntityU;
     @FXML
     private Label MErrorDrinkU;
-
+    @FXML
+    private TextField DrinkBuyPriceU;
 
 
 
@@ -1050,6 +1167,11 @@ public class HelloController {
         String Price=DrinkPriceU.getText();
         if (Price.length()==0) {
             MErrorDrinkU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        String BuyPrice=DrinkBuyPriceU.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDrinkU.setText("لطفا قیمت خرید غذا را وارد کنید");
             return;
         }
         Drinks F=new Drinks();
@@ -1080,16 +1202,43 @@ public class HelloController {
             DrinkPriceU.clear();
             return;
         }
-        Check=F.SetDrinkQuantity(Integer.parseInt(Entity));
+        double Price10=0;
+        try {
+            Price10=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkBuyPriceU.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price10);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(Entity);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+
+        Check=F.SetDrinkQuantity(Count);
         if (!Check) {
             MErrorDrinkU.setText("نامعتبر!");
             DrinkEntityU.clear();
             return;
         }
         F.SetID((int) (Math.random()*99));
-        String Search= drinksManager.SearchDrink(SearchFoodID);
+        String Search= drinksManager.SearchDrink(DrinkSearchID);
         String[] T1=Search.split(Commons.Commons);
-        Drinks F1=new Drinks(Integer.parseInt(T1[0]),T1[1],T1[2],Double.parseDouble(T1[3]),Integer.parseInt(T1[4]) );
+        Drinks F1=new Drinks(Integer.parseInt(T1[0]),T1[1],T1[2],
+                Double.parseDouble(T1[3]),Integer.parseInt(T1[4]),Double.parseDouble(T1[5]));
 
 
         drinksManager.UpdateDrink(F1,F);
@@ -1098,7 +1247,16 @@ public class HelloController {
         DrinkPriceU.clear();
         DrinkNameU.clear();
         DrinkTypeU.clear();
+        DrinkBuyPriceU.clear();
     }
+
+
+
+
+    //------------------------------------------------------------------------------------------------------>>>Deserts
+
+
+
 
 
 }

@@ -15,32 +15,38 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="FoodName" layoutX="286.0" layoutY="105.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="453.0" layoutY="68.0" prefHeight="27.0" prefWidth="58.0" text="نام غذا:" textAlignment="RIGHT">
+                        <TextField fx:id="FoodName" layoutX="286.0" layoutY="55.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="453.0" layoutY="18.0" prefHeight="27.0" prefWidth="58.0" text="نام غذا:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="TypeFood" layoutX="287.0" layoutY="177.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="455.0" layoutY="140.0" prefHeight="27.0" prefWidth="57.0" text="نوع غذا" textAlignment="RIGHT">
+                        <TextField fx:id="TypeFood" layoutX="287.0" layoutY="127.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="455.0" layoutY="90.0" prefHeight="27.0" prefWidth="57.0" text="نوع غذا" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="EntityFood" layoutX="287.0" layoutY="251.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="416.0" layoutY="214.0" prefHeight="27.0" prefWidth="95.0" text="موجودی غذا:" textAlignment="RIGHT">
+                        <TextField fx:id="EntityFood" layoutX="287.0" layoutY="201.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="416.0" layoutY="164.0" prefHeight="27.0" prefWidth="95.0" text="موجودی غذا:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="FoodPrice" layoutX="287.0" layoutY="324.0" prefHeight="26.0" prefWidth="225.0" />
-                        <Label contentDisplay="RIGHT" layoutX="464.0" layoutY="287.0" prefHeight="27.0" prefWidth="48.0" text="قیمت:" textAlignment="RIGHT">
+                        <TextField fx:id="FoodPrice" layoutX="287.0" layoutY="274.0" prefHeight="26.0" prefWidth="225.0" />
+                        <Label contentDisplay="RIGHT" layoutX="414.0" layoutY="237.0" prefHeight="27.0" prefWidth="98.0" text="قیمت فروش:" textAlignment="RIGHT">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <Button layoutX="358.0" layoutY="415.0" mnemonicParsing="false" onAction="#SetFood" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
-                        <Label fx:id="MErrorFood" layoutX="289.0" layoutY="371.0" prefHeight="26.0" prefWidth="218.0" />
+                        <Button layoutX="358.0" layoutY="428.0" mnemonicParsing="false" onAction="#SetFood" prefHeight="40.0" prefWidth="80.0" text="ثبت" />
+                        <Label fx:id="MErrorFood" layoutX="289.0" layoutY="384.0" prefHeight="26.0" prefWidth="218.0" />
+                  <TextField fx:id="FoodBuyPrice" layoutX="286.0" layoutY="347.0" prefHeight="26.0" prefWidth="225.0" />
+                  <Label contentDisplay="RIGHT" layoutX="419.0" layoutY="310.0" prefHeight="27.0" prefWidth="92.0" text=" قیمت خرید:" textAlignment="RIGHT">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                     </children></AnchorPane>
             </content>
         </TitledPane>

@@ -38,7 +38,8 @@ public class DrinksManager {
         for (int i = 0; i < cA; i++) {
             String[] B = A[i].split(Commons.Commons);
 
-            DrinksList[i]=new Drinks(Integer.parseInt(B[0]),B[1],B[2],Double.parseDouble(B[3]),Integer.parseInt(B[4]));
+            DrinksList[i]=new Drinks(Integer.parseInt(B[0]),B[1],B[2],
+                    Double.parseDouble(B[3]),Integer.parseInt(B[4]),Double.parseDouble(B[5]));
 
         }
         cDrinksList=cA;
@@ -99,10 +100,12 @@ public class DrinksManager {
         cDrinksList=cD;
         Array2TextFile();
     }
-    public Drinks[] GetArray() {
+    public Drinks[] GetArray() throws FileNotFoundException {
+        TextFile2Array();
         return DrinksList;
     }
     public int GetLengthArray() {
+        for (int i = DrinksList.length-1; i >=0; i--) {}
         return cDrinksList;
     }
 
