@@ -51,6 +51,7 @@ public class HelloController {
     private TextField SearchBoxR;
     @FXML
     private Label RoomSearchResult;
+    private int SearchIDRoom;
 
     public void SearchRoom(ActionEvent actionEvent) throws IOException {
         if(SearchBoxR.getText().length()==0){
@@ -68,9 +69,136 @@ public class HelloController {
             return;
         }
 
+        SearchIDRoom=RID;
+        System.out.println(RID);
         String Result=roomManager.search(RID);
+        System.out.println(Result);
         RoomSearchResult.setText(Result);
         SearchBoxR.clear();
+    }
+
+
+    @FXML
+    public void SetStageUpdate(ActionEvent actionEvent) throws IOException {
+        if(RoomSearchResult.getText().length()==0)
+            return;
+        if(RoomSearchResult.getText().equals("نامعتبر!"))
+            return;
+        FXMLLoader RoomsLoader = new FXMLLoader(HelloApplication.class.getResource("UpdateRoom.fxml"));
+        Scene scene=new Scene(RoomsLoader.load(),800,600);
+        RoomWindow.setScene(scene);
+        RoomWindow.setTitle("UpdateRoom");
+        RoomWindow.show();
+
+    }
+
+
+    @FXML
+    private TextField RoomNum1U;
+    @FXML
+    private TextField tbNumU;
+    @FXML
+    private TextField PriceVU;
+    @FXML
+    private CheckBox TypeU;
+    @FXML
+    private Label ErrorRU;
+
+
+    @FXML
+    private void UpdateRoom(ActionEvent actionEvent) throws IOException {
+        String RMNUM=RoomNum1U.getText();
+        if(RMNUM.length()==0){
+            ErrorRU.setText("لطفا شماره اتاق را وارد کنید");
+            return;
+        }
+        String TBNUM=tbNumU.getText();
+        if(TBNUM.length()==0){
+            ErrorRU.setText("لطفا شماره طبقه را وارد کنید");
+            return;
+        }
+        String PRICEV=PriceVU.getText();
+        if(PRICEV.length()==0){
+            ErrorRU.setText("لطفا قیمت اتاق را وارد کنید");
+            return;
+        }
+        String TYPE;
+        if(TypeU.isSelected()){
+            TYPE="VIP";
+        }
+        else{
+            TYPE="normal";
+        }
+
+        Rooms A1=new Rooms();
+
+        int RoomNum=0;
+        try {
+            RoomNum=Integer.parseInt(RMNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            RoomNum1U.clear();
+            return;
+        }
+        boolean Check=A1.setNO(RoomNum);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            RoomNum1U.clear();
+            return;
+        }
+        int floor=0;
+        try {
+            floor=Integer.parseInt(TBNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            tbNumU.clear();
+            return;
+        }
+        Check=A1.SetFloor(floor);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            tbNumU.clear();
+            return;
+        }
+
+        double price1=0;
+        try {
+            price1=Double.parseDouble(PRICEV);
+        }
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            PriceVU.clear();
+            return;
+        }
+        Check= A1.SetPrice(price1);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            PriceVU.clear();
+            return;
+        }
+
+
+        Check= A1.SetRoomType(TYPE);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            return;
+        }
+
+        A1.SetIsBussy(false);
+        roomManager.Update(SearchIDRoom,A1);
+        ErrorRU.setText("ثبت شد");
+        PriceVU.clear();
+        RoomNum1U.clear();
+        tbNumU.clear();
+        TypeU.setSelected(false);
+    }
+    @FXML
+    public void SetDelete(ActionEvent actionEvent) throws IOException {
+        roomManager.Delete(SearchIDRoom);
+        SearchBoxR.clear();
+        RoomSearchResult.setText("");
     }
 
     public void SetRoom(ActionEvent actionEvent) throws IOException {
@@ -108,6 +236,9 @@ public class HelloController {
             RoomNum1.clear();
             return;
         }
+
+
+
         boolean Check=A1.setNO(RoomNum);
         if(!Check){
             ErrorR.setText("نامعتبر!");
@@ -160,9 +291,14 @@ public class HelloController {
         RoomNum1.clear();
         tbNum.clear();
         Type.setSelected(false);
+    }
+    @FXML
+    private Label AllDataRoom;
 
-
-
+    @FXML
+    public void SetDataRoom(ActionEvent actionEvent) throws IOException {
+        roomManager.Array2Rooms();
+        Rooms A[];
     }
 
 
@@ -963,4 +1099,6 @@ public class HelloController {
         DrinkNameU.clear();
         DrinkTypeU.clear();
     }
+
+
 }

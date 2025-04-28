@@ -1,8 +1,6 @@
 package EntityManagers;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Spliterator;
 
 import Common.Commons;
 import Common.Rooms;
