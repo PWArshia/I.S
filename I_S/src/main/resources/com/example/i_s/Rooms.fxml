@@ -60,5 +60,15 @@
                </children></AnchorPane>
       </content>
     </TitledPane>
+      <TitledPane animated="false" text="SearchRoom">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="AllDataRoom" layoutX="118.0" layoutY="48.0" prefHeight="384.0" prefWidth="562.0" />
+                  <Button layoutX="363.0" layoutY="451.0" mnemonicParsing="false" onAction="#SetDataRoom" prefHeight="49.0" prefWidth="72.0" text="Data" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
   </panes>
 </Accordion>

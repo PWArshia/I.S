@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DessertManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DessertManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/RoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoomsList" beforeDir="false" afterPath="$PROJECT_DIR$/RoomsList" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,17 +175,6 @@
     <MESSAGE value="Creat FoodManager Class" />
     <MESSAGE value="Finaly Develop Food" />
     <option name="LAST_COMMIT_MESSAGE" value="Finaly Develop Food" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

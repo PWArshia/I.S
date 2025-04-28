@@ -186,7 +186,7 @@ public class HelloController {
         }
 
         A1.SetIsBussy(false);
-        roomManager.Update(SearchIDRoom);
+        roomManager.Update(SearchIDRoom,A1);
         ErrorRU.setText("ثبت شد");
         PriceVU.clear();
         RoomNum1U.clear();
@@ -287,9 +287,14 @@ public class HelloController {
         RoomNum1.clear();
         tbNum.clear();
         Type.setSelected(false);
+    }
+    @FXML
+    private Label AllDataRoom;
 
-
-
+    @FXML
+    public void SetDataRoom(ActionEvent actionEvent) throws IOException {
+        roomManager.Array2Rooms();
+        Rooms A[];
     }
 
 
