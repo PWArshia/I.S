@@ -65,14 +65,14 @@ public class RoomManager {
         //     }
         // }
 
-
+        String S="Invalid";
         for (int i=0; i<fm.getRowCount();i++){
             if (rooms[i].GetNo()==a){
                 SearchId=i;
+                S=rooms[i].toString();
             }
         }
 
-        String S= rooms[SearchId].GetNo()+ Commons.Commons + rooms[SearchId].GetFloor()+Commons.Commons + rooms[SearchId].GetRoomType()+ Commons.Commons + rooms[SearchId].GetPrice() +Commons.Commons +rooms[SearchId].GetIsBussy();
 
         return S;
     }
@@ -91,6 +91,10 @@ public class RoomManager {
         fm.UpdateRow(SearchId , roo.toString() );
         this.Array2Rooms();
 
+    }
+
+    public Rooms[] GetArray(){
+        return this.rooms;
     }
 
 

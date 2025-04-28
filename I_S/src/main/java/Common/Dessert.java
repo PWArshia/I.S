@@ -6,22 +6,24 @@ public class Dessert {
     private String Name;
     private double price;
     private int DessertQuantity;
+    private double buyPrice;
 
 
 //    ----------------------------------------------------------------->Cons
 
     public Dessert(){}
 
-    public Dessert(int ID,String Name, double price, int DessertQuantity) {
+    public Dessert(int ID,String Name, double price, int DessertQuantity , double buyPrice) {
         this.SetId(ID);
         this.SetName(Name);
         this.SetPrice(price);
         this.SetDessertQuantity(DessertQuantity);
+        this.SetBuyPrice(buyPrice);
     }
 
     @Override
     public String toString() {
-        return  this.GetId()+Commons.Commons+this.GetName()+Commons.Commons+this.GetPrice()+Commons.Commons+this.GetDessertQuantity();
+        return  this.GetId()+Commons.Commons+this.GetName()+Commons.Commons+this.GetPrice()+Commons.Commons+this.GetBuyPrice()+Commons.Commons+this.GetDessertQuantity();
     }
 
 //    --------------------------------------------------------------------> Setter
@@ -62,6 +64,14 @@ public class Dessert {
         this.DessertQuantity = DessertQuantity;
         return true;
     }
+
+    public boolean SetBuyPrice(double buyPrice){
+        if (buyPrice < 0){
+            return false;
+        }
+        this.buyPrice = buyPrice;
+        return true;
+    }
 //    ---------------------------------------------------------------------------------->Getter
 
     public int GetId(){
@@ -75,6 +85,9 @@ public class Dessert {
     }
     public int GetDessertQuantity(){
         return this.DessertQuantity;
+    }
+    public double GetBuyPrice(){
+        return this.buyPrice;
     }
 
 
