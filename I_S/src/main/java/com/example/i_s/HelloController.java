@@ -1,9 +1,6 @@
 package com.example.i_s;
 import Common.*;
-import EntityManagers.DrinksManager;
-import EntityManagers.FoodsManager;
-import EntityManagers.MemberManager;
-import EntityManagers.RoomManager;
+import EntityManagers.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -1254,8 +1251,134 @@ public class HelloController {
 
 
     //------------------------------------------------------------------------------------------------------>>>Deserts
+    private Stage DessertStage=new Stage();
+    private DessertManager dessertManager=new DessertManager("Desserts");
+
+    public void DessertsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Desserts.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DessertStage.setScene(scene);
+        DessertStage.show();
+    }
+    @FXML
+    private TextField DessertName;
+    @FXML
+    private TextField DessertEntity;
+    @FXML
+    private TextField DessertPrice;
+    @FXML
+    private TextField DessertBuyPrice;
+    @FXML
+    private TextField SearchBoxDessert;
+    @FXML
+    private Label SearchResultDessert;
+    @FXML
+    private TextArea AllDataDessert;
+    @FXML
+    private Label MErrorDessert;
+
+    public void SetDessert(ActionEvent actionEvent) throws IOException {
+        String Name=DessertName.getText();
+        if(Name.length()==0) {
+            MErrorDessert.setText("نام دسر را وارد کنید");
+            return;
+        }
+        String Entity=DessertEntity.getText();
+        if (Entity.length()==0) {
+            MErrorDessert.setText("تعداد دسر را وارد کنید");
+            return;
+        }
+        String Price=DessertPrice.getText();
+        if (Price.length()==0) {
+            MErrorDessert.setText("قیمت دسر را وارد کنید");
+            return;
+        }
+        String BuyPrice=DessertBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDessert.setText("قیمت خرید دسر را وارد کنید");
+            return;
+        }
+
+        Dessert D=new Dessert();
+        boolean Check=D.SetName(Name);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertName.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(Entity);
+        }
+
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertEntity.clear();
+            return;
+        }
+
+        Check=D.SetDessertQuantity(Count);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertName.clear();
+            return;
+        }
+
+        double P1=0;
+        try {
+            P1=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertPrice.clear();
+            return;
+        }
+
+        Check=D.SetPrice(P1);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertPrice.clear();
+            return;
+        }
 
 
+        double P2=0;
+        try {
+            P2=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+        Check=D.SetBuyPrice(P2);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+
+        dessertManager.AddDessert(D);
+        DessertName.clear();
+        DessertEntity.clear();
+        DessertPrice.clear();
+        DessertBuyPrice.clear();
+    }
+
+    public void SearchDessert(ActionEvent actionEvent) {
+    }
+
+
+    public void DeleteDessert(ActionEvent actionEvent) {
+    }
+
+    public void SetDataDessert(ActionEvent actionEvent) {
+    }
+
+
+    public void UpdateStageDessert(ActionEvent actionEvent) {
+    }
 
 
 

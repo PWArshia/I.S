@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Update UI">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Deserts.fxml" afterDir="false" />
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Debug And Update UI and Backend Food And Drink Section">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Desserts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinksList" beforeDir="false" afterPath="$PROJECT_DIR$/DrinksList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodList" beforeDir="false" afterPath="$PROJECT_DIR$/FoodList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Drinks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Foods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DrinksManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DrinksManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/FoodsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +57,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kamya/OneDrive/Desktop/SceneBuilder.lnk",
+    "last_opened_file_path": "D:/IntelliJ IDEA 2024.3/intellij project/I.S/I_S/src/main/resources/com/example/i_s",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -137,7 +126,8 @@
       <workItem from="1745756720518" duration="2009000" />
       <workItem from="1745772737026" duration="1935000" />
       <workItem from="1745831009509" duration="338000" />
-      <workItem from="1745867017791" duration="4645000" />
+      <workItem from="1745867017791" duration="5467000" />
+      <workItem from="1745878059683" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -187,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745831057118</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Debug And Update UI and Backend Food And Drink Section">
+      <option name="closed" value="true" />
+      <created>1745871777943</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745871777943</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +209,8 @@
     <MESSAGE value="Creat FoodManager Class" />
     <MESSAGE value="Finaly Develop Food" />
     <MESSAGE value="Update UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UI" />
+    <MESSAGE value="Debug And Update UI and Backend Food And Drink Section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug And Update UI and Backend Food And Drink Section" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
