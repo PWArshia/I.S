@@ -1,5 +1,6 @@
 package EntityManagers;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import Common.Commons;
@@ -93,6 +94,9 @@ public class RoomManager {
 
     public Rooms[] GetArray(){
         return this.rooms;
+    }
+    public int GetRowCount() throws FileNotFoundException {
+        return this.fm.getRowCount();
     }
 
 

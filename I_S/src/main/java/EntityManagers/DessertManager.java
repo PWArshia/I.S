@@ -2,6 +2,7 @@ package EntityManagers;
 
 import Common.Commons;
 import Common.Dessert;
+import Common.Rooms;
 import TxtFileManager.TextFile_Manager;
 
 import java.io.FileNotFoundException;
@@ -86,6 +87,12 @@ public class DessertManager {
         this.Array2Dessert();
     }
 
+    public Dessert[] GetArray(){
+        return this.dessert;
+    }
+    public int GetRowCount() throws FileNotFoundException {
+        return this.fm.getRowCount();
+    }
 
 
 
