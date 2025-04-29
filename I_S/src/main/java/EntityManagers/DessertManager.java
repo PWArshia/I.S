@@ -37,9 +37,9 @@ public class DessertManager {
 
             int ID=Integer.parseInt(B[0]);
             String Name=B[1];
-            int price=Integer.parseInt(B[2]);
+            double price=Double.parseDouble(B[2]);
             int No=Integer.parseInt(B[4]);
-            int BuyPrice=Integer.parseInt(B[3]);
+            double BuyPrice=Double.parseDouble(B[3]);
             dessert[i].SetId(ID);
             dessert[i].SetName(Name);
             dessert[i].SetPrice(price);
