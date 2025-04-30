@@ -7,15 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import javax.xml.stream.events.EntityDeclaration;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 public class HelloController {
 
-
-    public HelloController() throws IOException {
-    }
+    public HelloController() throws IOException {}
 
 
     // ------------------------------------------------------------------------------------------------>>>Room Section
@@ -1269,12 +1265,6 @@ public class HelloController {
     @FXML
     private TextField DessertBuyPrice;
     @FXML
-    private TextField SearchBoxDessert;
-    @FXML
-    private Label SearchResultDessert;
-    @FXML
-    private TextArea AllDataDessert;
-    @FXML
     private Label MErrorDessert;
 
     public void SetDessert(ActionEvent actionEvent) throws IOException {
@@ -1358,27 +1348,172 @@ public class HelloController {
             DessertBuyPrice.clear();
             return;
         }
-
-        dessertManager.AddDessert(D);
+        Check=D.SetId((int) (Math.random()*9999));
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+        dessertManager.UpdateDessert(SearchIDDessert,D);
+        MErrorDessert.setText("ثبت شد!");
         DessertName.clear();
         DessertEntity.clear();
         DessertPrice.clear();
         DessertBuyPrice.clear();
     }
 
-    public void SearchDessert(ActionEvent actionEvent) {
+    @FXML
+    private TextField SearchBoxDessert;
+    @FXML
+    private Label SearchResultDessert;
+
+    private static int SearchIDDessert;
+
+    public void SearchDessert(ActionEvent actionEvent) throws FileNotFoundException {
+        try {
+            SearchIDDessert=Integer.parseInt(SearchBoxDessert.getText());
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            SearchBoxDessert.clear();
+            return;
+        }
+
+        String Result=dessertManager.Search(SearchIDDessert);
+        SearchResultDessert.setText(Result);
+        SearchBoxDessert.clear();
     }
 
 
-    public void DeleteDessert(ActionEvent actionEvent) {
+    public void DeleteDessert(ActionEvent actionEvent) throws IOException {
+        dessertManager.DeleteDessert(SearchIDDessert);
+        SearchResultDessert.setText("");
+        SearchBoxDessert.clear();
     }
 
-    public void SetDataDessert(ActionEvent actionEvent) {
+    public void UpdateStageDessert(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("UpdateDessert.fxml"));
+        Scene scene = new Scene(loader.load(),800,600);
+        DessertStage.setScene(scene);
+        DessertStage.show();
+    }
+
+    @FXML
+    private TextArea AllDataDessert;
+
+    public void SetDataDessert(ActionEvent actionEvent) throws FileNotFoundException {
+        AllDataDessert.setEditable(false);
+        Dessert D[]=dessertManager.GetArray();
+        int cD=dessertManager.GetRowCount();
+        AllDataDessert.setText(null);
+        for (int i=0;i<cD;i++) {
+            AllDataDessert.appendText(D[i].toString()+"\n");
+        }
+
+    }
+
+    @FXML
+    private TextField DessertEntityU;
+    @FXML
+    private TextField DessertNameU;
+    @FXML
+    private Label MErrorDessertU;
+    @FXML
+    private TextField DessertBuyPriceU;
+    @FXML
+    private TextField DessertPriceU;
+
+
+    public void SetUpdateDessert(ActionEvent actionEvent) throws IOException {
+        String NameDessert = DessertNameU.getText();
+        if (NameDessert.length() == 0) {
+            MErrorDessertU.setText("اسم را وارد کنید");
+            return;
+        }
+        String EntityDessert = DessertEntityU.getText();
+        if (EntityDessert.length() == 0) {
+            MErrorDessertU.setText("تعداد را وارد کنید");
+            return;
+        }
+        String PriceDessert = DessertPriceU.getText();
+        if (PriceDessert.length() == 0) {
+            MErrorDessertU.setText("قیمت فروش را وارد کنید");
+            return;
+        }
+        String BuyPriceDessert = DessertBuyPriceU.getText();
+        if (BuyPriceDessert.length() == 0) {
+            MErrorDessertU.setText("قیمت خرید را وارد کنید");
+            return;
+        }
+        Dessert D=new Dessert();
+        boolean Check=D.SetName(NameDessert);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertNameU.clear();
+            return;
+        }
+        double P1=0;
+        try {
+            P1=Double.parseDouble(PriceDessert);
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertPriceU.clear();
+            return;
+        }
+        Check=D.SetPrice(P1);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertPriceU.clear();
+            return;
+        }
+
+        double P2=0;
+        try {
+            P2=Double.parseDouble(BuyPriceDessert);
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertBuyPriceU.clear();
+            return;
+        }
+        Check=D.SetBuyPrice(P2);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertBuyPriceU.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(DessertEntityU.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+        Check=D.SetDessertQuantity(Count);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+        Check=D.SetId((int) (Math.random()*9999));
+
+
+        dessertManager.UpdateDessert(SearchIDDessert,D);
+        MErrorDessertU.setText("ثبت شد!");
+        DessertNameU.clear();
+        DessertEntityU.clear();
+        DessertPriceU.clear();
+        DessertBuyPriceU.clear();
     }
 
 
-    public void UpdateStageDessert(ActionEvent actionEvent) {
-    }
+    //----------------------------------------------------------------------------------------------------------->>>Rent
+
+
 
 
 
