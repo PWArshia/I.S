@@ -67,7 +67,8 @@ public class DessertManager {
     }
 
     public void UpdateDessert(int a , Dessert des) throws IOException {
-        String b=Search(a);
+
+        Search(a);
         fm.UpdateRow(searchid, des.toString());
         this.Array2Dessert();
 
@@ -87,7 +88,9 @@ public class DessertManager {
         this.Array2Dessert();
     }
 
-    public Dessert[] GetArray(){
+    public Dessert[] GetArray() throws FileNotFoundException {
+
+        this.Array2Dessert();
         return this.dessert;
     }
     public int GetRowCount() throws FileNotFoundException {
