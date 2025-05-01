@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Start Dessert User Interface">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Receipt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReceiptsManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Receipts.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Desserts" beforeDir="false" afterPath="$PROJECT_DIR$/Desserts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DessertManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/DessertManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RoomsList" beforeDir="false" afterPath="$PROJECT_DIR$/RoomsList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinksList" beforeDir="false" afterPath="$PROJECT_DIR$/DrinksList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodList" beforeDir="false" afterPath="$PROJECT_DIR$/FoodList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MembersList" beforeDir="false" afterPath="$PROJECT_DIR$/MembersList" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -95,8 +104,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -130,7 +139,12 @@
       <workItem from="1745878059683" duration="3439000" />
       <workItem from="1745891785714" duration="2349000" />
       <workItem from="1745970900782" duration="3126000" />
-      <workItem from="1746012027797" duration="1744000" />
+      <workItem from="1746080430509" duration="9203000" />
+      <workItem from="1746091574473" duration="1498000" />
+      <workItem from="1746093309831" duration="5616000" />
+      <workItem from="1746101746889" duration="2077000" />
+      <workItem from="1746103847095" duration="586000" />
+      <workItem from="1746104732074" duration="407000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -228,15 +242,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java</url>
-          <line>1404</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReceiptsManager.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java</url>
-          <line>1410</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

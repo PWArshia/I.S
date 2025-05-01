@@ -48,7 +48,7 @@ public class TextFile_Manager {
 
     private void File2Array() throws FileNotFoundException{
 
-        File file= new File(FilePath);
+        File file= new File(FileName);
         Scanner fw=new Scanner(file);
         Data=new String[1000];
         CRow=0;
@@ -61,7 +61,7 @@ public class TextFile_Manager {
     }
 
     private void Array2File() throws IOException{
-        File file= new File(FilePath);
+        File file= new File(FileName);
         FileWriter fw = new FileWriter(file,false);
         for (int i=0; i<CRow; i++){
             fw.append(Data[i]+"\n");

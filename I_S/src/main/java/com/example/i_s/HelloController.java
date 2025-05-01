@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 public class HelloController {
 
+
+
     public HelloController() throws IOException {}
 
 
@@ -1511,10 +1513,86 @@ public class HelloController {
     }
 
 
-    //----------------------------------------------------------------------------------------------------------->>>Rent
+
+    //----------------------------------------------------------------------------------------------------------->>>Receipt
+    Stage ReceiptStage=new Stage();
+
+
+    @FXML
+    private TextField FoodCode;
+    @FXML
+    private TextField DessertCode;
+    @FXML
+    private TextField DrinkCode;
+    @FXML
+    private TextField FoodCount;
+    @FXML
+    private TextField DessertCount;
+    @FXML
+    private TextField DrinkCount;
+    @FXML
+    private TextField MemberCode;
+    @FXML
+    private TextField MemberCount;
+    @FXML
+    private Label ReceiptError;
+    @FXML
+    private Button SetReceipt;
 
 
 
 
+    @FXML
+    private void ReceiptsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Receipts.fxml"));
+        Scene scene = new Scene(loader.load(),800,600);
+        ReceiptStage.setScene(scene);
+        ReceiptStage.show();
+    }
 
+    @FXML
+    private void SetReceipt(ActionEvent actionEvent) {
+
+    }
+
+
+    @FXML
+    private TextArea AllChoice;
+    @FXML
+    private Button SetAllChoice;
+    @FXML
+    public void SetAllChoice(ActionEvent actionEvent) throws FileNotFoundException {
+        AllChoice.setEditable(false);
+        AllChoice.setText(null);
+        AllChoice.appendText("Members:"+"\n");
+        Members M[]=memberManager.GetArray();
+        int cM=memberManager.GetLengthArray();
+        for (int i=0;i<cM;i++) {
+            AllChoice.appendText(M[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Foods:"+"\n");
+        Foods F[]=FOODS.GetArray();
+        int cF=FOODS.GetLengthArray();
+        for (int i=0;i<cF;i++) {
+            AllChoice.appendText(F[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Drinks:"+"\n");
+        Drinks D1[]=drinksManager.GetArray();
+        int cD1=drinksManager.GetLengthArray();
+        for (int i=0;i<cD1;i++) {
+            AllChoice.appendText(D1[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Desserts:"+"\n");
+        Dessert D2[]=dessertManager.GetArray();
+        int cD2=dessertManager.GetRowCount();
+        for (int i=0;i<cD2;i++) {
+            AllChoice.appendText(D2[i].toString()+"\n");
+        }
+
+
+
+    }
 }

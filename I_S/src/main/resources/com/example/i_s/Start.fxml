@@ -10,5 +10,6 @@
       <Button layoutX="323.0" layoutY="216.0" mnemonicParsing="false" onAction="#FoodsCo" prefHeight="60.0" prefWidth="96.0" text="Foods" />
       <Button layoutX="182.0" layoutY="216.0" mnemonicParsing="false" onAction="#DrinksCo" prefHeight="60.0" prefWidth="96.0" text="Drinks" />
       <Button layoutX="252.0" layoutY="38.0" mnemonicParsing="false" onAction="#DessertsCo" prefHeight="60.0" prefWidth="96.0" text="Deserts" />
+      <Button layoutX="252.0" layoutY="304.0" mnemonicParsing="false" onAction="#ReceiptsCo" prefHeight="60.0" prefWidth="96.0" text="Receipt" />
    </children>
 </AnchorPane>
