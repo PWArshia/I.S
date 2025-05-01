@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Commons2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Resserve.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ResserveManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Rooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/RoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Resserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Resserve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ResserveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ResserveManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +135,8 @@
       <workItem from="1746101746889" duration="2077000" />
       <workItem from="1746103847095" duration="586000" />
       <workItem from="1746104732074" duration="1729000" />
-      <workItem from="1746109038259" duration="5983000" />
+      <workItem from="1746109038259" duration="6101000" />
+      <workItem from="1746134101586" duration="3466000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -244,11 +242,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReceiptsManager.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="12" />

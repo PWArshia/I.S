@@ -1,13 +1,12 @@
 package Common;
 
-import EntityManagers.MemberManager;
 import EntityManagers.RoomManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Resserve {
+public class Reserve {
 
     private int id;
     private LocalDate startDate;
@@ -18,13 +17,13 @@ public class Resserve {
 
 //    ------------------------------------------->cons
 
-    public Resserve() {
+    public Reserve() {
 
         this.UpExpire();
 
     }
 
-    public Resserve(int RoomId, Members member,  RoomManager RoomManager, LocalDate startDate, LocalDate endDate ,int a ,int Id) throws IOException {
+    public Reserve(int RoomId, Members member, RoomManager RoomManager, LocalDate startDate, LocalDate endDate , int a , int Id) throws IOException {
 
         this.SetStartDate(startDate);
         this.SetEndDate(a);
@@ -58,6 +57,12 @@ public class Resserve {
         this.endDate= startDate.plusDays(a);
         return true;
     }
+
+    public boolean SetEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+        return true;
+    }
+
     public boolean SetUser(Members member) throws IOException {
         this.User = member;
         return true;
@@ -65,6 +70,11 @@ public class Resserve {
     public boolean SetRoom(int a , RoomManager RoomManager) throws IOException {
         String s=RoomManager.search(a);
         this.Room=new Rooms(s);
+        return true;
+    }
+
+    public boolean SetRoom(Rooms Room) throws IOException {
+        this.Room=Room;
         return true;
     }
 
