@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Start Dessert User Interface">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Receipt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReceiptsManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Receipts.fxml" afterDir="false" />
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Desserts" beforeDir="false" afterPath="$PROJECT_DIR$/Desserts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinksList" beforeDir="false" afterPath="$PROJECT_DIR$/DrinksList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodList" beforeDir="false" afterPath="$PROJECT_DIR$/FoodList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/TxtFileManager/TextFile_Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MembersList" beforeDir="false" afterPath="$PROJECT_DIR$/MembersList" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +132,7 @@
       <workItem from="1746093309831" duration="5616000" />
       <workItem from="1746101746889" duration="2077000" />
       <workItem from="1746103847095" duration="586000" />
-      <workItem from="1746104732074" duration="407000" />
+      <workItem from="1746104732074" duration="1729000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -210,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745879796493</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creat Receipts Section">
+      <option name="closed" value="true" />
+      <created>1746105180007</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746105180007</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +232,8 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="Debug And Update UI and Backend Food And Drink Section" />
     <MESSAGE value="Start Dessert User Interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start Dessert User Interface" />
+    <MESSAGE value="Creat Receipts Section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creat Receipts Section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

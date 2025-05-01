@@ -113,10 +113,9 @@ public class ReceiptsManager {
                     DrinkCount,FoodsCodes,foodsManager,FoodsCount,IDCode);
 
         }
-        if(cT==0){
-            for (int i=0;i<this.receipts.length;i++){
-                this.receipts[i]=null;
-            }
+
+        for (int i=cT;i<this.receipts.length;i++){
+            this.receipts[i]=null;
         }
 
     }
