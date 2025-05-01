@@ -110,6 +110,23 @@ public class DrinksManager {
     }
 
 
+    public void IncreaseDrinkQuantity(int a ,int b) throws IOException {
+
+        int e=IndexSearchDrink(a);
+        DrinksList[e].SetDrinkQuantity(DrinksList[e].GetDrinkQuantity()+b);
+        this.TextFile2Array();
+    }
+
+    public void ReduceDrinkQuantity(int a , int b) throws IOException {
+        int e=IndexSearchDrink(a);
+        DrinksList[e].SetDrinkQuantity(DrinksList[e].GetDrinkQuantity()-b);
+        this.TextFile2Array();
+    }
+
+
+
+
+
 
 
 }

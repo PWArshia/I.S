@@ -115,6 +115,20 @@ public class FoodsManager {
     }
 
 
+    public void ReduceDrinkQuantity(int a , int b) throws IOException {
+        int e=IndexSearchFood(a);
+        FoodsList[e].SetFoodQuantity(FoodsList[e].GetFoodQuantity()-b);
+        this.TextFile2Array();
+    }
+
+    public void IncreaseDrinkQuantity(int a ,int b) throws IOException {
+
+        int e=IndexSearchFood(a);
+        FoodsList[e].SetFoodQuantity(FoodsList[e].GetFoodQuantity()+b);
+        this.TextFile2Array();
+    }
+
+
 
 
 }

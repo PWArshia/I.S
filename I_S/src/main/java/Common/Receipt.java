@@ -90,6 +90,7 @@ public class Receipt {
         }
         for (int x=0;x<cCount;x++) {
             String ResultSearch=dessertManager.Search(dessertCodes[x]);
+            dessertManager.ReduceDessertQuantity(dessertCodes[x],dessertQuantity[x]);
             if(ResultSearch.equals(null)) {
                 return false;
             }
@@ -128,6 +129,7 @@ public class Receipt {
         }
         for (int x=0;x<cArray;x++) {
             String ResultSearch=drinksManager.SearchDrink(drinkCodes[x]);
+            drinksManager.ReduceDrinkQuantity(drinkCodes[x],drinkQuantity[x]);
             if(ResultSearch.equals(null)) {
                 return false;
             }
@@ -164,6 +166,7 @@ public class Receipt {
         }
         for (int x=0;x<cArray;x++) {
             String ResultSearch=foodsManager.SearchFood(foodCodes[x]);
+            foodsManager.ReduceDrinkQuantity(foodCodes[x],foodQuantity[x]);
             if(ResultSearch.equals(null)) {
                 return false;
             }
