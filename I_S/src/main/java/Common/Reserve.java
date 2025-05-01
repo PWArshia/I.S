@@ -14,6 +14,7 @@ public class Reserve {
     private Members User;
     private Rooms Room;
     private int expire;
+    private double price;
 
 //    ------------------------------------------->cons
 
@@ -31,12 +32,13 @@ public class Reserve {
         this.SetRoom(RoomId, RoomManager);
         this.expire = a;
         this.id = Id;
+        this.SetPrice(a, this.Room);
 
     }
 
     @Override
     public String toString() {
-        return this.GetId()+'$'+User.toString()+'$'+Room.toString()+'$'+startDate.toString()+'$'+endDate.toString()+'$'+this.GetExpire();
+        return this.GetId()+'$'+User.toString()+'$'+Room.toString()+'$'+startDate.toString()+'$'+endDate.toString()+'$'+this.GetExpire()+'$'+this.GetPrice();
     }
 
 //    ------------------------------------------->Setter
@@ -85,8 +87,33 @@ public class Reserve {
         }
     }
 
+    public void SetExpire(int a) {
+        this.expire = a;
+    }
+
     public void SetId(int a){
         id=a;
+    }
+
+    public boolean SetPrice(int a , Rooms rooms){
+
+        if(a<=0){
+            return false;
+        }
+        if(rooms.GetPrice()<=0){
+            return false;
+        }
+        this.price=a * rooms.GetPrice();
+        return true;
+    }
+
+    public boolean SetPrice(double price){
+
+        if(price<=0){
+            return false;
+        }
+        this.price=price;
+        return true;
     }
 
 //    ------------------------------------------------------------->Getter
@@ -107,6 +134,9 @@ public class Reserve {
     }
     public int GetId() {
         return id;
+    }
+    public double GetPrice() {
+        return price;
     }
 
 

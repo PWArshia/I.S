@@ -43,6 +43,8 @@ public class ReserveManager {
             Rooms rooms=new Rooms(B[2]);
             LocalDate start=LocalDate.parse(B[3]);
             LocalDate end=LocalDate.parse(B[4]);
+            int ex=Integer.parseInt(B[5]);
+            double price=Double.parseDouble(B[6]);
 
 
             reserve[i].SetRoom(rooms);
@@ -51,6 +53,8 @@ public class ReserveManager {
             reserve[i].SetEndDate(end);
             reserve[i].SetId(id);
             reserve[i].UpExpire();
+            reserve[i].SetPrice(price);
+
 
         }
     }
