@@ -11,7 +11,6 @@ public class RoomManager {
 
     private TextFile_Manager fm;
     private Rooms rooms[];
-    private Rooms thisRoom;
     private int SearchId;
 
     public RoomManager(String FileName) throws IOException{

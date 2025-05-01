@@ -26,7 +26,20 @@ public class Rooms {
      this.SetPrice(price);
      this.setNO(No);
      this.SetRoomType(Type);
-   } 
+   }
+
+   public Rooms(String s){
+        String B[]=s.split(Commons.Commons);
+        this.setNO(Integer.parseInt(B[0]));
+        this.SetFloor(Integer.parseInt(B[1]));
+        this.SetRoomType(B[2]);
+        this.SetPrice(Double.parseDouble(B[3]));
+        boolean temp=true;
+        if(B[4].equals("false")){
+            temp=false;
+        }
+        this.SetIsBussy(temp);
+   }
     
 
 
