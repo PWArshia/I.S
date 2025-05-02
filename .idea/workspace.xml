@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Invoice Section">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/ManagerPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Desserts.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Receipts.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDessert.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateMember.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateRoom.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvoiceList" beforeDir="false" afterPath="$PROJECT_DIR$/InvoiceList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Admin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
