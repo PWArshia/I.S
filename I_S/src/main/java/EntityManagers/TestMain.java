@@ -33,14 +33,10 @@ public class TestMain {
 
         Receipt receipt=new Receipt(M.GetID(),memberManager,DessertCodes,dessertManager,DessertCount,DrinkCodes,drinksManager
         ,DrinkCount,FoodCodes,foodsManager,FoodCount,56);
-        receiptsManager.AddReceipt(receipt);
-        receiptsManager.DeleteReceipt(56);
-        System.out.println(receiptsManager.GetReceiptsArray()[0]);
-        System.out.println(receiptsManager.GetReceiptsArray()[1]);
-        System.out.println(receiptsManager.GetReceiptsArray()[2]);
-        System.out.println(receiptsManager.GetReceiptsArray()[3]);
 
 
+        InvoiceManager invoiceManager=new InvoiceManager("InvoiceList",receiptsManager.GetReceiptsArray());
+        invoiceManager.SetReceipt();
 
 
 
