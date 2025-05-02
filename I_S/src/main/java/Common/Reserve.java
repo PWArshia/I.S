@@ -8,136 +8,133 @@ import java.time.temporal.ChronoUnit;
 
 public class Reserve {
 
-    private int id;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private Members User;
-    private Rooms Room;
-    private int expire;
-    private double price;
+   private int id;
+   private int roomNo;
+   private int userId;
+   private LocalDate startDate;
+   private LocalDate endDate;
+   private double totalPrice;
 
-//    ------------------------------------------->cons
+//----------------------------------------------->cons
+   public Reserve(int id, Rooms room, Members member, LocalDate startDate, LocalDate endDate) {
 
-    public Reserve() {
+      this.Setid(id);
+      this.SetroomNo(room);
+      this.SetuserId(member);
+      this.SetstartDate(startDate);
+      this.SetendDate(endDate);
+      this.SettotalPrice(room);
 
-        this.UpExpire();
+   }
 
-    }
+   public Reserve(String s){
 
-    public Reserve(int RoomId, Members member, RoomManager RoomManager, LocalDate startDate, LocalDate endDate , int a , int Id) throws IOException {
+      String split[]=s.split(Commons.Commons);
 
-        this.SetStartDate(startDate);
-        this.SetEndDate(a);
-        this.SetUser(member);
-        this.SetRoom(RoomId, RoomManager);
-        this.expire = a;
-        this.id = Id;
-        this.SetPrice(a, this.Room);
+      this.Setid(Integer.parseInt(split[0]));
+      this.SetroomNo(Integer.parseInt(split[1]));
+      this.SetuserId(Integer.parseInt(split[2]));
+      this.SetstartDate(LocalDate.parse(split[3]));
+      this.SetendDate(LocalDate.parse(split[4]));
+      this.SettotalPrice(Integer.parseInt(split[5]));
 
-    }
+   }
 
-    @Override
-    public String toString() {
-        return this.GetId()+'$'+User.toString()+'$'+Room.toString()+'$'+startDate.toString()+'$'+endDate.toString()+'$'+this.GetExpire()+'$'+this.GetPrice();
-    }
 
-//    ------------------------------------------->Setter
+   @Override
+   public String toString() {
+      return this.Getid()+"&"+this.GetroomNo()+"&"+this.GetuserId()+"&"+this.GetstartDate()+"&"+this.GetendDate()+"&"+this.GettotalPrice();
+   }
 
-    public boolean SetStartDate(LocalDate startDate) {
+//------------------------------------------------------>Setter
 
-        if(startDate.isBefore(this.endDate)) {
-            return false;
-        }
-        this.startDate = startDate;
-        return true;
-    }
+   public boolean Setid(int id) {
+      if (id<=0){
+         return false;
+      }
+      this.id = id;
+      return true;
+   }
+   public boolean SetroomNo(Rooms room) {
+      this.roomNo = room.GetNo();
+      return true;
+   }
+   public boolean SetroomNo(int a) {
+      if (a<=0){
+         return false;
+      }
+      this.roomNo = a;
+      return true;
+   }
+   public boolean SetuserId(Members member) {
+      this.userId= member.GetID();
+      return true;
+   }
+   public boolean SetuserId(int a) {
+      if (a<=0){
+         return false;
+      }
+      this.userId= a;
+      return true;
+   }
+   public boolean SetstartDate(LocalDate startDate) {
 
-    public boolean SetEndDate(int a) {
-        if(a<=0){
-            return false;
-        }
-        this.endDate= startDate.plusDays(a);
-        return true;
-    }
+      if(startDate.isBefore(LocalDate.now())){
+         return false;
+      }
+      this.startDate = startDate;
+      return true;
+   }
+   public boolean SetendDate(LocalDate endDate) {
 
-    public boolean SetEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-        return true;
-    }
+      if(endDate.isBefore(LocalDate.now())){
+         return false;
+      }
+      if(this.startDate.isAfter(endDate)){
+         return false;
+      }
+      this.endDate = endDate;
+      return true;
+   }
+   public boolean SettotalPrice(Rooms room) {
+      double price  =ChronoUnit.DAYS.between(startDate, endDate) * room.GetPrice();
+      if(price<=0){
+         return false;
+      }
+      this.totalPrice = price;
+      return true;
+   }
+   public boolean SettotalPrice(int a) {
+      if(this.startDate.isAfter(endDate)){
+         return false;
+      }
+      this.totalPrice = a;
+      return true;
+   }
+//   -------------------------------------------------------------------->Getter
 
-    public boolean SetUser(Members member) throws IOException {
-        this.User = member;
-        return true;
-    }
-    public boolean SetRoom(int a , RoomManager RoomManager) throws IOException {
-        String s=RoomManager.search(a);
-        this.Room=new Rooms(s);
-        return true;
-    }
 
-    public boolean SetRoom(Rooms Room) throws IOException {
-        this.Room=Room;
-        return true;
-    }
+   public int Getid() {
+      return this.id;
+   }
+   public int GetroomNo() {
+      return this.roomNo;
+   }
+   public int GetuserId() {
+      return this.userId;
+   }
+   public LocalDate GetstartDate() {
+      return this.startDate;
+   }
+   public LocalDate GetendDate() {
+      return this.endDate;
+   }
+   public double GettotalPrice() {
+      return this.totalPrice;
+   }
 
-    public void UpExpire() {
-        long temp= ChronoUnit.DAYS.between(this.startDate,this.endDate);
-        if (temp>0) {
-            this.expire = (int) temp;
-        }
-    }
 
-    public void SetExpire(int a) {
-        this.expire = a;
-    }
 
-    public void SetId(int a){
-        id=a;
-    }
-
-    public boolean SetPrice(int a , Rooms rooms){
-
-        if(a<=0){
-            return false;
-        }
-        if(rooms.GetPrice()<=0){
-            return false;
-        }
-        this.price=a * rooms.GetPrice();
-        return true;
-    }
-
-    public boolean SetPrice(double price){
-
-        if(price<=0){
-            return false;
-        }
-        this.price=price;
-        return true;
-    }
-
-//    ------------------------------------------------------------->Getter
-    public String GetUser() {
-        return User.toString();
-    }
-    public String GetRoom() {
-        return Room.toString();
-    }
-    public LocalDate GetStartDate() {
-        return startDate;
-    }
-    public LocalDate GetEndDate() {
-        return endDate;
-    }
-    public int GetExpire() {
-        return expire;
-    }
-    public int GetId() {
-        return id;
-    }
-    public double GetPrice() {
-        return price;
-    }
 
 
 
