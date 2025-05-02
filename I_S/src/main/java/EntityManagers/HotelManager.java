@@ -25,15 +25,15 @@ public class HotelManager {
 
     public boolean addMember(Members member) throws IOException {
         if (memberManager.SearchMember(member.GetID()) != null) {
-            System.out.println("خطا: کاربری با این ID قبلاً وجود دارد.");
+//            System.out.println("خطا: کاربری با این ID قبلاً وجود دارد.");
             return false;
         }
         if (memberManager.SearchNationalCode(member.GetNationalCode())) {
-            System.out.println("خطا: کد ملی قبلاً ثبت شده است.");
+//            System.out.println("خطا: کد ملی قبلاً ثبت شده است.");
             return false;
         }
         memberManager.AddMember(member);
-        System.out.println("کاربر با موفقیت اضافه شد. ID: " + member.GetID());
+//        System.out.println("کاربر با موفقیت اضافه شد. ID: " + member.GetID());
         return true;
     }
 

@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Remove All UI And Start Better">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminUpdate.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +49,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Common.TestMain.executor": "Run",
-    "Application.HelloApplication.executor": "Debug",
+    "Application.HelloApplication.executor": "Run",
     "Application.TestMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IntelliJ IDEA 2024.3/intellij project/I.S/I_S/src/main/resources/com/example/i_s",
+    "last_opened_file_path": "C:/Users/arshia/Desktop/Is",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -139,6 +138,7 @@
       <workItem from="1746109038259" duration="6101000" />
       <workItem from="1746134101586" duration="4732000" />
       <workItem from="1746216172219" duration="5783000" />
+      <workItem from="1746225275510" duration="2053000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -257,15 +257,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java</url>
-          <line>181</line>
-          <properties class="com.example.i_s.HelloController" method="AdminSearch">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

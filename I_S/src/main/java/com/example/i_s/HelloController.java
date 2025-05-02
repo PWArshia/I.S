@@ -1,22 +1,25 @@
 package com.example.i_s;
 
 import Common.Admin;
+import Common.Rooms;
 import EntityManagers.AdminManager;
+import EntityManagers.HotelManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
+import java.io.IOException;
 
 
 public class HelloController {
 
 
-
+    private HotelManager hotelManager=new HotelManager();
     private AdminManager adminManager;
     private Stage ManagerStage=new Stage();
     private boolean Owner;
@@ -24,7 +27,7 @@ public class HelloController {
     public TextField Pass;
     public Label LoginError;
     //
-    public HelloController()  {
+    public HelloController() throws IOException {
         try {
             adminManager=new AdminManager("AdminList");
         }
@@ -326,5 +329,96 @@ public class HelloController {
             AddAdminErrorU.setText("failed to add admin");
             return;
         }
+    }
+
+    public TextField RoomNumber;
+    public TextField RoomFloor;
+    public TextField RoomPrice;
+    public Label AddRoomError;
+    public CheckBox RoomVip;
+    public void AddRoom(ActionEvent actionEvent) throws IOException {
+
+        String roomnumber=RoomNumber.getText();
+        String roomfloor=RoomFloor.getText();
+        String roomprice=RoomPrice.getText();
+        Rooms room=new Rooms();
+
+
+
+        int roomNo=0;
+        try {
+            roomNo=Integer.parseInt(roomnumber);
+        }
+        catch (Exception e) {
+            AddRoomError.setText("Invalid Room Number");
+            return;
+        }
+
+
+        int roomfl=0;
+        try {
+            roomfl=Integer.parseInt(roomfloor);
+        }
+        catch (Exception e) {
+            AddRoomError.setText("Invalid Room Floor");
+            return;
+        }
+
+
+        Double roompr=0.0;
+        try {
+            roompr=Double.parseDouble(roomprice);
+        }
+        catch (Exception e) {
+            AddRoomError.setText("Invalid Room Price");
+            return;
+        }
+
+        boolean check=room.setNO(roomNo);
+        if(!check) {
+            AddRoomError.setText("Invalid Room Number");
+            return;
+        }
+
+        check=room.SetFloor(roomfl);
+        if(!check) {
+            AddRoomError.setText("Invalid Room Floor");
+            return;
+        }
+
+        check=room.SetPrice(roompr);
+        if(!check) {
+            AddRoomError.setText("Invalid Room Price");
+            return;
+        }
+
+        if(RoomVip.isSelected()){
+            check=room.SetRoomType("VIP");
+            if(!check) {
+                AddRoomError.setText("Invalid Room Type");
+                return;
+            }
+        }
+        else {
+            check=room.SetRoomType("Normal");
+            if(!check) {
+                AddRoomError.setText("Invalid Room Type");
+                return;
+            }
+        }
+
+        room.SetIsBussy(false);
+
+        hotelManager.addRoom(room);
+
+
+
+
+
+
+
+
+
+
     }
 }
