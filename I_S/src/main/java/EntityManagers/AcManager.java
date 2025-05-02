@@ -27,11 +27,11 @@ public class AcManager {
 
     public void Array2Ac() throws FileNotFoundException {
 
-        String Split[]=fm.getArray();
+        String A[]=fm.getArray();
         actions = new AdminAction[fm.getRowCount()+100];
 
         for (int i = 0; i < fm.getRowCount(); i++) {
-            actions[i] = new AdminAction(Split[i]);
+            actions[i] = new AdminAction(A[i]);
         }
 
     }
