@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Invoice Section">
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/ManagerPage.fxml" afterDir="false" />
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Remove All UI And Start Better">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Members.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Desserts.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Receipts.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDessert.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateMember.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateRoom.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvoiceList" beforeDir="false" afterPath="$PROJECT_DIR$/InvoiceList" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +138,7 @@
       <workItem from="1746104732074" duration="1729000" />
       <workItem from="1746109038259" duration="6101000" />
       <workItem from="1746134101586" duration="4732000" />
-      <workItem from="1746216172219" duration="2155000" />
+      <workItem from="1746216172219" duration="5783000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
@@ -228,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746105180007</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Remove All UI And Start Better">
+      <option name="closed" value="true" />
+      <created>1746218420876</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746218420877</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +247,8 @@
     <MESSAGE value="Debug And Update UI and Backend Food And Drink Section" />
     <MESSAGE value="Start Dessert User Interface" />
     <MESSAGE value="Creat Receipts Section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creat Receipts Section" />
+    <MESSAGE value="Remove All UI And Start Better" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove All UI And Start Better" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
