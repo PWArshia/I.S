@@ -27,7 +27,7 @@ public class Admin extends Members {
         return super.toString()+"&"+GetOwner()+"&"+GetPassword();
     }
 
-//    ------------------------------------------------------------------->
+    //    ------------------------------------------------------------------->
     public boolean SetPassword(String pass) {
         if(pass.length()<5 || pass.length()>10) {
             return false;
@@ -39,7 +39,7 @@ public class Admin extends Members {
     public boolean SetOwner(String s) {
 
         boolean b = false;
-        if(s.equals(true)){
+        if(s.equals("true")){
             b = true;
         }
         this.owner = b;
