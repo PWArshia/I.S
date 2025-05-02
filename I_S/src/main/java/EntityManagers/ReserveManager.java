@@ -124,7 +124,7 @@ public class ReserveManager {
     }
 
 
-    public Reserve[] GetActions() {
+    public Reserve[] GetReserve() {
         return this.res;
     }
 
