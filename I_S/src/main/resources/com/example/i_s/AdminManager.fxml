@@ -78,6 +78,8 @@
                   <TextArea fx:id="AdminSearchResult" layoutX="71.0" layoutY="158.0" prefHeight="250.0" prefWidth="656.0" />
                   <Button layoutX="362.0" layoutY="113.0" mnemonicParsing="false" onAction="#AdminSearch" prefHeight="34.0" prefWidth="74.0" text="Search" />
                   <Label fx:id="AdminSearchError" layoutX="307.0" layoutY="79.0" prefHeight="26.0" prefWidth="182.0" />
+                  <Button layoutX="489.0" layoutY="423.0" mnemonicParsing="false" onAction="#AdminUpdate" prefHeight="34.0" prefWidth="74.0" text="Update" />
+                  <Button layoutX="232.0" layoutY="423.0" mnemonicParsing="false" onAction="#AdminDelete" prefHeight="34.0" prefWidth="74.0" text="Delete" />
                </children></AnchorPane>
       </content>
     </TitledPane>

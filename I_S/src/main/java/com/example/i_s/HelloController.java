@@ -23,7 +23,7 @@ public class HelloController {
     public TextField UserName;
     public TextField Pass;
     public Label LoginError;
-
+    //
     public HelloController()  {
         try {
             adminManager=new AdminManager("AdminList");
@@ -177,12 +177,14 @@ public class HelloController {
     public TextArea AdminSearchResult;
     public Label AdminSearchError;
     public TextField AdminSearchBox;
+    private int AdminSearchID=0;
 
     public void AdminSearch(ActionEvent actionEvent) {
         String ID=AdminSearchBox.getText();
         int ID2=0;
         try {
             ID2=Integer.parseInt(ID);
+            AdminSearchID=ID2;
         }
         catch (Exception e) {
             AdminSearchError.setText("Invalid ID");
@@ -207,8 +209,8 @@ public class HelloController {
     public Label AdminAllDataError;
     public TextArea AllAdminData;
     public void SetAllAdminData(ActionEvent actionEvent) {
-        AdminSearchResult.setText("");
-        AdminSearchResult.setEditable(false);
+        AllAdminData.clear();
+        AllAdminData.setEditable(false);
         int c=0;
         Admin[] A;
         try {
@@ -224,5 +226,105 @@ public class HelloController {
         }
 
 
+    }
+
+
+
+    public void AdminDelete(ActionEvent actionEvent) {
+        try {
+            adminManager.Delete(AdminSearchID);
+        }
+        catch (Exception e) {
+            AdminSearchError.setText("failed to delete admin");
+        }
+        AdminSearchError.setText("Successfully Deleted");
+        AdminSearchResult.clear();
+        AdminSearchBox.clear();
+    }
+
+
+    public void AdminUpdate(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminUpdate.fxml"));
+            Scene scene=new Scene(fxmlLoader.load(),800,600);
+            ManagerStage.setScene(scene);
+            ManagerStage.show();
+        }
+        catch (Exception e){
+            AdminSearchError.setText("failed to load UpdatePage");
+        }
+
+    }
+
+
+    public TextField AdminNameU;
+    public TextField AdminLastNameU;
+    public TextField AdminNationalCodeU;
+    public TextField AdminGenderU;
+    public TextField AdminAgeU;
+    public TextField AdminPassU;
+    public TextField AdminPhoneNumberU;
+    public Label AddAdminErrorU;
+    public void UpdateAdmin(ActionEvent actionEvent) {
+        Admin admin=new Admin();
+        String Name=AdminNameU.getText();
+        String LastName=AdminLastNameU.getText();
+        String NationalCode=AdminNationalCodeU.getText();
+        String Gender=AdminGenderU.getText();
+        String Age=AdminAgeU.getText();
+        String Pass=AdminPassU.getText();
+        String PhoneNumber=AdminPhoneNumberU.getText();
+        boolean Check=admin.SetName(Name);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid Name");
+            return;
+        }
+        Check=admin.SetLastName(LastName);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid LastName");
+            return;
+        }
+        Check=admin.SetNationalCode(NationalCode);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid NationalCode");
+            return;
+        }
+        Check=admin.SetGender(Gender);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid Gender");
+            return;
+        }
+        int AGE;
+        try {
+            AGE=Integer.parseInt(Age);
+        }
+        catch (Exception e) {
+            AddAdminErrorU.setText("Invalid Age");
+            return;
+        }
+        Check=admin.SetAge(AGE);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid Age");
+            return;
+        }
+        Check=admin.SetPassword(Pass);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid Password");
+            return;
+        }
+        Check=admin.SetPhoneNumber(PhoneNumber);
+        if(!Check) {
+            AddAdminErrorU.setText("Invalid Phone Number");
+            return;
+        }
+
+        admin.SetID((int) (Math.random())*9999);
+        try {
+            adminManager.AddAdmin(admin);
+        }
+        catch (Exception e) {
+            AddAdminErrorU.setText("failed to add admin");
+            return;
+        }
     }
 }
