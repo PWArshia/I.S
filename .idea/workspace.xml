@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" afterDir="false" />
+>>>>>>> 678618fecf292481d72f314f0e7369cd1137f04c
       <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,8 +140,12 @@
       <workItem from="1746103847095" duration="586000" />
       <workItem from="1746104732074" duration="1729000" />
       <workItem from="1746109038259" duration="6101000" />
+<<<<<<< HEAD
       <workItem from="1746134101586" duration="4781000" />
       <workItem from="1746187779078" duration="20546000" />
+=======
+      <workItem from="1746134101586" duration="4732000" />
+>>>>>>> 678618fecf292481d72f314f0e7369cd1137f04c
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
