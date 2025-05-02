@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/AdminManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,8 @@
       <workItem from="1746103847095" duration="586000" />
       <workItem from="1746104732074" duration="1729000" />
       <workItem from="1746109038259" duration="6101000" />
-      <workItem from="1746134101586" duration="4732000" />
+      <workItem from="1746134101586" duration="4781000" />
+      <workItem from="1746187779078" duration="3000000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
