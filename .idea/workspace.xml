@@ -4,14 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
-<<<<<<< HEAD
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Invoice Section">
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/ManagerPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Reserve.java" afterDir="false" />
->>>>>>> 678618fecf292481d72f314f0e7369cd1137f04c
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/ReserveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Desserts.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Drinks.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Foods.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Members.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Receipts.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Rooms.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDessert.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateDrink.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateFood.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateMember.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/UpdateRoom.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvoiceList" beforeDir="false" afterPath="$PROJECT_DIR$/InvoiceList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Receipts" beforeDir="false" afterPath="$PROJECT_DIR$/Receipts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -140,12 +153,8 @@
       <workItem from="1746103847095" duration="586000" />
       <workItem from="1746104732074" duration="1729000" />
       <workItem from="1746109038259" duration="6101000" />
-<<<<<<< HEAD
-      <workItem from="1746134101586" duration="4781000" />
-      <workItem from="1746187779078" duration="20546000" />
-=======
       <workItem from="1746134101586" duration="4732000" />
->>>>>>> 678618fecf292481d72f314f0e7369cd1137f04c
+      <workItem from="1746216172219" duration="2155000" />
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />

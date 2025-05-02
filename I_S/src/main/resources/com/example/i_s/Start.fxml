@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.i_s.HelloController">
    <children>
-      <Button layoutX="182.0" layoutY="125.0" mnemonicParsing="false" onAction="#MembersCo" prefHeight="60.0" prefWidth="96.0" text="Members" />
-      <Button layoutX="323.0" layoutY="125.0" mnemonicParsing="false" onAction="#RoomsCo" prefHeight="60.0" prefWidth="96.0" text="Rooms" />
-      <Button layoutX="323.0" layoutY="216.0" mnemonicParsing="false" onAction="#FoodsCo" prefHeight="60.0" prefWidth="96.0" text="Foods" />
-      <Button layoutX="182.0" layoutY="216.0" mnemonicParsing="false" onAction="#DrinksCo" prefHeight="60.0" prefWidth="96.0" text="Drinks" />
-      <Button layoutX="252.0" layoutY="38.0" mnemonicParsing="false" onAction="#DessertsCo" prefHeight="60.0" prefWidth="96.0" text="Deserts" />
-      <Button layoutX="252.0" layoutY="304.0" mnemonicParsing="false" onAction="#ReceiptsCo" prefHeight="60.0" prefWidth="96.0" text="Receipt" />
+      <Label layoutX="213.0" layoutY="89.0" prefHeight="26.0" prefWidth="38.0" text="User:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="UserName" layoutX="213.0" layoutY="124.0" prefHeight="26.0" prefWidth="174.0" />
+      <Label fx:id="LoginError" layoutX="131.0" layoutY="231.0" prefHeight="26.0" prefWidth="338.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="258.0" layoutY="269.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="84.0" text="Login" />
+      <Label layoutX="213.0" layoutY="159.0" prefHeight="26.0" prefWidth="74.0" text="Password:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Pass" layoutX="213.0" layoutY="195.0" prefHeight="26.0" prefWidth="174.0" />
    </children>
 </AnchorPane>
