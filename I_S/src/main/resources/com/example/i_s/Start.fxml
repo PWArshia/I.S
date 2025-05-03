@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.i_s.HelloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.i_s.HelloController">
    <children>
       <Button layoutX="182.0" layoutY="125.0" mnemonicParsing="false" onAction="#MembersCo" prefHeight="60.0" prefWidth="96.0" text="Members" />
       <Button layoutX="323.0" layoutY="125.0" mnemonicParsing="false" onAction="#RoomsCo" prefHeight="60.0" prefWidth="96.0" text="Rooms" />
@@ -11,5 +11,6 @@
       <Button layoutX="182.0" layoutY="216.0" mnemonicParsing="false" onAction="#DrinksCo" prefHeight="60.0" prefWidth="96.0" text="Drinks" />
       <Button layoutX="252.0" layoutY="38.0" mnemonicParsing="false" onAction="#DessertsCo" prefHeight="60.0" prefWidth="96.0" text="Deserts" />
       <Button layoutX="252.0" layoutY="304.0" mnemonicParsing="false" onAction="#ReceiptsCo" prefHeight="60.0" prefWidth="96.0" text="Receipt" />
+      <Button fx:id="RoomReserve" layoutX="449.0" layoutY="125.0" mnemonicParsing="false" onAction="#RoomsCo" prefHeight="60.0" prefWidth="96.0" text="Reserve" />
    </children>
 </AnchorPane>
