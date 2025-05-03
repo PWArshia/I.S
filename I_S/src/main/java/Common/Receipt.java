@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class Receipt {
-    private static LocalDate NOW = LocalDate.now();
+    private static final LocalDate NOW = LocalDate.now();
     private Members member;
     private MemberManager memberManager;
     private Dessert[] dessert=new Dessert[100];
@@ -49,6 +49,11 @@ public class Receipt {
         this.SetID(ID);
         this.CalculateTotal();
 
+    }
+
+
+    public LocalDate GetDate() {
+        return NOW;
     }
 
 
@@ -219,10 +224,6 @@ public class Receipt {
     }
 
 
-
-    public void SetDate(LocalDate date) {
-        NOW=date;
-    }
 
 
     @Override

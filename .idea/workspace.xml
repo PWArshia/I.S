@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Reserve.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/LoginPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/Common/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/Common/Receipt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/InvoiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/InvoiceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminManager.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/AdminUpdate.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/ManagerPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/RoomManager.fxml" beforeDir="false" />
+>>>>>>> afb2b8d6b56aed5b7ca6b94d11cd4c2213a2917d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +151,12 @@
       <workItem from="1746109038259" duration="6101000" />
       <workItem from="1746134101586" duration="4781000" />
       <workItem from="1746187779078" duration="20546000" />
+<<<<<<< HEAD
       <workItem from="1746246763111" duration="855000" />
+=======
+      <workItem from="1746231681735" duration="892000" />
+      <workItem from="1746246615344" duration="819000" />
+>>>>>>> afb2b8d6b56aed5b7ca6b94d11cd4c2213a2917d
     </task>
     <task id="LOCAL-00001" summary="DeBug and Update UI and Backend. Develop final Member Section.">
       <option name="closed" value="true" />
