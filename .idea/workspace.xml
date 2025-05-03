@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Creat Receipts Section">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/EntityManagers/HotelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Reserve.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Reserve.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/I_S/src/main/resources/com/example/i_s/Start.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="2cdbccfc-7c74-4180-9c11-8e37c21d8415" name="Changes" comment="Develope Reserve UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,26 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Common.TestMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestMain.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/arshia/Desktop/main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Common.TestMain.executor": "Run",
+    "Application.HelloApplication.executor": "Debug",
+    "Application.TestMain.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/arshia/Desktop/main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IntelliJ IDEA 2024.3\intellij project\I.S\I_S\src\main\resources\com\example\i_s" />
@@ -216,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746105180007</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Develope Reserve UI">
+      <option name="closed" value="true" />
+      <created>1746249817694</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746249817694</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +245,8 @@
     <MESSAGE value="Debug And Update UI and Backend Food And Drink Section" />
     <MESSAGE value="Start Dessert User Interface" />
     <MESSAGE value="Creat Receipts Section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creat Receipts Section" />
+    <MESSAGE value="Develope Reserve UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develope Reserve UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -252,6 +255,15 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/I_S/src/main/java/com/example/i_s/HelloController.java</url>
+          <line>1698</line>
+          <properties class="com.example.i_s.HelloController" method="mamad">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
