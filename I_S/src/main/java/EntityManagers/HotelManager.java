@@ -142,15 +142,15 @@ public class HotelManager {
         // اعتبارسنجی تاریخ‌ها
         LocalDate today = LocalDate.now();
         if (checkIn.isBefore(today)) {
-            System.out.println("خطا: تاریخ شروع رزرو نمی‌تواند قبل از امروز باشد.");
+//            System.out.println("خطا: تاریخ شروع رزرو نمی‌تواند قبل از امروز باشد.");
             return false;
         }
         if (checkOut.isBefore(today) || checkOut.isEqual(today)) {
-            System.out.println("خطا: تاریخ پایان رزرو باید بعد از امروز باشد.");
+//            System.out.println("خطا: تاریخ پایان رزرو باید بعد از امروز باشد.");
             return false;
         }
         if (checkOut.isBefore(checkIn) || checkOut.isEqual(checkIn)) {
-            System.out.println("خطا: تاریخ پایان رزرو باید بعد از تاریخ شروع باشد.");
+//            System.out.println("خطا: تاریخ پایان رزرو باید بعد از تاریخ شروع باشد.");
             return false;
         }
 

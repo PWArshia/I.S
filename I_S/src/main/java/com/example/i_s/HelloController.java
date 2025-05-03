@@ -9,11 +9,13 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
+
 public class HelloController {
 
 
 
-
+    private HotelManager hotelManager;
     public HelloController() throws IOException {}
 
 
@@ -1636,5 +1638,69 @@ public class HelloController {
         }
 
 
+    }
+
+    public TextField MemberId;
+    public TextField RoomNumber;
+    public TextField CheckIn;
+    public TextField CheckOut;
+    public Label AddReserveError;
+    public void AddReserve(ActionEvent actionEvent) throws IOException {
+
+        int M_Id=0;
+        try {
+            M_Id=Integer.parseInt(MemberId.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+
+        int R_number=0;
+        try {
+            R_number=Integer.parseInt(RoomNumber.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+
+        LocalDate start=LocalDate.now();
+        try {
+            start=LocalDate.parse(CheckIn.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+
+        LocalDate end=LocalDate.now();
+        try {
+            end=LocalDate.parse(CheckOut.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+
+        boolean check=hotelManager.reserveRoom(M_Id,R_number,start,end);
+        if(!check){
+            AddReserveError.setText("Invalid");
+            return;
+        }
+
+
+    }
+
+    public void mamad(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Reserve.fxml"));
+        Scene scene = new Scene(loader.load(),800,600);
+        Stage mamad=new Stage();
+        mamad.setScene(scene);
+        mamad.show();
     }
 }
