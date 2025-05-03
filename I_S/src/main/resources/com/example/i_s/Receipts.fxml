@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.i_s.HelloController">
+  <panes>
+    <TitledPane animated="false" text="SetReceipts">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="723.0" layoutY="14.0" prefHeight="30.0" prefWidth="59.0" text="کد غذا:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="FoodCode" layoutX="589.0" layoutY="53.0" prefHeight="26.0" prefWidth="194.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="715.0" layoutY="89.0" prefHeight="30.0" prefWidth="67.0" text="کد دسر:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="DessertCode" layoutX="589.0" layoutY="129.0" prefHeight="26.0" prefWidth="194.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="676.0" layoutY="166.0" prefHeight="30.0" prefWidth="106.0" text="کد نوشیدنی:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="DrinkCode" layoutX="589.0" layoutY="206.0" prefHeight="26.0" prefWidth="194.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="FoodCount" layoutX="530.0" layoutY="53.0" prefHeight="26.0" prefWidth="42.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="DessertCount" layoutX="530.0" layoutY="129.0" prefHeight="26.0" prefWidth="42.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="DrinkCount" layoutX="530.0" layoutY="206.0" prefHeight="26.0" prefWidth="42.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="530.0" layoutY="14.0" prefHeight="30.0" prefWidth="50.0" text="تعداد:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="681.0" layoutY="243.0" prefHeight="30.0" prefWidth="101.0" text="کد عضویت:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="MemberCode" layoutX="589.0" layoutY="283.0" prefHeight="26.0" prefWidth="194.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="MemberCount" layoutX="530.0" layoutY="283.0" prefHeight="26.0" prefWidth="42.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="AllChoice" layoutX="14.0" layoutY="10.0" prefHeight="466.0" prefWidth="479.0" />
+                  <Label fx:id="ReceiptError" layoutX="530.0" layoutY="318.0" prefHeight="30.0" prefWidth="252.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="617.0" layoutY="361.0" mnemonicParsing="false" onAction="#SetReceipt" prefHeight="50.0" prefWidth="78.0" text="ثبت" />
+                  <Button layoutX="214.0" layoutY="486.0" mnemonicParsing="false" onAction="#SetAllChoice" prefHeight="50.0" prefWidth="78.0" text="Data" />
+               </children></AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" text="AllReceipts">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </TitledPane>
+  </panes>
+</Accordion>

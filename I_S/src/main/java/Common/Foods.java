@@ -20,7 +20,6 @@ public class Foods {
     private double FoodPrice;
     private int FoodQuantity;
     private double BuyPrice;
-    private int BuyQuantity;
 
 
 

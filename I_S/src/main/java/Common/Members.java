@@ -28,7 +28,7 @@ public class Members {
     }
 
 
-    public boolean SetName( String name) {
+    public int SetName( String name) {
         boolean check=true;
         if(name.length()==0)
             check=false;
@@ -49,49 +49,49 @@ public class Members {
         }
 
         if (!check) {
-            return false;
+            return 0;
         }
         else {
             this.Name = name;
-            return  true;
+            return 1;
         }
 
     }
 
 
 
-    public boolean SetAge( int age) {
+    public int SetAge( int age) {
         if(age>=18) {
             this.Age = age;
-            return true;
+            return 1;
         }
         else {
-            return false;
+            return 0;
         }
     }
 
-    public boolean SetGender( String gender) {
+    public int SetGender( String gender) {
         if(gender.length()==0)
-            return  false;
+            return 0;
         gender = gender.toLowerCase();
         if (gender.equals("male")) {
             this.gender = Gender.MALE;
-            return true;
+            return 1;
         }
         else if (gender.equals("female")) {
             this.gender = Gender.FEMALE;
-            return true;
+            return 1;
         } else if (gender.equals("boy")) {
             this.gender = Gender.MALE;
-            return true;
+            return 1;
         } else if (gender.equals("girl")) {
             this.gender = Gender.FEMALE;
-            return true;
+            return 1;
         }
-        else return false;
+        else return 0;
     }
 
-    public boolean SetLastName( String lastName) {
+    public int SetLastName( String lastName) {
         boolean check=true;
         if(lastName.length()==0)
             check=false;
@@ -112,17 +112,17 @@ public class Members {
 
         }
         if (!check) {
-            return false;
+            return 0;
         }
         else {
             this.LastName = lastName;
-            return  true;
+            return 1;
         }
 
     }
 
 
-    public boolean SetNationalCode( String nationalCode) {
+    public int SetNationalCode( String nationalCode) {
         boolean check=true;
         if(nationalCode.length()!=10)
             check=false;
@@ -132,15 +132,15 @@ public class Members {
                 check=false;
         }
         if (!check) {
-            return false;
+            return 0;
         }
         else {
             this.National_Code = nationalCode;
-            return  true;
+            return 1;
         }
     }
 
-    public boolean SetPhoneNumber( String phoneNumber) {
+    public int SetPhoneNumber( String phoneNumber) {
         boolean check=true;
         if(phoneNumber.length()!=11)
             check=false;
@@ -150,25 +150,25 @@ public class Members {
                 check=false;
         }
         if (!check) {
-            return false;
+            return 0;
         }
         else {
             this.PhoneNumber = phoneNumber;
-            return  true;
+            return 1;
         }
     }
 
 
-    public boolean SetID(int ID) {
+    public int SetID(int ID) {
         boolean check=true;
         if(ID<0 || ID>=10000)
             check=false;
         if (check) {
             this.ID = ID;
-            return  true;
+            return 1;
         }
         else {
-            return false;
+            return 0;
         }
 
     }

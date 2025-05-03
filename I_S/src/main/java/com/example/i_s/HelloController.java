@@ -1,422 +1,1596 @@
 package com.example.i_s;
-
-import Common.Admin;
-import Common.Rooms;
-import EntityManagers.AdminManager;
-import EntityManagers.HotelManager;
+import Common.*;
+import EntityManagers.*;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
-
 public class HelloController {
 
 
-    private HotelManager hotelManager=new HotelManager();
-    private AdminManager adminManager;
-    private Stage ManagerStage=new Stage();
-    private boolean Owner;
-    public TextField UserName;
-    public TextField Pass;
-    public Label LoginError;
-    //
-    public HelloController() throws IOException {
+
+    public HelloController() throws IOException {}
+
+
+    // ------------------------------------------------------------------------------------------------>>>Room Section
+    RoomManager roomManager=new RoomManager("RoomsList");
+    Stage RoomWindow=new Stage();
+
+
+    @FXML
+    private TextField RoomNum1;
+    @FXML
+    private TextField tbNum;
+    @FXML
+    private TextField PriceV;
+    @FXML
+    private CheckBox Type;
+    @FXML
+    private Label ErrorR;
+
+
+    @FXML
+    public void RoomsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader RoomsLoader = new FXMLLoader(getClass().getResource("Rooms.fxml"));
+        Scene RoomsScene = new Scene(RoomsLoader.load(),800,600);
+        RoomWindow.setScene(RoomsScene);
+        RoomWindow.setTitle("Rooms");
+        RoomWindow.show();
+    }
+
+
+    @FXML
+    private TextField SearchBoxR;
+    @FXML
+    private Label RoomSearchResult;
+    private int SearchIDRoom;
+
+    public void SearchRoom(ActionEvent actionEvent) throws IOException {
+        if(SearchBoxR.getText().length()==0){
+            RoomSearchResult.setText("شماره اتاق را وارد کنید");
+        }
+
+        String RoomID=SearchBoxR.getText();
+        int RID=0;
         try {
-            adminManager=new AdminManager("AdminList");
+            RID=Integer.parseInt(RoomID);
         }
-        catch (Exception e) {
-            System.out.println("failed to load admin list");
+        catch (NumberFormatException e) {
+            RoomSearchResult.setText("نامعتبر!");
+            SearchBoxR.clear();
+            return;
         }
+
+        SearchIDRoom=RID;
+        String Result=roomManager.search(RID);
+        RoomSearchResult.setText(Result);
+        SearchBoxR.clear();
+    }
+
+
+    @FXML
+    public void SetStageUpdate(ActionEvent actionEvent) throws IOException {
+        if(RoomSearchResult.getText().length()==0)
+            return;
+        if(RoomSearchResult.getText().equals("نامعتبر!"))
+            return;
+        FXMLLoader RoomsLoader = new FXMLLoader(HelloApplication.class.getResource("UpdateRoom.fxml"));
+        Scene scene=new Scene(RoomsLoader.load(),800,600);
+        RoomWindow.setScene(scene);
+        RoomWindow.setTitle("UpdateRoom");
+        RoomWindow.show();
 
     }
 
-    public void Login(ActionEvent actionEvent)  {
-        Admin admin=new Admin();
-        String userName = UserName.getText();
-        if(userName.length()==0) {
-            LoginError.setText("Please enter your UserName");
+
+    @FXML
+    private TextField RoomNum1U;
+    @FXML
+    private TextField tbNumU;
+    @FXML
+    private TextField PriceVU;
+    @FXML
+    private CheckBox TypeU;
+    @FXML
+    private Label ErrorRU;
+
+
+    @FXML
+    private void UpdateRoom(ActionEvent actionEvent) throws IOException {
+        String RMNUM=RoomNum1U.getText();
+        if(RMNUM.length()==0){
+            ErrorRU.setText("لطفا شماره اتاق را وارد کنید");
+            return;
         }
-        boolean LoginCheck=admin.SetName(userName);
-        if(!LoginCheck) {
-            LoginError.setText("Invalid UserName");
+        String TBNUM=tbNumU.getText();
+        if(TBNUM.length()==0){
+            ErrorRU.setText("لطفا شماره طبقه را وارد کنید");
+            return;
         }
-        String pass = Pass.getText();
-        LoginCheck=admin.SetPassword(pass);
-        if(!LoginCheck) {
-            LoginError.setText("Password should be between 5 and 10 characters");
+        String PRICEV=PriceVU.getText();
+        if(PRICEV.length()==0){
+            ErrorRU.setText("لطفا قیمت اتاق را وارد کنید");
+            return;
         }
-        Admin[] AdminArray;
-        int cAdminArray;
+        String TYPE;
+        if(TypeU.isSelected()){
+            TYPE="VIP";
+        }
+        else{
+            TYPE="normal";
+        }
+
+        Rooms A1=new Rooms();
+
+        int RoomNum=0;
         try {
-            adminManager.Array2Admin();
-            AdminArray=adminManager.GetArray();
-            cAdminArray=adminManager.GetRowCount();
+            RoomNum=Integer.parseInt(RMNUM);
         }
-        catch (Exception e) {
-            LoginError.setText("failed to load admin list");
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            RoomNum1U.clear();
+            return;
+        }
+        boolean Check=A1.setNO(RoomNum);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            RoomNum1U.clear();
+            return;
+        }
+        int floor=0;
+        try {
+            floor=Integer.parseInt(TBNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            tbNumU.clear();
+            return;
+        }
+        Check=A1.SetFloor(floor);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            tbNumU.clear();
             return;
         }
 
-        LoginCheck=false;
-        for (int x=0;x<cAdminArray;x++) {
-            if(AdminArray[x].GetName().equals(userName) && AdminArray[x].GetPassword().equals(pass)) {
-                LoginCheck=true;
-                Owner=AdminArray[x].GetOwner();
-                System.out.println(Owner);
-                break;
-            }
+        double price1=0;
+        try {
+            price1=Double.parseDouble(PRICEV);
+        }
+        catch (NumberFormatException e) {
+            ErrorRU.setText("نامعتبر!");
+            PriceVU.clear();
+            return;
+        }
+        Check= A1.SetPrice(price1);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            PriceVU.clear();
+            return;
         }
 
-        if(LoginCheck) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ManagerPage.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-                ManagerStage.setScene(scene);
-                ManagerStage.show();
-                LoginError.setText("Successfully logged in");
-            }
-            catch (Exception e) {
-                LoginError.setText("failed to load ManagerPage");
-                return;
-            }
+
+        Check= A1.SetRoomType(TYPE);
+        if(!Check){
+            ErrorRU.setText("نامعتبر!");
+            return;
         }
+
+        A1.SetIsBussy(false);
+        roomManager.Update(SearchIDRoom,A1);
+        ErrorRU.setText("ثبت شد");
+        PriceVU.clear();
+        RoomNum1U.clear();
+        tbNumU.clear();
+        TypeU.setSelected(false);
+    }
+    @FXML
+    public void SetDelete(ActionEvent actionEvent) throws IOException {
+        roomManager.Delete(SearchIDRoom);
+        SearchBoxR.clear();
+        RoomSearchResult.setText("");
+    }
+
+    public void SetRoom(ActionEvent actionEvent) throws IOException {
+        String RMNUM=RoomNum1.getText();
+        if(RMNUM.length()==0){
+            ErrorR.setText("لطفا شماره اتاق را وارد کنید");
+            return;
+        }
+        String TBNUM=tbNum.getText();
+        if(TBNUM.length()==0){
+            ErrorR.setText("لطفا شماره طبقه را وارد کنید");
+            return;
+        }
+        String PRICEV=PriceV.getText();
+        if(PRICEV.length()==0){
+            ErrorR.setText("لطفا قیمت اتاق را وارد کنید");
+            return;
+        }
+        String TYPE;
+        if(Type.isSelected()){
+            TYPE="VIP";
+        }
+        else{
+            TYPE="normal";
+        }
+
+        Rooms A1=new Rooms();
+
+        int RoomNum=0;
+        try {
+            RoomNum=Integer.parseInt(RMNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            RoomNum1.clear();
+            return;
+        }
+
+
+
+        boolean Check=A1.setNO(RoomNum);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            RoomNum1.clear();
+            return;
+        }
+        int floor=0;
+        try {
+            floor=Integer.parseInt(TBNUM);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            tbNum.clear();
+            return;
+        }
+        Check=A1.SetFloor(floor);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            tbNum.clear();
+            return;
+        }
+
+        double price1=0;
+        try {
+            price1=Double.parseDouble(PRICEV);
+        }
+        catch (NumberFormatException e) {
+            ErrorR.setText("نامعتبر!");
+            PriceV.clear();
+            return;
+        }
+        Check= A1.SetPrice(price1);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            PriceV.clear();
+            return;
+        }
+
+
+        Check= A1.SetRoomType(TYPE);
+        if(!Check){
+            ErrorR.setText("نامعتبر!");
+            return;
+        }
+
+        A1.SetIsBussy(false);
+        roomManager.AddRoom(A1);
+        ErrorR.setText("ثبت شد");
+        PriceV.clear();
+        RoomNum1.clear();
+        tbNum.clear();
+        Type.setSelected(false);
+    }
+    @FXML
+    private TextArea AllDataRoom;
+
+    @FXML
+    public void SetDataRoom(ActionEvent actionEvent) throws IOException {
+        AllDataRoom.setEditable(false);
+        roomManager.Array2Rooms();
+        Rooms A[]=roomManager.GetArray();
+        int cA=roomManager.GetRowCount();
+        AllDataRoom.setText("");
+        for (int i = 0; i < cA; i++) {
+            AllDataRoom.appendText(A[i].toString()+"\n");
+        }
+    }
+
+
+    //------------------------------------------------------------------------------------------------------------------------------>>>Member Section
+    Stage MemberWindow=new Stage();
+    MemberManager memberManager=new MemberManager("MembersList");
+
+    @FXML
+    private TextField MemberName;
+    @FXML
+    private TextField MemberLastName;
+    @FXML
+    private TextField NCode;
+    @FXML
+    private TextField PhoneNUM;
+    @FXML
+    private TextField Age;
+    @FXML
+    private CheckBox Male;
+    @FXML
+    private CheckBox Female;
+    @FXML
+    private Label MError;
+    @FXML
+    private Label SearchResult;
+    @FXML
+    private TextField SearchBoxM;
+    @FXML
+    private TextArea AllData;
+
+
+
+
+    @FXML
+    public void MembersCo(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader MembersLoader = new FXMLLoader(getClass().getResource("Members.fxml"));
+        Scene MembersScene = new Scene(MembersLoader.load(),800,600);
+        MemberWindow.setScene(MembersScene);
+        MemberWindow.setTitle("Members");
+        MemberWindow.show();
 
     }
 
-    public void AdminManager1(ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminManager.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(),800,600);
-            ManagerStage.setScene(scene);
-            ManagerStage.show();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
-    }
+    public void SetMember(ActionEvent actionEvent) throws IOException {
 
-    public TextField AdminName;
-    public TextField AdminLastName;
-    public TextField AdminNationalCode;
-    public TextField AdminGender;
-    public TextField AdminAge;
-    public TextField AdminPass;
-    public TextField AdminPhoneNumber;
-    public Label AddAdminError;
-
-    public void AddAdmin(ActionEvent actionEvent) {
-        Admin admin=new Admin();
-        String Name=AdminName.getText();
-        String LastName=AdminLastName.getText();
-        String NationalCode=AdminNationalCode.getText();
-        String Gender=AdminGender.getText();
-        String Age=AdminAge.getText();
-        String Pass=AdminPass.getText();
-        String PhoneNumber=AdminPhoneNumber.getText();
-        boolean Check=admin.SetName(Name);
-        if(!Check) {
-            AddAdminError.setText("Invalid Name");
+        String MNAME=MemberName.getText();
+        if (MNAME.length()==0) {
+            MError.setText("لطفا نام را وارد کنید");
             return;
         }
-        Check=admin.SetLastName(LastName);
-        if(!Check) {
-            AddAdminError.setText("Invalid LastName");
+        String LNAME=MemberLastName.getText();
+        if (LNAME.length()==0) {
+            MError.setText("لطفا نام خانوادگی را وارد کنید");
             return;
         }
-        Check=admin.SetNationalCode(NationalCode);
-        if(!Check) {
-            AddAdminError.setText("Invalid NationalCode");
+        String NCODE=NCode.getText();
+        if (NCODE.length()==0) {
+            MError.setText("لطفا کد ملی را وارد کنید");
             return;
         }
-        Check=admin.SetGender(Gender);
-        if(!Check) {
-            AddAdminError.setText("Invalid Gender");
+        String PHONENUM=PhoneNUM.getText();
+        if (PHONENUM.length()==0) {
+            MError.setText("لطفا شماره موبایل را وارد کنید");
             return;
         }
         int AGE;
         try {
-            AGE=Integer.parseInt(Age);
+            AGE=Integer.parseInt(Age.getText());
         }
         catch (Exception e) {
-            AddAdminError.setText("Invalid Age");
-            return;
-        }
-        Check=admin.SetAge(AGE);
-        if(!Check) {
-            AddAdminError.setText("Invalid Age");
-            return;
-        }
-        Check=admin.SetPassword(Pass);
-        if(!Check) {
-            AddAdminError.setText("Invalid Password");
-            return;
-        }
-        Check=admin.SetPhoneNumber(PhoneNumber);
-        if(!Check) {
-            AddAdminError.setText("Invalid Phone Number");
+            MError.setText("سن را درست وارد کنید");
             return;
         }
 
-        admin.SetID((int) (Math.random())*9999);
-        try {
-            adminManager.AddAdmin(admin);
-        }
-        catch (Exception e) {
-            AddAdminError.setText("failed to add admin");
+
+        if (!Male.isSelected() && !Female.isSelected()) {
+            MError.setText("لطفا یک جنسیت را انتخاب کنید");
             return;
+        }
+        if(Male.isSelected() && Female.isSelected()){
+            MError.setText("لطفا یک جنسیت را انتخاب کنید");
+            Male.setSelected(false);
+            Female.setSelected(false);
+            return;
+        }
+        String G=null;
+        if(Male.isSelected() && !Female.isSelected()){
+            G="Male";
+        }
+        if(Female.isSelected() && !Male.isSelected()){
+            G="Female";
+        }
+        int t=memberManager.IndexSearchMember((int) (Math.random()*9999));
+        int Rndm=0;
+        while (t!=-1){
+            Rndm=(int) (Math.random()*9999);
+            t=memberManager.IndexSearchMember(Rndm);
+        }
+
+        Members T=new Members(MNAME,LNAME,NCODE,AGE,G,PHONENUM,Rndm);
+        int temp = T.SetName(MNAME);
+        if (temp==0) {
+            MError.setText("نام را درست وارد کنید");
+            MemberName.clear();
+            return;
+        }
+        temp=T.SetLastName(LNAME);
+        if (temp==0) {
+            MError.setText("نام خانوادگی را درست وارد کنید");
+            MemberLastName.clear();
+            return;
+        }
+        temp=T.SetNationalCode(NCODE);
+        if (temp==0) {
+            MError.setText("کد ملی را درست وارد کنید");
+            NCode.clear();
+            return;
+        }
+        temp=T.SetAge(AGE);
+        if (temp==0) {
+            MError.setText("سن را درست وارد کنید");
+            Age.clear();
+            return;
+        }
+
+        temp=T.SetPhoneNumber(PHONENUM);
+        if (temp==0) {
+            MError.setText("شماره تلفن را درست وارد کنید");
+            PhoneNUM.clear();
+            return;
+        }
+        T.SetGender(G);
+
+
+        memberManager.AddMember(T);
+        MError.setText("ثبت شد!");
+        MemberName.clear();
+        MemberLastName.clear();
+        NCode.clear();
+        PhoneNUM.clear();
+        Age.clear();
+        Male.setSelected(false);
+        Female.setSelected(false);
+    }
+
+    private int MemberSearchID;
+
+    public void SearchMemeber(ActionEvent actionEvent) throws IOException {
+        String Box=SearchBoxM.getText();
+        if (Box.length()<1 && Box.length()>4) {
+            SearchResult.setText("کد عضویت عددی است بین 0 تا 9999");
+            SearchBoxM.clear();
+            return;
+        }
+        Members T=new Members();
+        for (int x=0;x<Box.length();x++) {
+            if(!(Box.charAt(x)>='0' && Box.charAt(x)<='9')) {
+                SearchResult.setText("کد عضویت عددی است بین 0 تا 9999");
+                SearchBoxM.clear();
+                return;
+            }
+        }
+        MemberSearchID=Integer.parseInt(Box);
+        String Result=memberManager.SearchMember(Integer.parseInt(Box));
+        if (Result==null) {
+            SearchResult.setText("وجود ندارد");
+            SearchBoxM.clear();
+            return;
+        }
+
+        SearchResult.setText(Result);
+    }
+
+
+
+
+    public void DeleteMember(ActionEvent actionEvent) throws IOException {
+        if(SearchResult.equals("وجود ندارد"))
+            return;
+        if (SearchResult.getText().length()==0)
+            return;
+        String[] A=SearchResult.getText().split(Commons.Commons);
+        Members T=new Members(A[0],A[1],A[2],Integer.parseInt(A[3]),A[4],A[5],Integer.parseInt(A[6]));
+        boolean Check=memberManager.DeleteMember(T);
+        if(Check) {
+            SearchResult.setText("با موفقیت پاک شد");
+            SearchBoxM.clear();
         }
     }
 
 
-    public TextArea AdminSearchResult;
-    public Label AdminSearchError;
-    public TextField AdminSearchBox;
-    private int AdminSearchID=0;
+    Stage Update=new Stage();
+    @FXML
+    private TextField MemberNameU;
+    @FXML
+    private TextField MemberLastNameU;
+    @FXML
+    private TextField NCodeU;
+    @FXML
+    private TextField PhoneNUMU;
+    @FXML
+    private TextField AgeU;
+    @FXML
+    private CheckBox MaleU;
+    @FXML
+    private CheckBox FemaleU;
+    @FXML
+    private Label MErrorU;
 
-    public void AdminSearch(ActionEvent actionEvent) {
-        String ID=AdminSearchBox.getText();
-        int ID2=0;
-        try {
-            ID2=Integer.parseInt(ID);
-            AdminSearchID=ID2;
-        }
-        catch (Exception e) {
-            AdminSearchError.setText("Invalid ID");
-        }
-        String R=null;
-        try {
-            R=adminManager.Search(ID2);
-        }
-        catch (Exception e) {
-            AdminSearchError.setText("failed to search");
-        }
-        if(R==null) {
-            AdminSearchError.setText("Invalid ID");
+
+    public void UpdateStageMember(ActionEvent actionEvent) throws IOException {
+        if(SearchResult.equals("وجود ندارد"))
             return;
-        }
-        AdminSearchResult.setText(R);
-
+        if (SearchResult.getText().length()==0)
+            return;
+        FXMLLoader loader=new FXMLLoader(HelloController.class.getResource("UpdateMember.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        Update.setScene(scene);
+        Update.show();
     }
 
-
-
-    public Label AdminAllDataError;
-    public TextArea AllAdminData;
-    public void SetAllAdminData(ActionEvent actionEvent) {
-        AllAdminData.clear();
-        AllAdminData.setEditable(false);
-        int c=0;
-        Admin[] A;
-        try {
-            A=adminManager.GetArray();
-            c=adminManager.GetRowCount();
-        }
-        catch (Exception e) {
-            AdminAllDataError.setText("failed to load admin list");
+    public void SetUpdateMember(ActionEvent actionEvent) throws IOException {
+        String MNAME=MemberNameU.getText();
+        if (MNAME.length()==0) {
+            MErrorU.setText("لطفا نام را وارد کنید");
             return;
         }
-        for (int x=0;x<c;x++){
-            AllAdminData.appendText(A[x].toString()+"\n");
-        }
-
-
-    }
-
-
-
-    public void AdminDelete(ActionEvent actionEvent) {
-        try {
-            adminManager.Delete(AdminSearchID);
-        }
-        catch (Exception e) {
-            AdminSearchError.setText("failed to delete admin");
-        }
-        AdminSearchError.setText("Successfully Deleted");
-        AdminSearchResult.clear();
-        AdminSearchBox.clear();
-    }
-
-
-    public void AdminUpdate(ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminUpdate.fxml"));
-            Scene scene=new Scene(fxmlLoader.load(),800,600);
-            ManagerStage.setScene(scene);
-            ManagerStage.show();
-        }
-        catch (Exception e){
-            AdminSearchError.setText("failed to load UpdatePage");
-        }
-
-    }
-
-
-    public TextField AdminNameU;
-    public TextField AdminLastNameU;
-    public TextField AdminNationalCodeU;
-    public TextField AdminGenderU;
-    public TextField AdminAgeU;
-    public TextField AdminPassU;
-    public TextField AdminPhoneNumberU;
-    public Label AddAdminErrorU;
-    public void UpdateAdmin(ActionEvent actionEvent) {
-        Admin admin=new Admin();
-        String Name=AdminNameU.getText();
-        String LastName=AdminLastNameU.getText();
-        String NationalCode=AdminNationalCodeU.getText();
-        String Gender=AdminGenderU.getText();
-        String Age=AdminAgeU.getText();
-        String Pass=AdminPassU.getText();
-        String PhoneNumber=AdminPhoneNumberU.getText();
-        boolean Check=admin.SetName(Name);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid Name");
+        String LNAME=MemberLastNameU.getText();
+        if (LNAME.length()==0) {
+            MErrorU.setText("لطفا نام خانوادگی را وارد کنید");
             return;
         }
-        Check=admin.SetLastName(LastName);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid LastName");
+        String NCODE=NCodeU.getText();
+        if (NCODE.length()==0) {
+            MErrorU.setText("لطفا کد ملی را وارد کنید");
             return;
         }
-        Check=admin.SetNationalCode(NationalCode);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid NationalCode");
-            return;
-        }
-        Check=admin.SetGender(Gender);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid Gender");
+        String PHONENUM=PhoneNUMU.getText();
+        if (PHONENUM.length()==0) {
+            MErrorU.setText("لطفا شماره موبایل را وارد کنید");
             return;
         }
         int AGE;
         try {
-            AGE=Integer.parseInt(Age);
+            AGE=Integer.parseInt(AgeU.getText());
         }
         catch (Exception e) {
-            AddAdminErrorU.setText("Invalid Age");
-            return;
-        }
-        Check=admin.SetAge(AGE);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid Age");
-            return;
-        }
-        Check=admin.SetPassword(Pass);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid Password");
-            return;
-        }
-        Check=admin.SetPhoneNumber(PhoneNumber);
-        if(!Check) {
-            AddAdminErrorU.setText("Invalid Phone Number");
+            MErrorU.setText("سن را درست وارد کنید");
             return;
         }
 
-        admin.SetID((int) (Math.random())*9999);
-        try {
-            adminManager.AddAdmin(admin);
-        }
-        catch (Exception e) {
-            AddAdminErrorU.setText("failed to add admin");
+
+        if (!MaleU.isSelected() && !FemaleU.isSelected()) {
+            MErrorU.setText("لطفا یک جنسیت را انتخاب کنید");
             return;
+        }
+        if(MaleU.isSelected() && FemaleU.isSelected()){
+            MErrorU.setText("لطفا یک جنسیت را انتخاب کنید");
+            MaleU.setSelected(false);
+            FemaleU.setSelected(false);
+            return;
+        }
+        String G=null;
+        if(MaleU.isSelected() && !FemaleU.isSelected()){
+            G="Male";
+        }
+        if(FemaleU.isSelected() && !MaleU.isSelected()){
+            G="Female";
+        }
+        int t=memberManager.IndexSearchMember((int) (Math.random()*9999));
+        int Rndm=0;
+        while (t!=-1){
+            Rndm=(int) (Math.random()*9999);
+            t=memberManager.IndexSearchMember(Rndm);
+        }
+
+        Members T=new Members(MNAME,LNAME,NCODE,AGE,G,PHONENUM,Rndm);
+        int temp = T.SetName(MNAME);
+        if (temp==0) {
+            MErrorU.setText("نام را درست وارد کنید");
+            MemberNameU.clear();
+            return;
+        }
+        temp=T.SetLastName(LNAME);
+        if (temp==0) {
+            MErrorU.setText("نام خانوادگی را درست وارد کنید");
+            MemberLastNameU.clear();
+            return;
+        }
+        temp=T.SetNationalCode(NCODE);
+        if (temp==0) {
+            MErrorU.setText("کد ملی را درست وارد کنید");
+            NCodeU.clear();
+            return;
+        }
+        temp=T.SetAge(AGE);
+        if (temp==0) {
+            MErrorU.setText("سن را درست وارد کنید");
+            AgeU.clear();
+            return;
+        }
+
+        temp=T.SetPhoneNumber(PHONENUM);
+        if (temp==0) {
+            MErrorU.setText("شماره تلفن را درست وارد کنید");
+            PhoneNUMU.clear();
+            return;
+        }
+        T.SetGender(G);
+
+
+        String[] S=memberManager.SearchMember(MemberSearchID).split(Commons.Commons);
+        Members T1=new Members(S[0],S[1],S[2],Integer.parseInt(S[3]),S[4],S[5],Integer.parseInt(S[6]));
+        MErrorU.setText("ثبت شد!");
+        memberManager.UpdateMember(T1,T);
+        MemberNameU.clear();
+        MemberLastNameU.clear();
+        NCodeU.clear();
+        PhoneNUMU.clear();
+        AgeU.clear();
+        MaleU.setSelected(false);
+        FemaleU.setSelected(false);
+    }
+
+
+    public void SetDataMem(ActionEvent actionEvent) {
+        Members M[]=memberManager.GetArray();
+        int cM=memberManager.GetLengthArray();
+        AllData.setEditable(false);
+        for (int x=0;x<cM;x++) {
+            AllData.appendText(M[x].toString()+"\n");
         }
     }
 
-    public TextField RoomNumber;
-    public TextField RoomFloor;
-    public TextField RoomPrice;
-    public Label AddRoomError;
-    public CheckBox RoomVip;
-    public void AddRoom(ActionEvent actionEvent) throws IOException {
 
-        String roomnumber=RoomNumber.getText();
-        String roomfloor=RoomFloor.getText();
-        String roomprice=RoomPrice.getText();
-        Rooms room=new Rooms();
+    //------------------------------------------------------------------------------------------------------------------------->>>Food Section
+    private Stage FoodStage=new Stage();
+    private FoodsManager FOODS=new FoodsManager("FoodList");
+
+    @FXML
+    private TextField FoodName;
+    @FXML
+    private TextField TypeFood;
+    @FXML
+    private TextField EntityFood;
+    @FXML
+    private TextField FoodPrice;
+    @FXML
+    private Label MErrorFood;
+    @FXML
+    private TextField SearchBoxF;
+    @FXML
+    private Label SearchResultFood;
+    @FXML
+    private TextArea AllDataFood;
+    @FXML
+    private TextField FoodBuyPrice;
+
+    private static int SearchFoodID=0;
 
 
+    public void FoodsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Foods.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        FoodStage.setScene(scene);
+        FoodStage.show();
+    }
 
-        int roomNo=0;
+    public void SetFood(ActionEvent actionEvent) throws IOException {
+        String Name=FoodName.getText();
+        if (Name.length()==0) {
+            MErrorFood.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=TypeFood.getText();
+        if (Type.length()==0) {
+            MErrorFood.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=EntityFood.getText();
+        if (Entity.length()==0) {
+            MErrorFood.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=FoodPrice.getText();
+        if (Price.length()==0) {
+            MErrorFood.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        String BuyPrice=FoodBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorFood.setText("لطفا قیمت خرید غذا را وارد کنید");
+            return;
+        }
+
+        Foods F=new Foods();
+        boolean Check=F.SetFoodName(Name);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodName.clear();
+            return;
+        }
+        Check=F.SetFoodType(Type);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            TypeFood.clear();
+            return;
+        }
+        double Price2;
         try {
-            roomNo=Integer.parseInt(roomnumber);
+            Price2=Double.parseDouble(Price);
         }
         catch (Exception e) {
-            AddRoomError.setText("Invalid Room Number");
+            MErrorFood.setText("نامعتبر!");
+            FoodPrice.clear();
             return;
         }
-
-
-        int roomfl=0;
+        Check=F.SetFoodPrice(Price2);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodPrice.clear();
+            return;
+        }
+        double Price3;
         try {
-            roomfl=Integer.parseInt(roomfloor);
+            Price3=Double.parseDouble(BuyPrice);
         }
         catch (Exception e) {
-            AddRoomError.setText("Invalid Room Floor");
+            MErrorFood.setText("نامعتبر!");
+            FoodBuyPrice.clear();
             return;
         }
-
-
-        Double roompr=0.0;
+        Check=F.SetBuyPrice(Price3);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            FoodBuyPrice.clear();
+            return;
+        }
+        int Count=0;
         try {
-            roompr=Double.parseDouble(roomprice);
+            Count=Integer.parseInt(Entity);
+        }
+        catch (Exception a){
+            MErrorFood.setText("نامعتبر!");
+            EntityFood.clear();
+            return;
+        }
+        Check=F.SetFoodQuantity(Count);
+        if (!Check) {
+            MErrorFood.setText("نامعتبر!");
+            EntityFood.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        MErrorFood.setText("ثبت شد!");
+        FOODS.AddFood(F);
+        FoodName.clear();
+        TypeFood.clear();
+        EntityFood.clear();
+        FoodPrice.clear();
+        FoodBuyPrice.clear();
+    }
+
+    public void SearchFood(ActionEvent actionEvent) throws IOException {
+        if (!(SearchBoxF.getText().length()>0 && SearchBoxF.getText().length()<3)){
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
+            return;
+        }
+        try {
+            SearchFoodID=Integer.parseInt(SearchBoxF.getText());
         }
         catch (Exception e) {
-            AddRoomError.setText("Invalid Room Price");
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
             return;
         }
 
-        boolean check=room.setNO(roomNo);
-        if(!check) {
-            AddRoomError.setText("Invalid Room Number");
+        Foods F=new Foods();
+        boolean Check=F.SetID(SearchFoodID);
+        if (!Check) {
+            SearchResultFood.setText("نامعتبر!");
+            SearchBoxF.clear();
+            return;
+        }
+        String TE=FOODS.SearchFood(SearchFoodID);
+        SearchResultFood.setText(TE);
+        SearchBoxF.clear();
+    }
+
+    public void UpdateStageFood(ActionEvent actionEvent) throws IOException {
+        if(SearchResultFood.getText().length()==0){
+            return;
+        }
+        if (SearchResultFood.getText().equals("نامعتبر!")) {
+            return;
+        }
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("UpdateFood.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        FoodStage.setScene(scene);
+        FoodStage.show();
+    }
+
+    public void DeleteFood(ActionEvent actionEvent) throws IOException {
+        String S1=SearchResultFood.getText();
+        String[] F1=S1.split(Commons.Commons);
+        Foods F=new Foods(Integer.parseInt(F1[0]),F1[1],F1[2],
+                Double.parseDouble(F1[3]),Integer.parseInt(F1[4]),Double.parseDouble(F1[5]));
+
+        FOODS.DeleteFood(F);
+        SearchResultFood.setText("");
+        SearchBoxF.clear();
+    }
+
+    public void SetDataFood(ActionEvent actionEvent) throws FileNotFoundException {
+        Foods M[]=FOODS.GetArray();
+        int cM=FOODS.GetLengthArray();
+        AllDataFood.setEditable(false);
+        for (int x=0;x<cM;x++) {
+            AllDataFood.appendText(M[x].toString()+"\n");
+        }
+    }
+
+
+
+    @FXML
+    private TextField FoodNameU;
+    @FXML
+    private TextField TypeFoodU;
+    @FXML
+    private TextField EntityFoodU;
+    @FXML
+    private TextField FoodPriceU;
+    @FXML
+    private Label MErrorFoodU;
+    @FXML
+    private TextField FoodBuyPriceU;
+
+    public void SetUpdateFood(ActionEvent actionEvent) throws IOException {
+        String Name=FoodNameU.getText();
+        if (Name.length()==0) {
+            MErrorFoodU.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=TypeFoodU.getText();
+        if (Type.length()==0) {
+            MErrorFoodU.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=EntityFoodU.getText();
+        if (Entity.length()==0) {
+            MErrorFoodU.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=FoodPriceU.getText();
+        if (Price.length()==0) {
+            MErrorFoodU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        String BuyPrice=FoodBuyPriceU.getText();
+        if (BuyPrice.length()==0) {
+            MErrorFoodU.setText("لطفا قیمت خرید غذا را وارد کنید");
+            return;
+        }
+        Foods F=new Foods();
+        boolean Check=F.SetFoodName(Name);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodNameU.clear();
+            return;
+        }
+        Check=F.SetFoodType(Type);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            TypeFoodU.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorU.setText("نامعتبر!");
+            FoodPriceU.clear();
+            return;
+        }
+        Check=F.SetFoodPrice(Price2);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodPriceU.clear();
+            return;
+        }
+        Check=F.SetFoodQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            EntityFoodU.clear();
+            return;
+        }
+        double Price3;
+        try {
+            Price3=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodBuyPriceU.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price3);
+        if (!Check) {
+            MErrorFoodU.setText("نامعتبر!");
+            FoodBuyPriceU.clear();
             return;
         }
 
-        check=room.SetFloor(roomfl);
-        if(!check) {
-            AddRoomError.setText("Invalid Room Floor");
+
+        F.SetID((int) (Math.random()*99));
+
+        String Search1=FOODS.SearchFood(SearchFoodID);
+
+        String[] T1=Search1.split(Commons.Commons);
+        Foods F1=new Foods(Integer.parseInt(T1[0]),T1[1],T1[2],
+                Double.parseDouble(T1[3]),Integer.parseInt(T1[4]),Double.parseDouble(T1[5]) );
+
+
+        FOODS.UpdateFood(F1,F);
+        MErrorFoodU.setText("ثبت شد!");
+        EntityFoodU.clear();
+        FoodPriceU.clear();
+        FoodNameU.clear();
+        TypeFoodU.clear();
+        FoodBuyPriceU.clear();
+    }
+
+
+
+    //------------------------------------------------------------------------------------------------------------------------>>>Drinks
+
+    Stage DrinkStage=new Stage();
+
+    DrinksManager drinksManager=new DrinksManager("DrinksList");
+
+    public void DrinksCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Drinks.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DrinkStage.setScene(scene);
+        DrinkStage.show();
+    }
+
+    private static int DrinkSearchID;
+
+    @FXML
+    private TextField DrinkName;
+    @FXML
+    private TextField DrinkType;
+    @FXML
+    private TextField DrinkPrice;
+    @FXML
+    private TextField DrinkEntity;
+    @FXML
+    private Label MErrorDrink;
+    @FXML
+    private TextField SearchBoxD;
+    @FXML
+    private Label SearchResultDrink;
+    @FXML
+    private TextArea AllDataDrink;
+    @FXML
+    private TextField DrinkBuyPrice;
+
+    public void SetDrink(ActionEvent actionEvent) throws IOException {
+        String Name=DrinkName.getText();
+        if (Name.length()==0) {
+            MErrorDrink.setText("لطفا نام نوشیدنی را وارد کنید");
+            return;
+        }
+        String Type=DrinkType.getText();
+        if (Type.length()==0) {
+            MErrorDrink.setText("لطفا نوع نوشیدنی را وارد کنید");
+            return;
+        }
+        String Entity=DrinkEntity.getText();
+        if (Entity.length()==0) {
+            MErrorDrink.setText("لطفا تعداد نوشیدنی را وارد کنید");
+            return;
+        }
+        String Price=DrinkPrice.getText();
+        if (Price.length()==0) {
+            MErrorDrink.setText("لطفا قیمت نوشیدنی را وارد کنید");
+            return;
+        }
+        String BuyPrice=DrinkBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDrink.setText("لطفا قیمت خرید نوشیدنی را وارد کنید");
             return;
         }
 
-        check=room.SetPrice(roompr);
-        if(!check) {
-            AddRoomError.setText("Invalid Room Price");
+        Drinks F=new Drinks();
+        boolean Check=F.SetDrinkName(Name);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkName.clear();
+            return;
+        }
+        Check=F.SetDrinkType(Type);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkType.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkPrice.clear();
+            return;
+        }
+        Check=F.SetDrinkPrice(Price2);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkPrice.clear();
             return;
         }
 
-        if(RoomVip.isSelected()){
-            check=room.SetRoomType("VIP");
-            if(!check) {
-                AddRoomError.setText("Invalid Room Type");
-                return;
-            }
+
+        double Price5;
+        try {
+            Price5=Double.parseDouble(BuyPrice);
         }
-        else {
-            check=room.SetRoomType("Normal");
-            if(!check) {
-                AddRoomError.setText("Invalid Room Type");
-                return;
-            }
+        catch (Exception e) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkBuyPrice.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price5);
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkBuyPrice.clear();
+            return;
         }
 
-        room.SetIsBussy(false);
 
-        hotelManager.addRoom(room);
+        Check=F.SetDrinkQuantity(Integer.parseInt(Entity));
+        if (!Check) {
+            MErrorDrink.setText("نامعتبر!");
+            DrinkEntity.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        drinksManager.AddDrink(F);
+        MErrorDrink.setText("ثبت شد!");
+        DrinkName.clear();
+        DrinkType.clear();
+        DrinkEntity.clear();
+        DrinkPrice.clear();
+        DrinkBuyPrice.clear();
+    }
+
+    public void SearchDrink(ActionEvent actionEvent) throws IOException {
+        if (!(SearchBoxD.getText().length()>0 && SearchBoxD.getText().length()<3)){
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+        Drinks F=new Drinks();
+        boolean Check=F.SetID(Integer.parseInt(SearchBoxD.getText()));
+        if (!Check) {
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+
+        try {
+            DrinkSearchID=Integer.parseInt(SearchBoxD.getText());
+        }
+        catch (Exception e) {
+            SearchResultDrink.setText("نامعتبر!");
+            SearchBoxD.clear();
+            return;
+        }
+
+        String TE= drinksManager.SearchDrink(DrinkSearchID);
+        SearchResultDrink.setText(TE);
+        SearchBoxD.clear();
+    }
+
+    public void UpdateStageDrink(ActionEvent actionEvent) throws IOException {
+        if(SearchResultDrink.getText().length()==0){
+            return;
+        }
+        if (SearchResultDrink.getText().equals("نامعتبر!")) {
+            return;
+        }
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("UpdateDrink.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DrinkStage.setScene(scene);
+        DrinkStage.show();
+    }
+    
+    
+
+
+    public void DeleteDrink(ActionEvent actionEvent) throws IOException {
+        String S1=SearchResultDrink.getText();
+        String[] F1=S1.split(Commons.Commons);
+        Drinks F=new Drinks(Integer.parseInt(F1[0]),F1[1],F1[2],
+                Double.parseDouble(F1[3]),Integer.parseInt(F1[4]),Double.parseDouble(F1[5]));
+
+        drinksManager.DeleteDrink(F);
+        SearchResultDrink.setText("");
+        SearchBoxD.clear();
+    }
+
+    public void SetDataDrink(ActionEvent actionEvent) throws FileNotFoundException {
+        AllDataDrink.setText("");
+        Drinks D[]=drinksManager.GetArray();
+        int cD=drinksManager.GetLengthArray();
+        AllDataDrink.setEditable(false);
+        for (int x=0;x<cD;x++) {
+            AllDataDrink.appendText(D[x].toString()+"\n");
+        }
+    }
+
+
+
+    @FXML
+    private TextField DrinkNameU;
+    @FXML
+    private TextField DrinkTypeU;
+    @FXML
+    private TextField DrinkPriceU;
+    @FXML
+    private TextField DrinkEntityU;
+    @FXML
+    private Label MErrorDrinkU;
+    @FXML
+    private TextField DrinkBuyPriceU;
+
+
+
+    public void SetUpdateDrink(ActionEvent actionEvent) throws IOException {
+        String Name=DrinkNameU.getText();
+        if (Name.length()==0) {
+            MErrorDrinkU.setText("لطفا نام غذا را وارد کنید");
+            return;
+        }
+        String Type=DrinkTypeU.getText();
+        if (Type.length()==0) {
+            MErrorFoodU.setText("لطفا نوع غذا را وارد کنید");
+            return;
+        }
+        String Entity=DrinkEntityU.getText();
+        if (Entity.length()==0) {
+            MErrorDrinkU.setText("لطفا تعداد غذا را وارد کنید");
+            return;
+        }
+        String Price=DrinkPriceU.getText();
+        if (Price.length()==0) {
+            MErrorDrinkU.setText("لطفا قیمت غذا را وارد کنید");
+            return;
+        }
+        String BuyPrice=DrinkBuyPriceU.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDrinkU.setText("لطفا قیمت خرید غذا را وارد کنید");
+            return;
+        }
+        Drinks F=new Drinks();
+        boolean Check=F.SetDrinkName(Name);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkNameU.clear();
+            return;
+        }
+        Check=F.SetDrinkType(Type);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkTypeU.clear();
+            return;
+        }
+        double Price2;
+        try {
+            Price2=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkPriceU.clear();
+            return;
+        }
+        Check=F.SetDrinkPrice(Price2);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkPriceU.clear();
+            return;
+        }
+        double Price10=0;
+        try {
+            Price10=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkBuyPriceU.clear();
+            return;
+        }
+        Check=F.SetBuyPrice(Price10);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(Entity);
+        }
+        catch (Exception e) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+
+        Check=F.SetDrinkQuantity(Count);
+        if (!Check) {
+            MErrorDrinkU.setText("نامعتبر!");
+            DrinkEntityU.clear();
+            return;
+        }
+        F.SetID((int) (Math.random()*99));
+        String Search= drinksManager.SearchDrink(DrinkSearchID);
+        String[] T1=Search.split(Commons.Commons);
+        Drinks F1=new Drinks(Integer.parseInt(T1[0]),T1[1],T1[2],
+                Double.parseDouble(T1[3]),Integer.parseInt(T1[4]),Double.parseDouble(T1[5]));
+
+
+        drinksManager.UpdateDrink(F1,F);
+        MErrorDrinkU.setText("ثبت شد!");
+        DrinkEntityU.clear();
+        DrinkPriceU.clear();
+        DrinkNameU.clear();
+        DrinkTypeU.clear();
+        DrinkBuyPriceU.clear();
+    }
 
 
 
 
+    //------------------------------------------------------------------------------------------------------>>>Deserts
+    private Stage DessertStage=new Stage();
+    private DessertManager dessertManager=new DessertManager("Desserts");
+
+    public void DessertsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader=new FXMLLoader(HelloApplication.class.getResource("Desserts.fxml"));
+        Scene scene=new Scene(loader.load(),800,600);
+        DessertStage.setScene(scene);
+        DessertStage.show();
+    }
+    @FXML
+    private TextField DessertName;
+    @FXML
+    private TextField DessertEntity;
+    @FXML
+    private TextField DessertPrice;
+    @FXML
+    private TextField DessertBuyPrice;
+    @FXML
+    private Label MErrorDessert;
+
+    public void SetDessert(ActionEvent actionEvent) throws IOException {
+        String Name=DessertName.getText();
+        if(Name.length()==0) {
+            MErrorDessert.setText("نام دسر را وارد کنید");
+            return;
+        }
+        String Entity=DessertEntity.getText();
+        if (Entity.length()==0) {
+            MErrorDessert.setText("تعداد دسر را وارد کنید");
+            return;
+        }
+        String Price=DessertPrice.getText();
+        if (Price.length()==0) {
+            MErrorDessert.setText("قیمت دسر را وارد کنید");
+            return;
+        }
+        String BuyPrice=DessertBuyPrice.getText();
+        if (BuyPrice.length()==0) {
+            MErrorDessert.setText("قیمت خرید دسر را وارد کنید");
+            return;
+        }
+
+        Dessert D=new Dessert();
+        boolean Check=D.SetName(Name);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertName.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(Entity);
+        }
+
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertEntity.clear();
+            return;
+        }
+
+        Check=D.SetDessertQuantity(Count);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertName.clear();
+            return;
+        }
+
+        double P1=0;
+        try {
+            P1=Double.parseDouble(Price);
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertPrice.clear();
+            return;
+        }
+
+        Check=D.SetPrice(P1);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertPrice.clear();
+            return;
+        }
+
+
+        double P2=0;
+        try {
+            P2=Double.parseDouble(BuyPrice);
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+        Check=D.SetBuyPrice(P2);
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+        Check=D.SetId((int) (Math.random()*9999));
+        if (!Check) {
+            MErrorDessert.setText("نامعتبر");
+            DessertBuyPrice.clear();
+            return;
+        }
+        dessertManager.UpdateDessert(SearchIDDessert,D);
+        MErrorDessert.setText("ثبت شد!");
+        DessertName.clear();
+        DessertEntity.clear();
+        DessertPrice.clear();
+        DessertBuyPrice.clear();
+    }
+
+    @FXML
+    private TextField SearchBoxDessert;
+    @FXML
+    private Label SearchResultDessert;
+
+    private static int SearchIDDessert;
+
+    public void SearchDessert(ActionEvent actionEvent) throws FileNotFoundException {
+        try {
+            SearchIDDessert=Integer.parseInt(SearchBoxDessert.getText());
+        }
+        catch (Exception e) {
+            MErrorDessert.setText("نامعتبر");
+            SearchBoxDessert.clear();
+            return;
+        }
+
+        String Result=dessertManager.Search(SearchIDDessert);
+        SearchResultDessert.setText(Result);
+        SearchBoxDessert.clear();
+    }
+
+
+    public void DeleteDessert(ActionEvent actionEvent) throws IOException {
+        dessertManager.DeleteDessert(SearchIDDessert);
+        SearchResultDessert.setText("");
+        SearchBoxDessert.clear();
+    }
+
+    public void UpdateStageDessert(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("UpdateDessert.fxml"));
+        Scene scene = new Scene(loader.load(),800,600);
+        DessertStage.setScene(scene);
+        DessertStage.show();
+    }
+
+    @FXML
+    private TextArea AllDataDessert;
+
+    public void SetDataDessert(ActionEvent actionEvent) throws FileNotFoundException {
+        AllDataDessert.setEditable(false);
+        Dessert D[]=dessertManager.GetArray();
+        int cD=dessertManager.GetRowCount();
+        AllDataDessert.setText(null);
+        for (int i=0;i<cD;i++) {
+            AllDataDessert.appendText(D[i].toString()+"\n");
+        }
+
+    }
+
+    @FXML
+    private TextField DessertEntityU;
+    @FXML
+    private TextField DessertNameU;
+    @FXML
+    private Label MErrorDessertU;
+    @FXML
+    private TextField DessertBuyPriceU;
+    @FXML
+    private TextField DessertPriceU;
+
+
+    public void SetUpdateDessert(ActionEvent actionEvent) throws IOException {
+        String NameDessert = DessertNameU.getText();
+        if (NameDessert.length() == 0) {
+            MErrorDessertU.setText("اسم را وارد کنید");
+            return;
+        }
+        String EntityDessert = DessertEntityU.getText();
+        if (EntityDessert.length() == 0) {
+            MErrorDessertU.setText("تعداد را وارد کنید");
+            return;
+        }
+        String PriceDessert = DessertPriceU.getText();
+        if (PriceDessert.length() == 0) {
+            MErrorDessertU.setText("قیمت فروش را وارد کنید");
+            return;
+        }
+        String BuyPriceDessert = DessertBuyPriceU.getText();
+        if (BuyPriceDessert.length() == 0) {
+            MErrorDessertU.setText("قیمت خرید را وارد کنید");
+            return;
+        }
+        Dessert D=new Dessert();
+        boolean Check=D.SetName(NameDessert);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertNameU.clear();
+            return;
+        }
+        double P1=0;
+        try {
+            P1=Double.parseDouble(PriceDessert);
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertPriceU.clear();
+            return;
+        }
+        Check=D.SetPrice(P1);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertPriceU.clear();
+            return;
+        }
+
+        double P2=0;
+        try {
+            P2=Double.parseDouble(BuyPriceDessert);
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertBuyPriceU.clear();
+            return;
+        }
+        Check=D.SetBuyPrice(P2);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertBuyPriceU.clear();
+            return;
+        }
+
+        int Count=0;
+        try {
+            Count=Integer.parseInt(DessertEntityU.getText());
+        }
+        catch (Exception e) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+        Check=D.SetDessertQuantity(Count);
+        if (!Check) {
+            MErrorDessertU.setText("نامعتبر!");
+            DessertEntityU.clear();
+            return;
+        }
+        Check=D.SetId((int) (Math.random()*9999));
+
+
+        dessertManager.UpdateDessert(SearchIDDessert,D);
+        MErrorDessertU.setText("ثبت شد!");
+        DessertNameU.clear();
+        DessertEntityU.clear();
+        DessertPriceU.clear();
+        DessertBuyPriceU.clear();
+    }
 
 
 
+    //----------------------------------------------------------------------------------------------------------->>>Receipt
+    Stage ReceiptStage=new Stage();
+
+
+    @FXML
+    private TextField FoodCode;
+    @FXML
+    private TextField DessertCode;
+    @FXML
+    private TextField DrinkCode;
+    @FXML
+    private TextField FoodCount;
+    @FXML
+    private TextField DessertCount;
+    @FXML
+    private TextField DrinkCount;
+    @FXML
+    private TextField MemberCode;
+    @FXML
+    private TextField MemberCount;
+    @FXML
+    private Label ReceiptError;
+    @FXML
+    private Button SetReceipt;
+
+
+
+
+    @FXML
+    private void ReceiptsCo(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Receipts.fxml"));
+        Scene scene = new Scene(loader.load(),800,600);
+        ReceiptStage.setScene(scene);
+        ReceiptStage.show();
+    }
+
+    @FXML
+    private void SetReceipt(ActionEvent actionEvent) {
+
+    }
+
+
+    @FXML
+    private TextArea AllChoice;
+    @FXML
+    private Button SetAllChoice;
+    @FXML
+    public void SetAllChoice(ActionEvent actionEvent) throws FileNotFoundException {
+        AllChoice.setEditable(false);
+        AllChoice.setText(null);
+        AllChoice.appendText("Members:"+"\n");
+        Members M[]=memberManager.GetArray();
+        int cM=memberManager.GetLengthArray();
+        for (int i=0;i<cM;i++) {
+            AllChoice.appendText(M[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Foods:"+"\n");
+        Foods F[]=FOODS.GetArray();
+        int cF=FOODS.GetLengthArray();
+        for (int i=0;i<cF;i++) {
+            AllChoice.appendText(F[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Drinks:"+"\n");
+        Drinks D1[]=drinksManager.GetArray();
+        int cD1=drinksManager.GetLengthArray();
+        for (int i=0;i<cD1;i++) {
+            AllChoice.appendText(D1[i].toString()+"\n");
+        }
+
+        AllChoice.appendText("Desserts:"+"\n");
+        Dessert D2[]=dessertManager.GetArray();
+        int cD2=dessertManager.GetRowCount();
+        for (int i=0;i<cD2;i++) {
+            AllChoice.appendText(D2[i].toString()+"\n");
+        }
 
 
 

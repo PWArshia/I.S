@@ -71,7 +71,7 @@ public class FoodsManager {
 
 
 
-    public String SearchFood(int ID) {
+    public String SearchFood(int ID) throws IOException {
 
         for (int i = 0; i < cFoodsList; i++) {
             if (this.FoodsList[i].GetID()==ID) {
@@ -84,7 +84,7 @@ public class FoodsManager {
 
 
 
-    public int IndexSearchFood(int ID) {
+    public int IndexSearchFood(int ID) throws IOException {
         for (int i = 0; i < cFoodsList; i++) {
             if (this.FoodsList[i].GetID()==ID) {
                 return i;
