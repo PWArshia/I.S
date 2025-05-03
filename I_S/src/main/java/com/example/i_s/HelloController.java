@@ -15,7 +15,7 @@ public class HelloController {
 
 
 
-    private HotelManager hotelManager;
+    private HotelManager hotelManager=new HotelManager();
     public HelloController() throws IOException {}
 
 
@@ -1652,8 +1652,7 @@ public class HelloController {
             M_Id=Integer.parseInt(MemberId.getText());
         }
         catch (Exception e) {
-            MErrorDessertU.setText("نامعتبر!");
-            DessertEntityU.clear();
+            AddReserveError.setText("نامعتبر!");
             return;
         }
 
@@ -1662,8 +1661,7 @@ public class HelloController {
             R_number=Integer.parseInt(RoomNumber.getText());
         }
         catch (Exception e) {
-            MErrorDessertU.setText("نامعتبر!");
-            DessertEntityU.clear();
+            AddReserveError.setText("نامعتبر!");
             return;
         }
 
@@ -1672,8 +1670,7 @@ public class HelloController {
             start=LocalDate.parse(CheckIn.getText());
         }
         catch (Exception e) {
-            MErrorDessertU.setText("نامعتبر!");
-            DessertEntityU.clear();
+            AddReserveError.setText("DateError14!");
             return;
         }
 
@@ -1682,8 +1679,7 @@ public class HelloController {
             end=LocalDate.parse(CheckOut.getText());
         }
         catch (Exception e) {
-            MErrorDessertU.setText("نامعتبر!");
-            DessertEntityU.clear();
+            AddReserveError.setText("Date Error12!");
             return;
         }
 
@@ -1692,15 +1688,35 @@ public class HelloController {
             AddReserveError.setText("Invalid");
             return;
         }
+        AddReserveError.setText("Success");
 
 
     }
 
-    public void mamad(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Reserve.fxml"));
-        Scene scene = new Scene(loader.load(),800,600);
-        Stage mamad=new Stage();
-        mamad.setScene(scene);
-        mamad.show();
+    public void mamad(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Reserve.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Stage stage=new Stage();
+            stage.setTitle("");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void ReserveSearch(ActionEvent actionEvent) {
+    }
+
+    public void ReserveUpdate(ActionEvent actionEvent) {
+    }
+
+    public void ReserveDelete(ActionEvent actionEvent) {
+    }
+
+    public void SetAllReserveData(ActionEvent actionEvent) {
     }
 }

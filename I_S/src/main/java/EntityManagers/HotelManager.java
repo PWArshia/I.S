@@ -15,9 +15,9 @@ public class HotelManager {
     private ReserveManager reservationManager;
 
     public HotelManager() throws IOException {
-        this.memberManager = new MemberManager("members.txt");
-        this.roomManager = new RoomManager("rooms.txt");
-        this.reservationManager = new ReserveManager("reservations.txt", memberManager, roomManager);
+        this.memberManager = new MemberManager("MembersList");
+        this.roomManager = new RoomManager("RoomsList");
+        this.reservationManager = new ReserveManager("reservations", memberManager, roomManager);
         this.reservationManager.updateExpiredReservations(); // بررسی رزروهای منقضی‌شده در شروع
     }
 
