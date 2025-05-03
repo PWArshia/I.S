@@ -13,6 +13,7 @@ public class HelloController {
 
 
 
+
     public HelloController() throws IOException {}
 
 
@@ -1592,6 +1593,47 @@ public class HelloController {
             AllChoice.appendText(D2[i].toString()+"\n");
         }
 
+
+
+    }
+
+    public TextField UserName;
+    public TextField Pass;
+    public Label ErrorLogin;
+    private AdminManager adminManager=new AdminManager("AdminList");
+
+    public void Login(ActionEvent actionEvent) {
+        String userName=UserName.getText();
+        String pass=Pass.getText();
+        Admin[] A = new Admin[1000];
+        int cA=0;
+        try {
+            A=adminManager.GetArray();
+            cA=adminManager.GetRowCount();
+        }
+        catch (Exception e) {
+
+        }
+        boolean flag=false;
+
+        for (int x=0;x<cA;x++){
+            if(A[x].GetName().equals(userName) && A[x].GetPassword().equals(pass)){
+                flag=true;
+                break;
+            }
+        }
+        if(flag){
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Start.fxml"));
+                Scene scene=new Scene(loader.load(),600,400);
+                Stage stage=new Stage();
+                stage.setScene(scene);
+                stage.show();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
 
     }

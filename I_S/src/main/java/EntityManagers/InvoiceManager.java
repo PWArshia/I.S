@@ -37,7 +37,7 @@ public class InvoiceManager {
             if(receipt[i]==null)
                 continue;
             Receipt r=receipt[i];
-            Foods[] f=r.GetFoodArray();
+            Foods[] f=r.GetFoodsArray();
             int cf=0;
             for (int j = f.length-1; j >= 0 ; j--) {
                 if(f[j]!=null){
@@ -58,7 +58,7 @@ public class InvoiceManager {
 
 
 
-            Drinks[] d2=r.GetDrinkArray();
+            Drinks[] d2=r.GetDrinksArray();
             int cd2=0;
             for (int j = d2.length-1; j >= 0 ; j--) {
                 if(d2[j]!=null){
@@ -79,7 +79,7 @@ public class InvoiceManager {
 
 
 
-            Dessert[] d1=r.GetDessertArray();
+            Dessert[] d1=r.GetDessertsArray();
             int cd1=0;
             for (int j = d1.length-1; j >= 0 ; j--) {
                 if(d1[j]!=null){
