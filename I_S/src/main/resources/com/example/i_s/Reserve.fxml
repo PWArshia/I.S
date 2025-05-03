@@ -54,8 +54,7 @@
                         </Label>
                         <TextArea fx:id="ReserveSearchResult" layoutX="71.0" layoutY="158.0" prefHeight="250.0" prefWidth="656.0" />
                         <Button layoutX="362.0" layoutY="113.0" mnemonicParsing="false" onAction="#ReserveSearch" prefHeight="34.0" prefWidth="74.0" text="Search" />
-                        <Label fx:id="AdminSearchError" layoutX="307.0" layoutY="79.0" prefHeight="26.0" prefWidth="182.0" />
-                        <Button layoutX="489.0" layoutY="423.0" mnemonicParsing="false" onAction="#ReserveUpdate" prefHeight="34.0" prefWidth="74.0" text="Update" />
+                        <Label fx:id="ReserveSearchError" layoutX="307.0" layoutY="79.0" prefHeight="26.0" prefWidth="182.0" />
                         <Button layoutX="232.0" layoutY="423.0" mnemonicParsing="false" onAction="#ReserveDelete" prefHeight="34.0" prefWidth="74.0" text="Delete" />
                     </children></AnchorPane>
             </content>

@@ -15,8 +15,10 @@ public class HelloController {
 
 
 
+
     private HotelManager hotelManager=new HotelManager();
     public HelloController() throws IOException {}
+
 
 
     // ------------------------------------------------------------------------------------------------>>>Room Section
@@ -1708,15 +1710,40 @@ public class HelloController {
 
     }
 
-    public void ReserveSearch(ActionEvent actionEvent) {
+    private ReserveManager reserveManager=new ReserveManager("reservations",memberManager,roomManager);
+    public TextArea ReserveSearchResult;
+    public TextField ReserveSearchBox;
+    public Label ReserveSearchError;
+
+    public void ReserveSearch(ActionEvent actionEvent) throws FileNotFoundException {
+        int Id=0;
+        try {
+            Id=Integer.parseInt(ReserveSearchBox.getText());
+        }
+        catch (Exception e) {
+            ReserveSearchError.setText("Invalid");
+        }
+
+        SearchId=Id;
+
+        ReserveSearchResult.setText(reserveManager.Search(Id));
     }
 
-    public void ReserveUpdate(ActionEvent actionEvent) {
+
+    private static int SearchId;
+    public void ReserveDelete(ActionEvent actionEvent) throws IOException {
+
+
+        hotelManager.cancelReservation(SearchId);
+        ReserveSearchResult.clear();
+        ReserveSearchBox.clear();
     }
 
-    public void ReserveDelete(ActionEvent actionEvent) {
-    }
 
+    public TextArea AllReserveData;
+    public Label AdminAllDataError;
     public void SetAllReserveData(ActionEvent actionEvent) {
+
+
     }
 }
